@@ -14,3 +14,4 @@ package-lock.json
 *.pem
 .idea/
 venv
+PROCESS.md

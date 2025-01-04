@@ -1,0 +1,112 @@
+@use '../abstracts/colors.scss';
+
+.grid-hanging {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    @media screen and (min-width: 930px) {
+        grid-template-columns: 1fr 2fr;
+    }
+    & .headline h2 {
+        margin-top: 0;
+    }
+}
+
+.grid-article {
+    --_gap: clamp(1rem, 6vw, 3rem);
+    --_full-width: minmax(var(--_gap), 1fr);
+    --_content: min(60ch, 100% - var(--_gap) * 2);
+    --_callout: minmax(0, 2rem);
+
+    display: grid;
+    position: relative;
+    grid-template-columns:
+        [full-width-start] var(--_full-width)
+        [callout-start] var(--_callout)
+        [content-start] var(--_content) [content-end]
+        var(--_callout) [callout-end]
+        var(--_full-width) [full-width-end];
+    padding-bottom: 4rem;
+}
+.grid-article > *, .full-width > * {
+    grid-column: content;
+}
+.grid-article > aside#article-outline {
+    position: sticky;
+    top: calc(var(--nav-height) + 2rem);
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.callout {
+    grid-column: callout;
+}
+
+.full-width {
+    background-color: #220822;
+    color: white;
+    grid-column: full-width;
+
+    display: grid;
+    grid-template-columns: inherit;
+}
+
+
+
+
+.grid-latest {
+    --_grid-gap: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--_grid-gap);
+    position: relative;
+    margin-top: 2rem;
+    padding-top: 2.75rem;
+    @media screen and (min-width: 930px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    &::before {
+        content: 'Latest';
+        position: absolute;
+        text-transform: uppercase;
+        font-size: .75rem;
+        letter-spacing: 1.75px;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        width: calc(100% - 7ch);
+        height: 1px;
+        background-color: colors.$white;
+        right: 0;
+        top: 8px;
+    }
+}
+
+.grid-newsletters {
+    --_grid-gap: .5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--_grid-gap);
+    position: relative;
+    margin-top: 2rem;
+    padding-top: 2.75rem;
+
+    &::before {
+        content: 'Past Articles';
+        position: absolute;
+        text-transform: uppercase;
+        font-size: .75rem;
+        letter-spacing: 1.75px;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        width: calc(100% - 14ch);
+        height: 1px;
+        background-color: colors.$white;
+        right: 0;
+        top: 8px;
+    }
+}

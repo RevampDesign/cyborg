@@ -1,0 +1,9 @@
+$font-family: "IBM Plex Mono", serif; 
+$font-regular: 400; 
+$font-bold: 700; 
+
+$font-article: Georgia, serif;
+
+:root {
+    --font-article: #{$font-article};
+}

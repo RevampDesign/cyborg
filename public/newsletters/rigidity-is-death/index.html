@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rigidity is death... | CYBORG_ Newsletter</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
+    <!-- /FONTS -->
+
+    
+</head>
+<body class="article">
+    
+        <nav id="header">
+    <a href="/">CYBORG_</a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-toggle-button">
+        <span></span>
+    </label>
+    <div class="menu">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="/newsletters/" class="">Newsletters</a>
+                </li>
+            </ul>
+        </div>
+        <div class="action">
+            <ul>
+                <li>
+                    <a href="/subscribe/" class="btn btn-primary">Subscribe <span class="cta-arrow"></span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    
+    
+    <main id="main">
+        
+<div class="breadcrumbs"><a href="/">Home</a> / <a href="/newsletters/">Newsletters</a> / Rigidity is death...</div>
+<article class="article">
+
+    <div class="grid-article">
+        <h1>Rigidity is death...</h1>
+        
+        <div class="article-content">
+            <p>...flexibility is life. So says my Sensei.</p>
+<p>When we build systems and tools to help us solve problems, there is a pitfall, especially when you first start.</p>
+<p>The first version of the CMS I created at work was exceptionally rigid. There was a field for every bit of text, and you weren’t supposed to be able to break the template design because each field was mapped exactly.</p>
+<p>The pitfall came when people discovered they could start hacking—inserting their own (less ideal) HTML code in certain fields. Soon we had a template that broke both the design guidelines and my own system.</p>
+<p>The need for flexibility broke the system by inserting bugs, inconsistency, and the maverick attitude.</p>
+<p>The problem wasn’t really how it was used, but how it was built, and the behavior was in response to a poorly designed system.</p>
+<p>The next version of the CMS offered greater flexibility—being able to create pages using small building blocks and allowing the creator to do whatever they wanted with those pieces.</p>
+<h2>Systems</h2>
+<p>Every system has its vulnerabilities, but the more rigid the system, the more likely it will break under use.</p>
+<p>This applies in more than just technology. I recently had an eye-opening discussion with a group of academics and theologians about the theories behind Christian religious groups. The more rigid or maximalist a group’s theology/ideology, the more fragile it becomes.</p>
+<p>Whether because the ideology becomes too exclusive even to its members or causes objective harm to people, the rigid system becomes a “stumbling block” and loses its value and ability to propel people forward in progress.</p>
+<p>Flexibility is life—it’s the evidence of it, but it also supports that life.</p>
+<p>The trick is where to build rigidity and where to build flexibility.</p>
+<p>##Modularity</p>
+<p>There’s a design pattern from the programming world that can help us solve this puzzle.</p>
+<p>If we think of our systems or whatever we’re building as a stack of LEGO bricks, we can build in “modules” or parts that can moved around in the stack or even used in other stacks.</p>
+<p>The design pattern is this: There is only data and behavior, and a function should only handle one of those things.</p>
+<p>A function just means one of those “bricks” or one part in your system / process. That part either holds information in some way or it performs some kind of action. By keeping it simple and specialized, you can move that part and reuse that part in many scenarios.</p>
+<h2>An Example</h2>
+<p>Project management can seem pretty straightforward until you have to accept requests from people who don’t understand what you do.</p>
+<p>I’ve used or set up several request form systems now but I still find that people submit things to me when they should have submitted them to someone else, or they misunderstand how I can help them.</p>
+<p>The more rigid and specific the request form, the worse submissions I’ve received.</p>
+<p>If, instead, I build in a little flexibility—allowing them to describe what they need and then categorizing it for them—I get better flow within my system.</p>
+<p>Modularity helps me with that flexibility, because I can use one &quot;description&quot; field to hold data. The data means something in one context (e.g. a bug report), but it means another thing in a second context (e.g. UX research).</p>
+<p>The rigidity simply becomes the insistence of using the form to send me requests, but the flexibility allows that intake to work without frustrating the people using the form and without frustrating me.</p>
+<h2>A Word from Martha Stewart</h2>
+<p>I happened to be watching an email marketing conference keynote (Guru, 2023), and whaddaya know? Martha Stewart drops the gem: “Rigidity in business is bad.”</p>
+<p>There you have it.</p>
+<p>Humanity and flexibility are inseparable. Here are some extra resources and ideas for introducing flexibility or building it in from the start. From your actual body to a code example:</p>
+<ul>
+<li>​I Tried to Do the Splits in 30 Days and ended up with an unexpected benefit. (Shameless plug for my YouTube channel ;) )</li>
+<li>Scholarly article about cognitive flexibility (esp. section 5, Cognitive Flexibility Training)</li>
+<li>Nihonto (Japanese Swords) have a super hard edge, but a flexible back! Part of video where Karate Blackbelt tries Kenjutsu​</li>
+<li>Built-in flexibility with Sass CSS Theme Mixins​
+​</li>
+</ul>
+        </div>
+
+        <aside id="article-outline">
+            <h2>Outline</h2>
+            <nav aria-label="Outline">
+                <ul id="article-outline-content"></ul>
+            </nav>
+            <script>
+            const outline = document.getElementById('article-outline-content');
+            const content = document.querySelector('.article-content');
+            
+            function generateOutline(contentElement) {
+              const headings = contentElement.querySelectorAll('h1, h2, h3, h4, h5, h6');
+              if(headings.length > 0){
+                    headings.forEach(heading => {
+                        const outlineItem = document.createElement('li');
+                        const anchor = document.createElement('a');
+                        anchor.href = '#' + heading.id; // If headings have IDs
+                        anchor.textContent = heading.textContent;
+                        outlineItem.appendChild(anchor);
+                        outlineItem.classList.add(heading.tagName.toLowerCase()); 
+        
+                        anchor.addEventListener('click', (event) => {
+                            event.preventDefault();
+                            heading.scrollIntoView({ behavior: 'smooth' });
+                        });
+        
+                        outline.appendChild(outlineItem);
+                    });
+                }
+                else {
+                    const article = document.getElementById("blog-article");
+                    const sidebar = document.getElementById("outline-sidebar");
+                    article.classList.remove("justify-content-between");
+                    article.classList.add("justify-content-center");
+                    sidebar.classList.add("d-none");
+                }
+            }
+            generateOutline(content);
+            </script>
+        </aside>
+    </div>
+</article>
+
+
+
+    </main>
+    
+    
+    <footer>
+        &copy; 2025 Not Defined LLC. All rights reserved.
+    </footer>
+    
+</body>
+</html>

@@ -1,0 +1,38 @@
+@use '../abstracts';
+@use 'buttons';
+
+.formkit-powered-by-convertkit-container, .formkit-powered-by-convertkit {
+    display: none !important;
+}
+.formkit-fields {
+    justify-content: flex-end;
+}
+.formkit-input {
+    border: 1px solid var(--white);
+    background: transparent;
+    &::placeholder {
+        color: rgba(var(--white), .8);
+    }
+    &:focus, &:active {
+        border-color: var(--green) !important;
+    }
+    
+}
+.formkit-submit {
+    @include buttons.button();
+    max-width: 150px;
+    & span {
+        text-align: left;
+
+    }
+    & span:hover, &:focus {
+        background-color: abstracts.$white;
+        color: abstracts.$black;
+    }
+}
+button {
+    font-family: inherit;
+    font-weight: bold;
+    font-size: inherit;
+}
+

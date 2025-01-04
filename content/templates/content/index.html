@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block body_classes %}home{% endblock %}
+
+
+{% block content %}
+<header id="hero">
+
+    <div class="hero-content">
+
+        <h1>{{ content.headline }}</h1>
+        
+        <p>{{ content.subheadline }}</p>
+        
+        {% for button in content.buttons.all %}
+        <a href="{{ button.link }}" class="btn {{ button.template }}">{{ button.title }} <span class="cta-arrow"></span></a>    
+        {% endfor %}
+    </div>
+    <div class="hero-img"></div>
+
+</header>
+
+<section id="latest">
+    <div class="featured"></div>
+
+    <div class="grid-latest">
+        {% for newsletter in newsletters %}
+            {% include 'newsletter/partials/card.html' %}
+        {% endfor %}
+    </div>
+
+    <div class="view-all" style="text-align: right; padding: 2rem 0;">
+        <a href="{% url 'newsletterList' %}" class="btn btn-secondary">View All Articles <span class="cta-arrow"></span></a>
+    </div>
+</section>
+
+
+<section id="subscribe">
+    <div class="grid-form-info">
+        <div class="form-banner-flame">
+            {% include 'partials/forms/kit-form.html' %}
+
+            {% include 'partials/backgrounds/flame.html' %}
+
+        </div>{# <!-- /.form --> #}
+        <div class="info">
+            <div class="card">
+                <div class="card-header">
+                    {% include 'partials/icons/speed.html' %}
+                </div>
+                <div class="card-body">
+                    <p>How can I keep up when everything is changing at break-neck speed?</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    {% include 'partials/icons/humanity-tech-overlap.html' %}
+                </div>
+                <div class="card-body">
+                    <p>What does technology have to do with our humanity?</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    {% include 'partials/icons/globe.html' %}
+                </div>
+                <div class="card-body">
+                    <p>How do I stay in control and prevent technology from dominating me?</p>
+                </div>
+            </div>
+        </div>{# <!-- /.info --> #}
+    </div>
+</section>
+
+
+
+<section class="faq">
+    <div class="grid-hanging">
+
+        <div class="headline">
+            <h2>Frequently Asked Questions</h2>
+        </div>{# <!-- /.headline --> #}
+        
+        <div class="content">
+            <details name="faqs">
+                <summary>Can I unsubscribe anytime?</summary>
+                <div>Absolutely! I'm grateful for any time we have together. I encourage you to unsubscribe as soon as you need to put your energy elsewhere.</div>
+            </details>
+            <details name="faqs">
+                <summary>How often do you write these newsletters?</summary>
+                <div>I send one newsletter each week on Tuesday mornings (U.S.A. time).</div>
+            </details>
+            <details name="faqs">
+                <summary>What experience do you have to talk about these kinds of topics?</summary>
+                <div>
+                    <p>I'm a web developer, so I do try to pull in that experience to help demystify aspects of technology. I'm also a queer person with a disability (multiple sclerosis), so I also try to be inclusive and advocate for healthier ways of working and living.</p>
+                    
+                    <p>As an amateur artist (my BFA was in Graphic Design), I also find that creativity and play have a vital role to play in our lives. This is really important to strike a well-balanced life with technology.</p>
+                </div>
+            </details>
+        </div>{# <!-- /.content --> #}
+    </div>{# <!-- /.grid-hanging --> #}
+</section>
+
+{% endblock %}

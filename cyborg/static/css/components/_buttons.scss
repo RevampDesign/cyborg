@@ -1,0 +1,52 @@
+@use '../abstracts';
+
+
+@mixin button() {
+    --_cta-arrow-offset: .75rem;
+
+    display: inline-block;
+    padding: .75rem calc(2rem + var(--_cta-arrow-offset)) .75rem calc(2rem - var(--_cta-arrow-offset));
+    border-radius: abstracts.$btn-radius;
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+    transition: all .25s ease-in;
+}
+
+.btn {
+    @include button();
+}
+
+.btn-primary {
+    background: abstracts.$primary;
+    color: abstracts.$black;
+
+    &:hover, &:active, &:focus, &:focus-within {
+        background-color: abstracts.$white;
+        color: abstracts.$black;
+    }
+}
+
+.btn-secondary {
+    border: 1px solid abstracts.$primary;
+    color: abstracts.$primary;
+
+    &:hover, &:active, &:focus, &:focus-within {
+        background-color: abstracts.$white;
+        border-color: abstracts.$white;
+        color: abstracts.$black;
+    }
+}
+
+.cta-arrow {
+    position: relative;
+    display: inline;
+    &:empty::after {
+        content: '\2794';
+        position: absolute;
+        bottom: -4px;
+        font-size: 1.35rem;
+        vertical-align: baseline;
+        margin-left: .5rem;
+    }
+}

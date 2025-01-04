@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+from .local_settings import *
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -19,9 +20,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-9=v+g*e=9cmep3x1q=y54p7p*$0mxroows1=jg*-)i&y_cwru@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -35,6 +33,11 @@ SITE_ID = 1
 # Application definition
 
 INSTALLED_APPS = [
+    'author.apps.AuthorConfig',
+    'content.apps.ContentConfig',
+    'meta_seo.apps.MetaSeoConfig',
+    'newsletter.apps.NewsletterConfig',
+    'publishing.apps.PublishingConfig',
     'django.contrib.sites',
 	'django.contrib.sitemaps',
     'django.contrib.admin',
@@ -44,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.redirects',
+    'django_distill',
 ]
 
 MIDDLEWARE = [
@@ -82,16 +86,7 @@ WSGI_APPLICATION = 'cyborg.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-		'ENGINE': 'django.db.backends.postgresql',
-		'NAME': 'cyborgdb',
-		'USER': 'jess',
-		'PASSWORD': 'cyborg123',
-		'HOST': 'localhost',
-		'PORT': '5431'
-	}
-}
+
 
 
 # Password validation

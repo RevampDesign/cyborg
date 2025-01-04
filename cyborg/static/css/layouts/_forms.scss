@@ -1,0 +1,42 @@
+.grid-form-info {
+    --_grid-gap: 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--_grid-gap);
+    @media screen and (min-width: 930px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    & .info {
+        display: flex;
+        flex-direction: column;
+        gap: var(--_grid-gap);
+
+        & .card-header {
+            display: none;
+            @media screen and (min-width: 930px) {
+                display: block;
+            }
+        }
+    }
+}
+
+.form-banner-flame {
+    border: 1px solid var(--white);
+    border-radius: var(--border-radius-primary);
+    position: relative;
+    min-height: 600px;
+    svg {
+        position: absolute;
+        bottom:0;
+        z-index: -1;
+    }
+}
+
+.grid-form-full-width {
+    .form-banner-flame {
+        min-height: 300px;
+        & form {
+            padding: 0 11dvw;
+        }
+    }
+}

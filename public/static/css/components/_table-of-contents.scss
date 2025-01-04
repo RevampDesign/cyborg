@@ -1,0 +1,27 @@
+@use '../abstracts/fonts.scss';
+
+aside#article-outline {
+    display: none;
+    border: 0;
+    padding: 0 2rem;
+    margin: 0;
+    height: fit-content;
+    @media screen and (min-width: 930px) {
+        display: block;
+    }
+    & h2 {
+        font-size: var(--article-h4-font-size);
+        margin-top: 0;
+    }
+    & ul {
+        list-style: none;
+        padding: 0;
+    }
+    & li {
+        font-family: fonts.$font-family;
+        font-size: var(--p3);
+        &.h3 {
+            padding-left: var(--article-space-sm);
+        }
+    }
+}

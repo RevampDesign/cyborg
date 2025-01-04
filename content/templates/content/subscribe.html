@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block extra_head %}
+<style>
+    .grid-form-info .info .body {
+        display: none;
+    }
+    .mobile-body {
+        display: block;
+    }
+    @media screen and (min-width: 930px) {
+        .grid-form-info .info .body {
+            display: block;
+        }
+        .mobile-body { 
+            display: none;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<header id="hero" style="margin-top: 5rem;">
+    <div class="grid-form-info" style="gap: 4rem;">
+        <div class="info">
+            <h1 style="margin: 0;">{% if content.headline %}{{ content.headline }}{% else %}Reclaim your humanity.{% endif %}</h1>
+            <p class="subheadline" style="font-size: 1.25em;">Lessons learned about humans through technology and systems.</p>
+
+            <div class="body" style="font-family: var(--font-article); line-height: 1.5;">
+                <p>My name is Jess Brown, a designer turned developer.</p>
+                <p>After a devastating experience with an MS (Multiple Sclerosis) attack and dealing with the social implications of being a queer person, I’ve been looking for a new kind of wholeness.</p>
+                <p>One that doesn’t rely on ability or anything else to determine my value.</p>
+                <p>If we remove the systemic pressure to define ourselves in terms of production value, we only have one thing left to lean on to find that value: our humanity.</p>
+                <p>CYBORG_ is about how to find or amplify humanity, despite technology or other systems that tend to dominate it.</p>
+                <p>Our tech is inseparable from us, but it doesn’t have to be calling the shots. Let’s figure out how together.</p>
+            </div>
+        </div>{# <!-- /.info --> #}
+        <div class="form-banner-flame">
+            {% include 'partials/forms/kit-form.html' %}
+
+            {% include 'partials/backgrounds/flame.html' %}
+
+        </div>{# <!-- /.form --> #}
+
+        <div class="mobile-body" style="font-family: var(--font-article); line-height: 1.5;">
+            <p>My name is Jess Brown, a designer turned developer.</p>
+            <p>After a devastating experience with an MS (Multiple Sclerosis) attack and dealing with the social implications of being a queer person, I’ve been looking for a new kind of wholeness.</p>
+            <p>One that doesn’t rely on ability or anything else to determine my value.</p>
+            <p>If we remove the systemic pressure to define ourselves in terms of production value, we only have one thing left to lean on to find that value: our humanity.</p>
+            <p>CYBORG_ is about how to find or amplify humanity, despite technology or other systems that tend to dominate it.</p>
+            <p>Our tech is inseparable from us, but it doesn’t have to be calling the shots. Let’s figure out how together.</p>
+        </div>
+    </div>
+</header>
+
+
+
+<section class="faq" style="padding: 5rem 0">
+    <div class="grid-hanging">
+        <div class="headline">
+            <h2>Frequently Asked Questions</h2>
+        </div>{# <!-- /.headline --> #}
+        
+        <div class="content">
+            <details name="faqs">
+                <summary>Can I unsubscribe anytime?</summary>
+                <div>Absolutely! I'm grateful for any time we have together. I encourage you to unsubscribe as soon as you need to put your energy elsewhere.</div>
+            </details>
+            <details name="faqs">
+                <summary>How often do you write these newsletters?</summary>
+                <div>I send one newsletter each week on Tuesday mornings (U.S.A. time).</div>
+            </details>
+            <details name="faqs">
+                <summary>What experience do you have to talk about these kinds of topics?</summary>
+                <div>
+                    <p>I'm a web developer, so I do try to pull in that experience to help demystify aspects of technology. I'm also a queer person with a disability (multiple sclerosis), so I also try to be inclusive and advocate for healthier ways of working and living.</p>
+                    
+                    <p>As an amateur artist (my BFA was in Graphic Design), I also find that creativity and play have a vital role to play in our lives. This is really important to strike a well-balanced life with technology.</p>
+                </div>
+            </details>
+        </div>{# <!-- /.content --> #}
+    </div>{# <!-- /.grid-hanging --> #}
+</section>
+
+{% endblock %}

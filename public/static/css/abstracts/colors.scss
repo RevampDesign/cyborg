@@ -1,0 +1,20 @@
+$black: #1B1B1B;
+$white: #E4E4D3;
+$blue: #236CC4;
+$green: #9FFE98;
+$orange: #F86E38;
+
+$primary: $green;
+$secondary: $orange;
+
+:root {
+    --black: #{$black};
+    --white: #{$white};
+    --blue: #{$blue};
+    --green: #{$green};
+    --orange: #{$orange};
+
+    --primary: #{$primary};
+    --secondary: #{$secondary};
+    --menu: #2A2927;
+}

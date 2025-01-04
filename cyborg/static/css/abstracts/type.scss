@@ -1,0 +1,191 @@
+@use 'colors';
+@use 'fonts';
+
+:root {
+    --article-space-lg: 3rem;
+    --article-space-md: 1.5rem;
+    --article-space-sm: 1rem;
+    --article-space-xs: .5rem;
+
+    --article-h1-font-size: 3rem;
+    --article-h2-font-size: 2rem;
+    --article-h3-font-size: 1.75rem;
+    --article-h4-font-size: 1.25rem;
+    --article-h5-font-size: 1rem;
+    --article-h6-font-size: 1rem;
+
+    --p1: 1.5rem;
+    --p2: 1rem;
+    --p3: .75rem;
+}
+
+::selection {
+    background: #{colors.$white};
+    color: #{colors.$black};
+}
+
+main {
+    h1, h2, h3, h4, h5, h6 {
+        margin-top: 2em;
+        margin-bottom: 1em;
+    }
+    h1, .h1 {
+        font-size: var(--article-h1-font-size);
+    }
+    h2, .h2 {
+        font-size: var(--article-h2-font-size);
+    }
+    h3, .h3 {
+        font-size: var(--article-h3-font-size);
+    }
+    h4, .h4 {
+        font-size: var(--article-h4-font-size);
+    }
+    h5, .h5 {
+        font-size: var(--article-h5-font-size);
+        margin-bottom: 0;
+    }
+    h6, .h6 {
+        font-size: var(--article-h6-font-size);
+        margin-bottom: 0;
+    }
+
+    h2 + h3, h2 + h4 {
+        margin-top: 0;
+    }
+
+    h2 + ul, h2 + ol {
+        margin-top: calc(var(--article-space-xs) * -1);
+    }
+
+    h4 + ul, h4 + ol {
+        margin-top: 0;
+    }
+
+    p + p, ul + p, ol + p, .notation-dot + p, .notation-alphanumeric + p {
+        margin-top: var(--article-space-md);
+    }
+
+    img + p, p + img, picture + p, p + picture, figure + p, p + figure, audio + p, p + audio, iframe + p, p + iframe, video + p, p + video, p + button, p + .btn-primary {
+        margin-top: var(--article-space-lg);
+    }
+
+    audio {
+        width: 100%;
+    }
+
+    figcaption {
+        font-style: italic;
+        font-size: var(--article-sm-font-size);
+        margin-top: var(--article-space-xs);
+    }
+
+    p + ul, p + ol {
+        margin-top: var(--article-space-sm);
+    }
+    li {
+        margin-top: var(--article-space-xs);
+    }
+    ul {
+        padding-left: .875rem;
+    }
+    ol {
+        padding-left: 0;
+    }
+    dl + p {
+        margin-top: var(--article-space-md);
+    }
+    dt {
+        font-weight: bold;
+        margin-top: var(--article-space-sm);
+    }
+    dd {
+        margin-left: var(--article-space-md);
+    }
+
+    kbd {
+        background-color: #{colors.$white};
+        font-size: var(--article-xs-font-size);
+        border-radius: 3px;
+        padding: 3px;
+    }
+
+    hr {
+        margin: var(--article-space-lg) 0;
+    }
+
+    samp {
+        font-size: var(--article-xs-font-size);
+        color: #{colors.$white};
+        background-color: #{colors.$black};
+        border-radius: 3px;
+        padding: 3px;
+    }
+
+    table {
+        border-collapse: collapse;
+        & tr {
+            border-bottom: 1px solid #{colors.$black};
+        }
+        & thead {
+            text-align: left;
+            background-color: #{colors.$white};
+
+            & th {
+                padding: var(--article-space-sm);
+                font-size: var(--article-lg-font-size);
+            }
+        }
+        & tbody {
+            text-align: left;
+
+            td {
+                padding: var(--article-space-sm);
+                padding-right: var(--article-space-md);
+            }
+        }
+        & tfoot {
+            text-align: left;
+            background-color: #{colors.$white};
+            tr {
+                border: none;
+            }
+            td, th {
+                padding: var(--article-space-md);
+                padding-right: var(--article-space-md);
+            }
+        }
+    }
+
+    aside {
+        background-color: #{colors.$black};
+        padding: var(--article-space-xs);
+        border-radius: 3px;
+        margin: var(--article-space-lg) 0;
+        border-left: 4px solid #{colors.$white};
+    }
+
+    address {
+        font-style: normal;
+        margin: var(--article-space-lg) 0;
+    }
+
+    sup {
+        margin-right: .15rem;
+    }
+
+    .footnote {
+        font-size: var(--article-sm-font-size);
+        margin: var(--article-space-lg) 0;
+        padding: var(--article-space-md) 0;
+        border-top: 1px solid #{colors.$white};
+    }
+}
+
+main .article {
+    p, li {
+        font-family: fonts.$font-article;
+        font-size: 1.15rem;
+        line-height: 1.5;
+    }
+}

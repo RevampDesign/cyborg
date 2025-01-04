@@ -1,0 +1,15 @@
+<a href="{{ newsletter.get_absolute_url }}">
+<div class="card card-newsletter">
+    <div class="card-header">
+        <div class="newsletter-id">{{ newsletter.pk|stringformat:"03d" }}</div>
+    </div>
+    <div class="card-body">
+        <div class="poster">
+            {{ newsletter.title|slice:":2" }}
+        </div>
+    </div>
+    <div class="card-footer">
+        <div class="title">{{ newsletter.title }}</div>
+    </div>
+</div>
+</a>

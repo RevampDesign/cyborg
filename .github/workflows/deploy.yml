@@ -1,0 +1,29 @@
+name: Deploy CYBORG_ site to GitHub Pages
+ 
+on:
+  push:
+    branches:
+      - master  # Replace with your default branch name if different
+    paths:
+      - 'public/**'  # Only trigger the workflow when changes occur in the public directory
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the repository
+      - name: Check out the code
+        uses: actions/checkout@v3
+
+      # Step 2: Deploy the `public` folder to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: actions/configure-pages@v2
+
+      - name: Upload to GitHub Pages
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: public
+
+      - name: Deploy to Pages
+        uses: actions/deploy-pages@v2

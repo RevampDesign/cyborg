@@ -1,0 +1,58 @@
+@use '../abstracts/radius.scss';
+
+.newsletters-list {
+    --_read-indicator-bg: var(--secondary);
+    --_read-indicator-border: var(--secondary);
+
+    padding: 0;
+    list-style: none;   
+    & a {
+        text-decoration: none;
+        color:inherit;
+        position: relative;
+        
+        &:visited {
+            .newsletter-item::before {
+                background-color: var(--black);
+                border-color: var(--white);
+            }
+        }
+    } 
+    .newsletter-item {
+        display: flex;
+        justify-content: space-between;
+        border: 1px solid var(--white);
+        border-radius: radius.$btn-radius;
+        padding: 1rem 1rem 1rem 2.5rem;
+        transition: all .15s ease-in;
+        position: relative;
+
+        &:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+        &::before {
+            content: '';
+            position: absolute;
+            display: inline-block;
+            border: 1px solid var(--_read-indicator-border);
+            background-color: var(--_read-indicator-bg);
+            height: 12px;
+            width: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 15px;
+            border-radius: 50px;
+        }
+    }
+}
+
+.extend {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    & svg {
+        max-width: clamp(150px, 45dvw, 500px);
+    }
+}

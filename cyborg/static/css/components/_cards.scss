@@ -1,0 +1,64 @@
+@use '../abstracts/colors.scss';
+
+a:has( .card ) {
+    text-decoration: none;
+    color: inherit;
+}
+.card {
+    --_card-gap: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--white);
+    border-radius: var(--border-radius-primary);
+    gap: var(--_card-gap);
+    padding: var(--_card-gap);
+    .card-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .card-body {
+        text-wrap: pretty;
+    }
+}
+
+
+.card.card-newsletter {
+    --_card-gap: 1rem;
+    border: 8px solid var(--white);
+    position: relative;
+    
+    &::after {
+        content: '\2794';
+        transition: all .15s ease-in;
+        position: absolute;
+        bottom: .45rem;
+        right: 1.5rem;
+        font-size: 2rem;
+        vertical-align: baseline;
+        color: colors.$orange;
+        opacity: 0;
+    }
+    &:hover::after {
+        transition: all .15s ease-in;
+        opacity: 1;
+    }
+    .card-header {
+        justify-content: flex-start;
+    }
+    .card-body {
+        display: flex;
+        justify-content: center;
+    }
+    .card-footer {
+        display: flex;
+        
+    }
+    .poster {
+        font-size: 4rem;
+    }
+    .newsletter-id {
+        text-align: left;
+    }
+}
