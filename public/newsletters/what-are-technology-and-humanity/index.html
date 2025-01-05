@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What are technology and humanity? | CYBORG_ Newsletter</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
+    <!-- /FONTS -->
+
+    
+</head>
+<body class="article">
+    
+        <nav id="header">
+    <a href="/">CYBORG_</a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-toggle-button">
+        <span></span>
+    </label>
+    <div class="menu">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="/newsletters/" class="">Newsletters</a>
+                </li>
+            </ul>
+        </div>
+        <div class="action">
+            <ul>
+                <li>
+                    <a href="/subscribe/" class="btn btn-primary">Subscribe <span class="cta-arrow"></span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    
+    
+    <main id="main">
+        
+<div class="breadcrumbs"><a href="/">Home</a> / <a href="/newsletters/">Newsletters</a> / What are technology and humanity?</div>
+<article class="article">
+
+    <div class="grid-article">
+        <h1>What are technology and humanity?</h1>
+        
+        <div class="article-content">
+            <p>The main road through campus was blocked off. Thousands of us stood in the chilly night air, anticipation rising. The temporary platform lights flickered on, a crunchy guitar started to rumble out a tune while the drums pulsed in the audience’s chests.</p>
+<p>It was the first time I had seen a professional band in a live performance. Red Jumpsuit Apparatus was one of the bands I connected with in my 20s and I couldn’t believe they would come to this random college in the mountains.</p>
+<p>I had turned to music to try and process my depression. If nothing else, music helped me feel something amidst the constant darkness and sorrow. Chills ran through every nerve ending as I heard some of my favorite songs performed right there in front of me.</p>
+<h2>Humanity</h2>
+<p>Humanity tends to be a hard thing for me to nail down. At times it seems to refer to the best we have to offer as people, and other times, it’s about our worst.</p>
+<p>What I often lean towards are the feelings I get in certain experiences or settings. Going to that concert was one. If you’ve ever been to a concert or even an open mic venue, you’re not guaranteed to get the “best” musicians, but it sometimes feels like you do anyway.</p>
+<p>We all listen to music virtually—on our phones, YouTube, streaming services, radio, etc. But it’s the live performance that brings something unique. It brings out the chills on our spine, it brings out the emotions, the thrills, the sadness, the connection.</p>
+<p>That’s humanity.</p>
+<h2>Technology</h2>
+<p>Technology is the application of knowledge—it’s what we make or do with what we know.</p>
+<p>Where humans bring warmth and flexibility, tech brings coolness and rigidity. But it’s exceptionally useful to us. It can be fun, frightening, or fulfilling.</p>
+<p>While we love our technology, I think we all have underlying suspicions, doubts, and negativity about it. In some ways, technology has exploited our humanity, and in other ways, it has extended it.</p>
+<p>We all have problems that we run into, and we can’t help but use or invent solutions.</p>
+<p>That’s technology.</p>
+<h2>Wisdom</h2>
+<p>How do we harmonize these two things? (Besides reading this newsletter 😏)</p>
+<p>I’ve often heard “wisdom” defined as, “knowledge, applied,” but that’s more of what “technology” actually is. I don’t think it’s a good argument to solely appeal to the dictionary, but, all of the dictionary entries I’ve seen for “wisdom” include this keyword: “judgment.”</p>
+<p>I think that’s our clue for extending our humanity with our technology. Judgment is how we force ourselves to act and decide even when the temptation to not act or decide is actively pulling us (usually through our tech).</p>
+<p>Judgment is how we know when to do this. Judgment is our testing tool—both before and after a decision. Wisdom comes from making those judgments, acting with those decisions, and examining the outcome of the whole ordeal.</p>
+<p>Obviously, wisdom is not gained from an email or an article or a social media thread. I’d venture to say we all think of wisdom as being higher quality and value than knowledge. However, it is so rare in the face of all of the knowledge to which we have access.</p>
+<p>So, how does this work? I’m still working this out myself, but I think I have found a few insights that will help:</p>
+<ol>
+<li>If we want to survive technology (foreshadowing to a future CYBORG_ issue), wisdom must become the goal over and above our thirst for knowledge.</li>
+<li>Wisdom is uniquely human.</li>
+<li>Wisdom requires experience, which means it’s hard to gain and must be accompanied by failures along the way.</li>
+<li>Restraint and self-sacrifice appear to be necessary components.</li>
+<li>It may not be scalable.</li>
+</ol>
+<p>The paradox lies in #1 and #5 of the above list. Wisdom must be our ultimate goal in order to preserve humanity, but technology is scalable where wisdom likely can’t be.</p>
+<p>It’s an impossible problem. Or at least, it feels that way.</p>
+<p>But, ultimately, and despite all of my fears and doubts about humanity, I do know one thing: you matter. Individuals can create changes outsized of themselves. And when many individuals take up the call to do what’s right, humanity is the most beautiful thing to witness.</p>
+        </div>
+
+        <aside id="article-outline">
+            <h2>Outline</h2>
+            <nav aria-label="Outline">
+                <ul id="article-outline-content"></ul>
+            </nav>
+            <script>
+            const outline = document.getElementById('article-outline-content');
+            const content = document.querySelector('.article-content');
+            
+            function generateOutline(contentElement) {
+              const headings = contentElement.querySelectorAll('h1, h2, h3, h4, h5, h6');
+              if(headings.length > 0){
+                    headings.forEach(heading => {
+                        const outlineItem = document.createElement('li');
+                        const anchor = document.createElement('a');
+                        anchor.href = '#' + heading.id; // If headings have IDs
+                        anchor.textContent = heading.textContent;
+                        outlineItem.appendChild(anchor);
+                        outlineItem.classList.add(heading.tagName.toLowerCase()); 
+        
+                        anchor.addEventListener('click', (event) => {
+                            event.preventDefault();
+                            heading.scrollIntoView({ behavior: 'smooth' });
+                        });
+        
+                        outline.appendChild(outlineItem);
+                    });
+                }
+                else {
+                    const article = document.getElementById("blog-article");
+                    const sidebar = document.getElementById("outline-sidebar");
+                    article.classList.remove("justify-content-between");
+                    article.classList.add("justify-content-center");
+                    sidebar.classList.add("d-none");
+                }
+            }
+            generateOutline(content);
+            </script>
+        </aside>
+    </div>
+</article>
+
+
+
+    </main>
+    
+    
+    <footer>
+        &copy; 2025 Not Defined LLC. All rights reserved.
+    </footer>
+    
+</body>
+</html>

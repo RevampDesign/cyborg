@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Fail Gracefully | CYBORG_ Newsletter</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
+    <!-- /FONTS -->
+
+    
+</head>
+<body class="article">
+    
+        <nav id="header">
+    <a href="/">CYBORG_</a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-toggle-button">
+        <span></span>
+    </label>
+    <div class="menu">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="/newsletters/" class="">Newsletters</a>
+                </li>
+            </ul>
+        </div>
+        <div class="action">
+            <ul>
+                <li>
+                    <a href="/subscribe/" class="btn btn-primary">Subscribe <span class="cta-arrow"></span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    
+    
+    <main id="main">
+        
+<div class="breadcrumbs"><a href="/">Home</a> / <a href="/newsletters/">Newsletters</a> / How to Fail Gracefully</div>
+<article class="article">
+
+    <div class="grid-article">
+        <h1>How to Fail Gracefully</h1>
+        
+        <div class="article-content">
+            <p>We talked about &quot;Designing for Disaster,&quot; and this is the next part of that. “Failing gracefully” is commonly said in the programming world, meaning that when something fails, we want the program to be as functional as possible—or at least help us troubleshoot when it does take the whole thing down…</p>
+<p>Since mistakes are inevitable, what can we do to help navigate the mess and maybe even reduce the surface area of what our mistakes touch?</p>
+<h2>Separation of Concerns</h2>
+<p>The wisdom of senior devs tells us that things inside the system should be modular, simple, and separable.</p>
+<p>Kind of like LEGO bricks. LEGO sets are systems that are constructed with removable or swappable LEGO bricks. Each brick has its own function and tries not to do more than one job at the same time—you don’t have an axle that also is a fire-looking brick that also is a person.</p>
+<p>“Separation of Concerns” technically means that parts of code should be able to be edited or removed without breaking the whole system. A function that uses data shouldn’t also be in charge of getting that data. The UI of your website shouldn’t break when you update the text on the website.</p>
+<p>This is an ideal—not always possible, but you can get really close. The huge benefit to this is that we can make changes or even break small parts, but our whole system doesn’t fail.</p>
+<p>It’s like Mitch Hedberg said, “An escalator can never break: it can only become stairs.” That’s a graceful failure!</p>
+<h2>Meaningful Errors</h2>
+<p>Anyone who has used the internet knows the error: 404, Not Found. You’ve gone to a page that doesn’t exist.</p>
+<p>Some sites go above and beyond and customize this error page—they may even throw in a link or two to help you get back to the home page or a close guess at where you wanted to be. (The screenshot below gives people a chance to search the site)</p>
+<p>What about the other errors you can get? Sometimes you’ll run into “Server Error: 500.” What does that mean? What are you supposed to do with that? This error page is much less likely to be customized and even less likely to be meaningful.</p>
+<p>Usually the devs have a way of getting to the meaningful error on the backend, but it’s still a frustrating experience for you to have an error and zero context.</p>
+<p>Meaningful errors help everyone out. We can all troubleshoot better when we have a little bit of context. Maybe you tried to upload a file that was way too big—how would you know that if all it says is “Something went wrong”?</p>
+<p>Whether you’re a programmer or a program user, meaningful errors are a key component to a better experience. Errors are unavoidable, so we should fail gracefully by providing descriptive errors, or at least errors that help you get back to a better state.</p>
+<h2>Escapes and Exits</h2>
+<p>Do you remember that awful false alarm that hit Hawaii in 2018? Everyone on the islands got an emergency alert that a ballistic missile threat was inbound. Turns out, no missile or even threat was imminent. The message was an accident.</p>
+<p>With a breath of fresh air amidst the outrage at the time, I found an article with a different take on what happened: blaming the system design rather than the human error.</p>
+<p>“Altogether a poorly designed system is to blame. A good UI makes it hard for people to err, and easier to recover from any remaining errors. The solution is not to scold users…[but] to redesign the system to be less error-prone.”</p>
+<p><a href="https://preview.convertkit-mail2.com/click/dpheh0hzhm/aHR0cHM6Ly93d3cubm5ncm91cC5jb20vYXJ0aWNsZXMvZXJyb3ItcHJldmVudGlvbi8=">​https://www.nngroup.com/articles/error-prevention/​</a></p>
+<p>Take care to examine your systems for deceptive messages, cryptic actions, confusing processes, and make sure that it’s possible to recover or escape when highly impactful actions are taken. “Cancel” buttons available when deleting, for example.</p>
+<p>I highly recommend reading the full article!</p>
+<h2>Fail Early</h2>
+<p>There’s a sentiment from Silicon Valley: “Move fast and break things.” It’s a little too brazen and risky, to me. I can appreciate the spirit of it though, which is more along the lines of: “You’re not punished for breaking things, just keep trying.”</p>
+<p>With that more tempered view, I think we get broader application. Making mistakes, breaking things, running into problems is all part of the game—no matter what your occupation or hobby.</p>
+<p>Chris Do puts it well: FAIL = First Attempt In Learning.</p>
+<p>Build that failure into the process—expect it! Create a space where you can tinker without it affecting the rest of the system. Try to figure out what will solve your problem first, before trying to make it perfect.</p>
+<p>Testing frequently will help you discover the holes in your logic, the parts that don’t work together. Check for errors as soon as possible and try to identify them before they affect things further down the line.</p>
+<h2>Defaults</h2>
+<p>Is there something that can be a safe placeholder if something breaks or doesn’t show up? These aren’t easy to implement, but when you look for opportunities to provide defaults, there are more than you might expect.</p>
+<p>For example, you’re building a slide-based presentation and you’re waiting on numbers or images or other content. Can you move forward with what you have? Can you put conceptual images in as placeholders in case the Design team doesn’t get to your deck in time?</p>
+<p>Defaults help you move forward when you don’t have everything perfect. What’s the least I can deal with and still launch successfully?</p>
+<h2>Document</h2>
+<p>Not everything can be avoided by strategy or other safe-guards. Some mistakes or errors will come up frequently. If you have a place to store processes or solutions to these problems, it makes it so much easier and faster to handle.</p>
+<p>I’ve mentioned this in previous emails, but I can’t overstate how helpful this particular practice has been for me. I use Obsidian to collect these errors and the steps to resolve them, and it has drastically reduced the time it takes to fix things that are nuanced and uncommon.</p>
+<h2>Cyborg</h2>
+<p>We’re not all coders, but we do deal with processes and systems all the time. Failing gracefully might mean giving context for mistakes you’ve made or giving people options for proceeding when something goes wrong or you get stuck.</p>
+<p>The smaller the “scope” of a project or the more isolated a part of a system, the easier it is to control the impact of its failures. That doesn’t mean you can’t work on big things—but remember that all big things are composed of smaller things.</p>
+<p>If you can carve out these smaller pieces and set failure procedures for them, it helps clamp down the potential chaos when it’s integrated with the larger whole.</p>
+
+        </div>
+
+        <aside id="article-outline">
+            <h2>Outline</h2>
+            <nav aria-label="Outline">
+                <ul id="article-outline-content"></ul>
+            </nav>
+            <script>
+            const outline = document.getElementById('article-outline-content');
+            const content = document.querySelector('.article-content');
+            
+            function generateOutline(contentElement) {
+              const headings = contentElement.querySelectorAll('h1, h2, h3, h4, h5, h6');
+              if(headings.length > 0){
+                    headings.forEach(heading => {
+                        const outlineItem = document.createElement('li');
+                        const anchor = document.createElement('a');
+                        anchor.href = '#' + heading.id; // If headings have IDs
+                        anchor.textContent = heading.textContent;
+                        outlineItem.appendChild(anchor);
+                        outlineItem.classList.add(heading.tagName.toLowerCase()); 
+        
+                        anchor.addEventListener('click', (event) => {
+                            event.preventDefault();
+                            heading.scrollIntoView({ behavior: 'smooth' });
+                        });
+        
+                        outline.appendChild(outlineItem);
+                    });
+                }
+                else {
+                    const article = document.getElementById("blog-article");
+                    const sidebar = document.getElementById("outline-sidebar");
+                    article.classList.remove("justify-content-between");
+                    article.classList.add("justify-content-center");
+                    sidebar.classList.add("d-none");
+                }
+            }
+            generateOutline(content);
+            </script>
+        </aside>
+    </div>
+</article>
+
+
+
+    </main>
+    
+    
+    <footer>
+        &copy; 2025 Not Defined LLC. All rights reserved.
+    </footer>
+    
+</body>
+</html>
