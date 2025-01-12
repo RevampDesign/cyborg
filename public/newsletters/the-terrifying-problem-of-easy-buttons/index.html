@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Terrifying Problem of Easy Buttons | CYBORG_ Newsletter</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
+    <!-- /FONTS -->
+
+    
+</head>
+<body class="article">
+    
+        <nav id="header">
+    <a href="/">CYBORG_</a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-toggle-button">
+        <span></span>
+    </label>
+    <div class="menu">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="/newsletters/" class="">Newsletters</a>
+                </li>
+            </ul>
+        </div>
+        <div class="action">
+            <ul>
+                <li>
+                    <a href="/subscribe/" class="btn btn-primary">Subscribe <span class="cta-arrow"></span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    
+    
+    <main id="main">
+        
+<div class="breadcrumbs"><a href="/">Home</a> / <a href="/newsletters/">Newsletters</a> / The Terrifying Problem of Easy Buttons</div>
+<article class="article">
+
+    <div class="grid-article">
+        <h1>The Terrifying Problem of Easy Buttons</h1>
+        
+        <div class="article-content">
+            <p>There's a delicate balance of ease and control.</p>
+<p>The concepts behind the iPhone and other tech products for the mass market led to more simplified experiences. You have to make things really easy and simple if you want to target &quot;unskilled&quot; populations.</p>
+<p>I'm not trying to insult anyone, but I have noticed that these last few years of everything getting &quot;easier&quot; has also led some knowledge workers to be less skilled than before.</p>
+<p>I think it's due to the blackbox issue.</p>
+<p>People are used to systems removing decisions from them—usually decisions they don't even know are available. This makes complicated processes super easy. And yet, that terrifies me more often than not.</p>
+<p>As a developer, I have seen into the complexity of &quot;simple&quot; things, like sending an email newsletter, building a website, creating scripts and automations. </p>
+<p>This perspective makes me suspicious of processes that are &quot;too easy,&quot; because I don't know how to verify that the process/system is making the right decisions or that they're making all of the decisions that I want it to make.</p>
+<h2>Systems ARE Decisions</h2>
+<p>If you've never programmed anything, a system can sound like a blackbox in itself. Something you can't touch, interact with, or understand.</p>
+<p>But systems come naturally to the vast majority of us. If you've ever brushed your teeth more than once, you've developed a system for it.</p>
+<p>Get brush. Wet brush. Squeeze toothpaste onto brush. Swirl brush on teeth. Spit and rinse. </p>
+<p>Done.</p>
+<p>Systems are just a collection of decisions. They can be linear, like brushing your teeth, where there's a series of steps that are performed in order to accomplish a task. Or they can be much more complex with multiple processes intersecting and branching out.</p>
+<h2>All Systems Are Opinionated</h2>
+<p>It's easy to feel like some systems give you lots of freedom and control, but unless you've built the system entirely yourself, you probably don't have as much influence or control as you think.</p>
+<p>That's not inherently a bad thing, but the fact remains that systems can hide their opinions. In a social context, that can be harmful to minorities, for example, if a system oppresses them but is designed to hide that oppression from &quot;the majority.&quot;</p>
+<p>It can also be beneficial: technical, complex systems have so much underneath the surface that one person can't even comprehend all of it. Science and technology are always built on the foundation of knowledge set before. </p>
+<p>We didn't go straight from making fires to making airplanes. Each tool, each discovery becomes hidden under layers of innovation and iteration. </p>
+<p>Decisions were made about how computers would work, how programming languages would layer on top of and interact with &quot;machine code.&quot; All of those opinions driving how we build or use a website, a digital product, a streaming service.</p>
+<h2>Where Does This Become Scary?</h2>
+<p>Most of the opinions and decisions baked into our technology and scientific knowledge are helpful and probably safe. We owe everything we have to everyone who came before us.</p>
+<h3>Social Systems</h3>
+<p>Social systems are an obvious reason to be scared of the &quot;blackbox&quot; of intentional oppression of minority groups. How terrifying to realize that seemingly innocent things you've said or done have caused harm to another.</p>
+<p>It may be even more terrifying to realize that you can't do much to change the system. That doesn't mean you shouldn't do everything you possibly can. It does mean that you will rarely see the fruits of your efforts.</p>
+<p>We owe it to the next generation to pass on better thinking, better policy, better awareness of the problems we've discovered in our systems. One node can't change the whole system, but many nodes absolutely can.</p>
+<h3>Digital Systems</h3>
+<p>We put a lot of trust in the companies with which we interact online. I have to trust that my email sign-up form correctly and appropriately documents your consent to receive this newsletter. I have to trust that my blog template was designed to be accessible.</p>
+<p>These are mild concerns compared to services that store personal information like SSNs, addresses, phone numbers, or health-related information.</p>
+<p>It is a relief when certain processes have been so simplified that all of the decision-making has been done behind the scenes. But it always makes me wonder what's really happening.</p>
+<p>If I could just see through the curtain to double-check the things that are important to me...</p>
+        </div>
+
+        <aside id="article-outline">
+            <h2>Outline</h2>
+            <nav aria-label="Outline">
+                <ul id="article-outline-content"></ul>
+            </nav>
+            <script>
+            const outline = document.getElementById('article-outline-content');
+            const content = document.querySelector('.article-content');
+            
+            function generateOutline(contentElement) {
+              const headings = contentElement.querySelectorAll('h1, h2, h3, h4, h5, h6');
+              if(headings.length > 0){
+                    headings.forEach(heading => {
+                        const outlineItem = document.createElement('li');
+                        const anchor = document.createElement('a');
+                        anchor.href = '#' + heading.id; // If headings have IDs
+                        anchor.textContent = heading.textContent;
+                        outlineItem.appendChild(anchor);
+                        outlineItem.classList.add(heading.tagName.toLowerCase()); 
+        
+                        anchor.addEventListener('click', (event) => {
+                            event.preventDefault();
+                            heading.scrollIntoView({ behavior: 'smooth' });
+                        });
+        
+                        outline.appendChild(outlineItem);
+                    });
+                }
+                else {
+                    const article = document.getElementById("blog-article");
+                    const sidebar = document.getElementById("outline-sidebar");
+                    article.classList.remove("justify-content-between");
+                    article.classList.add("justify-content-center");
+                    sidebar.classList.add("d-none");
+                }
+            }
+            generateOutline(content);
+            </script>
+        </aside>
+    </div>
+</article>
+
+
+
+    </main>
+    
+    
+    <footer>
+        &copy; 2025 Not Defined LLC. All rights reserved.
+    </footer>
+    
+</body>
+</html>

@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Small Stuff | CYBORG_ Newsletter</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
+    <!-- /FONTS -->
+
+    
+</head>
+<body class="article">
+    
+        <nav id="header">
+    <a href="/">CYBORG_</a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-toggle-button">
+        <span></span>
+    </label>
+    <div class="menu">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="/newsletters/" class="">Newsletters</a>
+                </li>
+            </ul>
+        </div>
+        <div class="action">
+            <ul>
+                <li>
+                    <a href="/subscribe/" class="btn btn-primary">Subscribe <span class="cta-arrow"></span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    
+    
+    <main id="main">
+        
+<div class="breadcrumbs"><a href="/">Home</a> / <a href="/newsletters/">Newsletters</a> / The Small Stuff</div>
+<article class="article">
+
+    <div class="grid-article">
+        <h1>The Small Stuff</h1>
+        
+        <div class="article-content">
+            <p>I have a script that I made years ago, but I use it multiple times every single day. It's super simple and all it does is check the status of various important pages on the websites I work on. It's my tiny little last-chance defense to make sure something I pushed out didn't break things.</p>
+<p>The script has served me well, but there was one problem: it took almost a minute and a half to run.</p>
+<p>&quot;Not a big deal,&quot; I kept thinking. &quot;I'm the only one who uses it, it's just slow because I'm impatient. I don't have time to fiddle with something that already works.&quot; Rationalizations continue...</p>
+<p>The problem was that it was coded &quot;synchronously,&quot; which means that it goes through each URL and checks it individually, waiting until the URL it's currently working on is done before moving onto the next URL. When I have 80+ URLs, it could take about 1-5 seconds for each link to ping back with its status.</p>
+<p>4 years later, I finally decide to try and figure out how to do this &quot;asynchronously,&quot; meaning we don't have to wait for the current URL check to finish in order to get started on the next URL. </p>
+<p>If a task in synchronous code were a straight line, in <em>asynchronous</em> code it would be effectively folding the line over itself multiple times.</p>
+<figure>
+    <img src="https://embed.filekitcdn.com/e/iDKTPNXrEJsYXUT7GCu1J3/ghw4GwFhe6REhmWaMNjgxJ/email" alt="">
+    <figcaption>Sync vs. Async visualization of a task to be done as a straight line compared to the same line folded over itself.</figcaption>
+</figure>
+<p>The result? My script now finishes in 5 seconds.</p>
+<p>We can do some math to see how that one little change to my script impacts my whole year.</p>
+<p>Assuming I use the script once a work day (260 in a year), it has 80 URLs, and the old version took 1 second per URL.</p>
+<p>| OLD VERSION | NEW VERSION           |
+| ----------- | --------------------- |
+| 5.77 hrs    | 0.36 hrs (21.67 min.) |</p>
+<p>I saved myself 5 whole hours throughout the year—and that's with the most conservative numbers, assuming the best of the old version.</p>
+<p>Consider this from Ch. 63 of Dao De Jing:</p>
+<blockquote>
+<p>&quot;Take account of the difficult while it is still easy, and deal with the large while it is still tiny. The most difficult things in the world originate with the easy, and the largest issues originate with the tiny.&quot;</p>
+</blockquote>
+<p>It's not always clear what small thing will become large, what easy thing will become difficult, but I think we're more keyed into that than we think.</p>
+<p>Consider the following and evaluate if there are any small things in your life that could be taken care of now, while they’re still small.</p>
+<h2>FLARE Framework</h2>
+<h3>Frustration</h3>
+<p>When you find yourself in the ever-familiar feeling of frustration with technology or process or anything else, that's a trigger to look around: </p>
+<ul>
+<li>What am I missing?</li>
+<li>What can I change next time?</li>
+<li>Is this a preparation issue? A prevention issue? A proactive issue?</li>
+<li>Did I overlook something that caused the frustration?</li>
+</ul>
+<h3>Learning</h3>
+<ul>
+<li>Is there software or a website or a tool that you use frequently, but don't feel like a &quot;power user&quot; of it?</li>
+<li>What keyboard shortcuts could make this faster or easier?</li>
+<li>Are there hidden features? Settings that you could modify? (Too often I just deal with annoying programs only to find out there is a setting I could turn on/off that fixes everything...)</li>
+<li>What do I need to learn to make the change I want to make?</li>
+</ul>
+<h3>Avoidance</h3>
+<ul>
+<li>What are you avoiding? This is SO powerful. If you're avoiding something, it might just be the thing you want to tackle first—get it done and out of the way before it continues to eat at your mental space, growing larger and looming dauntingly over you.</li>
+</ul>
+<h3>Routines</h3>
+<ul>
+<li>Is there anything hiding under the disguise of &quot;routine&quot; or habit? Something that can be eliminated, optimized, or augmented?</li>
+<li>
+Can you take advantage of your routine?<ul>
+<li>Is the order that you do things the most effective? (Maybe you could combine steps 3 and 8, or do the last thing first)</li>
+<li>Can you attach something to the routine so that you don't forget or procrastinate? (exp: adding a push-up routine after you brush your teeth in the morning)</li>
+</ul>
+</li>
+</ul>
+<h3>Expenses</h3>
+<p>Monetary expense is not the only kind. </p>
+<ul>
+<li>What is taking energy away from you? </li>
+<li>What is stalling other work from being done?</li>
+<li>What is interfering with your relationships?</li>
+<li>What is slowing down progress or taking excess attention and effort?</li>
+</ul>
+
+        </div>
+
+        <aside id="article-outline">
+            <h2>Outline</h2>
+            <nav aria-label="Outline">
+                <ul id="article-outline-content"></ul>
+            </nav>
+            <script>
+            const outline = document.getElementById('article-outline-content');
+            const content = document.querySelector('.article-content');
+            
+            function generateOutline(contentElement) {
+              const headings = contentElement.querySelectorAll('h1, h2, h3, h4, h5, h6');
+              if(headings.length > 0){
+                    headings.forEach(heading => {
+                        const outlineItem = document.createElement('li');
+                        const anchor = document.createElement('a');
+                        anchor.href = '#' + heading.id; // If headings have IDs
+                        anchor.textContent = heading.textContent;
+                        outlineItem.appendChild(anchor);
+                        outlineItem.classList.add(heading.tagName.toLowerCase()); 
+        
+                        anchor.addEventListener('click', (event) => {
+                            event.preventDefault();
+                            heading.scrollIntoView({ behavior: 'smooth' });
+                        });
+        
+                        outline.appendChild(outlineItem);
+                    });
+                }
+                else {
+                    const article = document.getElementById("blog-article");
+                    const sidebar = document.getElementById("outline-sidebar");
+                    article.classList.remove("justify-content-between");
+                    article.classList.add("justify-content-center");
+                    sidebar.classList.add("d-none");
+                }
+            }
+            generateOutline(content);
+            </script>
+        </aside>
+    </div>
+</article>
+
+
+
+    </main>
+    
+    
+    <footer>
+        &copy; 2025 Not Defined LLC. All rights reserved.
+    </footer>
+    
+</body>
+</html>

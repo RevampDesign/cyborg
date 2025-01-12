@@ -10,6 +10,7 @@ class Newsletter(MetaSEO, Approval, ScheduledPublish):
         on_delete=models.CASCADE,
         blank=True,
         null=True,
+        default=1
     )
     # headline = models.CharField(max_length=300, blank=True) # Might be unnecessary
 

@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Thinking | CYBORG_ Newsletter</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
+    <!-- /FONTS -->
+
+    
+</head>
+<body class="article">
+    
+        <nav id="header">
+    <a href="/">CYBORG_</a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-toggle-button">
+        <span></span>
+    </label>
+    <div class="menu">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="/newsletters/" class="">Newsletters</a>
+                </li>
+            </ul>
+        </div>
+        <div class="action">
+            <ul>
+                <li>
+                    <a href="/subscribe/" class="btn btn-primary">Subscribe <span class="cta-arrow"></span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    
+    
+    <main id="main">
+        
+<div class="breadcrumbs"><a href="/">Home</a> / <a href="/newsletters/">Newsletters</a> / Template Thinking</div>
+<article class="article">
+
+    <div class="grid-article">
+        <h1>Template Thinking</h1>
+        
+        <div class="article-content">
+            <p>One of the most effective strategies for productivity defined by efficiency is creating templates and avoiding one-offs. The problem is there are a lot of times where a one-off is warranted or even desired. This is where getting clear on your ultimate measure of success is extremely important.</p>
+<p>That said, I believe that template-thinking, as I'm calling it, is an effective strategy for most productivity efforts—even when you do accommodate one-offs.</p>
+<h2>Avoid one-offs</h2>
+<p>This is your go-to; your mantra; what you go back to and encourage: avoid one-offs. </p>
+<p>Everything can be systematized, it just might be a balancing act of effort, time, and skill. </p>
+<p>The reason why we want to avoid one-offs as much as possible, is that you will easily drown in one-offs if there is no standardization or systemization in your work. </p>
+<p>Let's take design as an example. We love to create unique, expressive work. While it is important to create visual interest, it rapidly diminishes the usability and accessibility of your site or product when everything appears random.</p>
+<p>Random button sizes and colors confuse users and they also bloat the CSS (the code that defines the styles) leading to large load times for literally no reason. Something like having a standard button seems fairly obvious, but this goes into every design tool at hand: grids, layouts, color palette, font, imagery, shape, animation, and on and on. </p>
+<p>The less random your design, the more systematic and the more usable. When we start constructing design systems and using pieces of our designs more consistently, we will see better results for both the aesthetic and business goals. </p>
+<p>Template-thinking will help you make this shift from randomness to cohesion.</p>
+<h3>Handle one-offs</h3>
+<p>Perhaps in a developer's perfect world, everything really is just a template, perfectly proportioned and broken down to modular components that plug into every situation. We can't forget that every system comes with a little chaos—and that's ok.</p>
+<p>While you should push for templates wherever possible, there will be one-offs, and you need to be able to handle those one-offs.</p>
+<p>This is ultimately the reason I hate using website-builders or other no-code tools. They often solve a very specific problem that just doesn't have the flexibility I need for my problem. </p>
+<p>Making one-offs in these highly-specific tools is aggravating and sometimes impossible, and I end up wasting so much time fiddling with it until we end up abandoning it.</p>
+<p>When you're creating your system or your tool, you can avoid these clinch points by not forcing everything into a template. There does need to be some flexibility built into your templates, and your template-thinking should also allow for a little bit of the unexpected.</p>
+<p>That seems like a 180 from where we started. How can we incorporate template-thinking and also not-template-thinking?!</p>
+<h2>Start with the one-off</h2>
+<p>Even when you're convinced that templates are the way to go, it can be overwhelming to try to think in such huge terms at the start.</p>
+<p>For example, if you want to build or design a website, it's not going to be possible to anticipate every little element that you'll need.</p>
+<p>If we start on a smaller part of the system, it tends to be simpler to get going. Once we have something to work with, it's so much easier to transform our one-off starting point into a template.</p>
+<p>So we start with the home page. This is always going to be a one-off—it's a showcase, it's where you put your most interesting information or visuals. It also informs the styles that you'll see throughout the site, whether it's the visual identity design or the type of content or the overall experience.</p>
+<p>Since this one-off is so important, we can start breaking off little pieces of it and turn those pieces into templates (devs might call these &quot;partials&quot;). </p>
+<p>Suddenly our one-off is not so much a one-off. Maybe as a collective whole, it's unique and distinct, but if it's built with reusable, smaller template pieces, we now have things we can work with in the future without as much effort.</p>
+<p>Build once, use many times.</p>
+<h2>Cyborg</h2>
+<p>Templates expedite the production of our work. Writing articles, designing websites, reporting on support calls, tracking work, making presentations—<em>any</em> knowledge work, really, can benefit from template-thinking.</p>
+<p>As soon as we discover a pattern, we should create a template that automatically re-creates that pattern for us. It could be as simple as keeping <code>[cyborg]</code> in an email subject line ;) or as complex as a webpage template with logic and conditions.</p>
+<p>This pattern recognition is our template-thinking. The more I've discovered, documented, or otherwise built out consistent structures, the more I've been able to accomplish and the more I've been able to insert more creativity.</p>
+<p>The structure of templates allows us to be more flexible and more productive over time.</p>
+
+        </div>
+
+        <aside id="article-outline">
+            <h2>Outline</h2>
+            <nav aria-label="Outline">
+                <ul id="article-outline-content"></ul>
+            </nav>
+            <script>
+            const outline = document.getElementById('article-outline-content');
+            const content = document.querySelector('.article-content');
+            
+            function generateOutline(contentElement) {
+              const headings = contentElement.querySelectorAll('h1, h2, h3, h4, h5, h6');
+              if(headings.length > 0){
+                    headings.forEach(heading => {
+                        const outlineItem = document.createElement('li');
+                        const anchor = document.createElement('a');
+                        anchor.href = '#' + heading.id; // If headings have IDs
+                        anchor.textContent = heading.textContent;
+                        outlineItem.appendChild(anchor);
+                        outlineItem.classList.add(heading.tagName.toLowerCase()); 
+        
+                        anchor.addEventListener('click', (event) => {
+                            event.preventDefault();
+                            heading.scrollIntoView({ behavior: 'smooth' });
+                        });
+        
+                        outline.appendChild(outlineItem);
+                    });
+                }
+                else {
+                    const article = document.getElementById("blog-article");
+                    const sidebar = document.getElementById("outline-sidebar");
+                    article.classList.remove("justify-content-between");
+                    article.classList.add("justify-content-center");
+                    sidebar.classList.add("d-none");
+                }
+            }
+            generateOutline(content);
+            </script>
+        </aside>
+    </div>
+</article>
+
+
+
+    </main>
+    
+    
+    <footer>
+        &copy; 2025 Not Defined LLC. All rights reserved.
+    </footer>
+    
+</body>
+</html>
