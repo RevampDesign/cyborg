@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Death in the Family | CYBORG_ Newsletter</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
+    <!-- /FONTS -->
+
+    
+</head>
+<body class="article">
+    
+        <nav id="header">
+    <a href="/">CYBORG_</a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-toggle-button">
+        <span></span>
+    </label>
+    <div class="menu">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="/newsletters/" class="">Newsletters</a>
+                </li>
+            </ul>
+        </div>
+        <div class="action">
+            <ul>
+                <li>
+                    <a href="/subscribe/" class="btn btn-primary">Subscribe <span class="cta-arrow"></span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    
+    
+    <main id="main">
+        
+<div class="breadcrumbs"><a href="/">Home</a> / <a href="/newsletters/">Newsletters</a> / A Death in the Family</div>
+<article class="article">
+
+    <div class="grid-article">
+        <h1>A Death in the Family</h1>
+        
+        <div class="article-content">
+            <p>There have always been difficult events that offer us chances to reflect on our humanity and the other existential questions that swirl around us. The death of a loved one is obviously a potent example.</p>
+<p>I didn't intend to write this article today, but with the passing of my grandpa—the first death in my family that I've ever experienced—it seemed important for me to share two snippets of wisdom regarding death.</p>
+<p>The first comes from elephants.</p>
+<p>National Geographic's series, <em>Queens</em>, Episode 4, showed a beautiful, surprising scene of what happened when a traveling herd of elephants find the skeleton of another elephant along the way.</p>
+<p>They circle the bones and allow each one in the herd to touch the bones. It's a ritual. It was stunning to see these massive mammals mourning and honoring their dead. </p>
+<p>Sometimes the word &quot;ritual&quot; has a weird connotation to it—like it's not part of our modern lives or perhaps it's tied to some cult-like performance. However, rituals can help us connect with others or ourselves, recharge our energy and motivation for work, or process difficult emotions.</p>
+<p>Funerals and graveside services are some rituals we've retained, though lately I have wondered if there are better ways to mourn the dead that we have lost over time. Particularly in my religious culture, I'm not sure my faith group has a healthy way of dealing with death—my therapist, who is also in this group put it this way: &quot;We're not very good at being sad. There's always a silver lining.&quot;</p>
+<p>This leads to the last bit of wisdom I've recently found, encouraging us not to avoid death, diminish its importance, or hide it under platitudes. </p>
+<p>From the commentary on Chapter 58 of <em>Dao De Jing</em> (translated by Roger Ames and David L. Hall):</p>
+<blockquote>
+<p>&quot;How do we respond to this never-ending spiral of reversion? If we have an understanding of the process as a whole, we can, while staying balanced at the center, anticipate the movement between opposites. While we can certainly live a robust and healthy life, we can also, in the fulness of time, enjoy a consummatory and healthy death. </p>
+<p>Death is real and wherever there is life, it is not far away. However, to separate death out from the life experience and inveigh against it as something to be avoided at all costs prevents us from appreciating the fragility and preciousness of life that is made possible by the same delicious temporality. </p>
+<p>Life is made meaningful by death. Death as natural closure, punctuates a most particular event in the on-going transformation of things. Properly understood, a healthy death can be lived well and can enhance the lives of all involved. Misunderstood, a resentful death can sour life and become a focus of dread and loathing that robs everyone, especially those left to carry on, of their life energy.&quot;</p>
+</blockquote>
+<p>Acknowledging death is a way to &quot;plug&quot; back into reality, outside of our technology-driven thoughts, experiences, and work. It's a reminder for me that I am human, I am fragile, and that's ok.</p>
+
+        </div>
+
+        <aside id="article-outline">
+            <h2>Outline</h2>
+            <nav aria-label="Outline">
+                <ul id="article-outline-content"></ul>
+            </nav>
+            <script>
+            const outline = document.getElementById('article-outline-content');
+            const content = document.querySelector('.article-content');
+            
+            function generateOutline(contentElement) {
+              const headings = contentElement.querySelectorAll('h1, h2, h3, h4, h5, h6');
+              if(headings.length > 0){
+                    headings.forEach(heading => {
+                        const outlineItem = document.createElement('li');
+                        const anchor = document.createElement('a');
+                        anchor.href = '#' + heading.id; // If headings have IDs
+                        anchor.textContent = heading.textContent;
+                        outlineItem.appendChild(anchor);
+                        outlineItem.classList.add(heading.tagName.toLowerCase()); 
+        
+                        anchor.addEventListener('click', (event) => {
+                            event.preventDefault();
+                            heading.scrollIntoView({ behavior: 'smooth' });
+                        });
+        
+                        outline.appendChild(outlineItem);
+                    });
+                }
+                else {
+                    const article = document.getElementById("blog-article");
+                    const sidebar = document.getElementById("outline-sidebar");
+                    article.classList.remove("justify-content-between");
+                    article.classList.add("justify-content-center");
+                    sidebar.classList.add("d-none");
+                }
+            }
+            generateOutline(content);
+            </script>
+        </aside>
+    </div>
+</article>
+
+
+
+    </main>
+    
+    
+    <footer>
+        &copy; 2025 Not Defined LLC. All rights reserved.
+    </footer>
+    
+</body>
+</html>

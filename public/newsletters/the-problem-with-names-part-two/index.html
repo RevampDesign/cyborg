@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Problem with Names, Part 2 | CYBORG_ Newsletter</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
+    <!-- /FONTS -->
+
+    
+</head>
+<body class="article">
+    
+        <nav id="header">
+    <a href="/">CYBORG_</a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-toggle-button">
+        <span></span>
+    </label>
+    <div class="menu">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="/newsletters/" class="">Newsletters</a>
+                </li>
+            </ul>
+        </div>
+        <div class="action">
+            <ul>
+                <li>
+                    <a href="/subscribe/" class="btn btn-primary">Subscribe <span class="cta-arrow"></span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    
+    
+    <main id="main">
+        
+<div class="breadcrumbs"><a href="/">Home</a> / <a href="/newsletters/">Newsletters</a> / The Problem with Names, Part 2</div>
+<article class="article">
+
+    <div class="grid-article">
+        <h1>The Problem with Names, Part 2</h1>
+        
+        <div class="article-content">
+            <p>Spend enough time with programmers and someone will eventually tell you this:</p>
+<p>&quot;There are only two hard things in Computer Science: cache invalidation and naming things.&quot;
+—Phil Karlton</p>
+<p>In fact, it's a joke that's gotten saturated enough that we can throw this riff in, too:</p>
+<p>&quot;There's two hard problems in computer science: we only have one joke and it's not funny.&quot;
+—<a href="https://twitter.com/pbowden/status/468855097879830528">Phillip Scott Bowden</a></p>
+<p>But, really, naming things is <em>so</em> hard and can cause some dangerous problems downstream.</p>
+<h2>Databases and You</h2>
+<p>Part of the reason naming things is difficult is because <em>everything</em> needs a name in programming. If you want to store some information in a database, you need a name for the information. </p>
+<p>Some &quot;names&quot; might be randomly generated IDs, like <code>kuf3h4kuhbwe78gyejdhg</code> but if you want to be able to perform some kind of logic, you’ll still have to put that in a human-readable form like a variable (which will have a name).</p>
+<p>You can think of it like form field labels. When you fill out a form, you have a label that tells you what kind of information is expected.</p>
+<figure>
+    <img src="https://embed.filekitcdn.com/e/iDKTPNXrEJsYXUT7GCu1J3/rN83VkkRvrciDrx57GxPS/email" alt="">
+    <figcaption>Form with a field for "First Name" and "Email Address"</figcaption>
+</figure>
+<p>The label is likely the name that the database ends up using to store your information.</p>
+<p>This gets really tricky in medical scenarios, demographics, and other personal identification information.</p>
+<p>Perhaps you’re a programmer tasked with setting up a check-in form for a doctor’s office. There are the <em>seemingly</em> easy fields: Name, phone number, birthdate. Then you need the sex of the person.</p>
+<p>Should you provide two fields for “sex” and “gender” so that the doctor can be aware and respectful of a person’s identity? Do you only include “sex” because you’re not even thinking about queer identities? Should you provide an option for “intersex” in addition to “male” and “female” to account for the natural occurrences of indeterminate or “difficult to categorize” anatomy?</p>
+<p>Naming things is exceptionally difficult, because ambiguity pervades all aspects of our lives, much as we try to make things binary or, at least, clearly defined.</p>
+<h2>The Fuzzy</h2>
+<p>The other reason naming things is so hard has to do with our cognition (how we think). Prototype Theory, developed by Eleanor Rosch, challenges the classical take on categorizing things, and helps explain why we run into trouble with our names.</p>
+<p>According to the theory, our brains group things together based on their relationship or closeness to the prototypical thing—a &quot;family resemblance&quot; if you will. The prototype of something is built by our individual experiences with objects or concepts.</p>
+<p>As a percussionist, I know what a marimba is, but many people assume that what I'm playing is a xylophone—because they look very similar and xylophone is a word more commonly known. However, due to my experience I can easily distinguish a xylophone from a marimba—they hold two different &quot;prototypes&quot; for me, while non-percussionists tend to have one single prototype for the &quot;wooden instrument that looks like it has a piano-key layout.&quot;</p>
+<p>The Classical Theory of categorization is the idea that we can clearly define things by “necessary and sufficient features.” We create boxes, put things in boxes, and they’re supposed to stay in those boxes, nice and organized.</p>
+<p>This is where the “appeal to dictionary” fallacy I mentioned last week tends to get me.</p>
+<p>“This is common for most words that we see used frequently. If we have a backlog of experiences hearing words being used in reference to certain concepts or items or entities, we just intuitively…generate a concept of what that thing is,” says Dr. Dan McClellan on his podcast, Data Over Dogma.</p>
+<p>“A lot of people…what they’re going to do is just retreat into their mind and try to imagine the imagery; the conceptual field that is evoked from that word; and then try to describe or define that.”</p>
+<p>“The problem is that’s entirely relative. It’s going to be different for every person because we all have different experiences.”</p>
+<p>Definitions are always incomplete—they can get close, but they’ll always leave out something or include something that doesn’t always fit. To “define” something is an attempt to find the edge of where something stops being itself—but in the act of drawing boundaries around concepts or items or even people, there are always going to be things that don’t quite fit, or that challenge those boundaries.</p>
+<p>Consider a chair for a moment.</p>
+<p>What comes to mind? How do you know what a chair is? Maybe it looks something like this:</p>
+<figure>
+    <img src="https://embed.filekitcdn.com/e/iDKTPNXrEJsYXUT7GCu1J3/2trQ1guVA46jYQK5z3Vyfy/email" alt="">
+    <figcaption>AI-generated image of a simple kitchen chair.</figcaption>
+</figure>
+<p>Classical Theory would prompt us to define a chair like this: it has four legs, a backrest, and is something we sit on.</p>
+<p>What about this design? </p>
+<figure>
+    <img src="https://embed.filekitcdn.com/e/iDKTPNXrEJsYXUT7GCu1J3/9ud2Ur5JccASxnffBCAtD1/email" alt="">
+    <figcaption>AI-generated image of a chair with no legs, rather a single base to support it.</figcaption>
+</figure>
+<p>Now we only have a backrest and it’s something that looks like we can sit on.</p>
+<p>These two chair pictures were easily generated with AI. The first image was a simple prompt to generate a photo of a chair. The second one needed prompting to show a “unique chair” like one you might see in the MoMa (and the AI struggled to get me anything more unique in design than the one above).</p>
+<p>Now, let's start playing with the boundaries even more:</p>
+<figure>
+    <img src="https://embed.filekitcdn.com/e/iDKTPNXrEJsYXUT7GCu1J3/wKjvEsHbJvcYtsBVSQ9KRs/email" alt="">
+    <figcaption>S-Chair: a single, continuous line curves through space to create a chair with an intriguing shape—almost like an "S" from the side view.</figcaption>
+</figure>
+<p>This is the &quot;S-Chair&quot; from Tom Vaughan (credit: <a href="https://www.objectstudio.co.uk/oldgallery#/vii/">https://www.objectstudio.co.uk/oldgallery#/vii/</a>). Does this challenge your definition of a chair?</p>
+<p>Let's push it even farther with, &quot;Knot,&quot; from the same studio:</p>
+<figure>
+    <img src="https://embed.filekitcdn.com/e/iDKTPNXrEJsYXUT7GCu1J3/5L5eXqYdzpicppJ5rh7JLL/email" alt="">
+    <figcaption>Inspired by the shape of the mobius strip, this piece has multiple interweaving ribbons of wood twisting around itself.</figcaption>
+</figure>
+<p>Is it a chair? (I truly am not sure, though it appears to be able to function as a chair if I were so bold as to sit on it).</p>
+<p>We just went through the Prototype Theory. We started with a prototypical chair, probably similar to one you might think of when hearing the word, “chair.”</p>
+<p>Then we start playing with the boundaries—removing the “leg” requirement, changing the shape. Ultimately, a chair isn’t its legs or its backrest or even the seat. Artists and designers can push the boundaries of our chair-conceptualization and it makes us question the object. Is it a chair? Is it art? Is it both? Is it neither?</p>
+<p>How do you set up a database to properly categorize something like <em>Knot</em>? How do you reconcile one person's conceptualization of a chair with another person's entirely different conceptualization?</p>
+<h2>The Collision</h2>
+<p>The fuzziness of our named thing can be frustrating and even dangerous. What we think is clear communication might be wildly mistaken by someone else who is bringing a different set of experiences to the <em>table</em> ;)</p>
+<p>Misunderstandings in user interfaces have caused massive catastrophes (like the <a href="https://www.nngroup.com/articles/error-prevention/">Hawaiian Missile Alert in 2018</a>). </p>
+<p>Simple names can create collisions when URLs, variables, or objects in code have the same name. It’s like having two houses with the same address—nothing will work right.</p>
+<p>My own name causes massive problems with background checks, because my name is too common in my generation.</p>
+<p>Names in systems are supposed to be unique, clear, and well-defined. But in practice, that’s not so easy—especially when we get into flexible, but ambiguous systems.</p>
+<p>Even the exploration of Prototype Theory can make my head spin a little bit. Maybe nothing means anything at all…? Is it even possible to communicate well? Is what I know just an illusion that unravels under scrutiny?</p>
+<h2>Cyborg</h2>
+<p>Naming is exceptionally complex, even though it feels easy.</p>
+<p>Ask a child to tell you the name of a new toy or stuffed animal. They’ll probably use some feature to define it: “Spot,” “Pinky,” “Princess,” “Laser-eyes.”</p>
+<p>It is exceptionally easy to lean on a feature as a way to put a line around something, but life is more complex than just describing pieces that we perceive.</p>
+<p>Objects, concepts, and people aren’t so easily categorized. And that’s simultaneously freeing and frustrating.</p>
+<p>We will continue to play with our boundaries as people with different experiences, identities, and ideas look at the “definitions” others have made.</p>
+<p>We employ our greatest creativity and problem-solving when we engage with those fuzzy boundaries. Whether that’s to name some piece of code or challenge oppressive systems by creating more space for more people.</p>
+<p>To name something is to take on a responsibility: to allow enough flexibility to not break the system, but have enough structure that the system can stand.</p>
+        </div>
+
+        <aside id="article-outline">
+            <h2>Outline</h2>
+            <nav aria-label="Outline">
+                <ul id="article-outline-content"></ul>
+            </nav>
+            <script>
+            const outline = document.getElementById('article-outline-content');
+            const content = document.querySelector('.article-content');
+            
+            function generateOutline(contentElement) {
+              const headings = contentElement.querySelectorAll('h1, h2, h3, h4, h5, h6');
+              if(headings.length > 0){
+                    headings.forEach(heading => {
+                        const outlineItem = document.createElement('li');
+                        const anchor = document.createElement('a');
+                        anchor.href = '#' + heading.id; // If headings have IDs
+                        anchor.textContent = heading.textContent;
+                        outlineItem.appendChild(anchor);
+                        outlineItem.classList.add(heading.tagName.toLowerCase()); 
+        
+                        anchor.addEventListener('click', (event) => {
+                            event.preventDefault();
+                            heading.scrollIntoView({ behavior: 'smooth' });
+                        });
+        
+                        outline.appendChild(outlineItem);
+                    });
+                }
+                else {
+                    const article = document.getElementById("blog-article");
+                    const sidebar = document.getElementById("outline-sidebar");
+                    article.classList.remove("justify-content-between");
+                    article.classList.add("justify-content-center");
+                    sidebar.classList.add("d-none");
+                }
+            }
+            generateOutline(content);
+            </script>
+        </aside>
+    </div>
+</article>
+
+
+
+    </main>
+    
+    
+    <footer>
+        &copy; 2025 Not Defined LLC. All rights reserved.
+    </footer>
+    
+</body>
+</html>
