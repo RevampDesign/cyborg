@@ -5,14 +5,14 @@
 			{% if hx_post %}<form {% if hx_target %}hx-target="{{ hx_target }}"{% endif %} {% if hx_swap %}hx-swap="{{ hx_swap }}"{% endif %} {% if hx_post %}hx-post="{{hx_post}}"{% endif %}>{% endif %}
 			<ul class="pagination d-none d-md-flex">
 				{% if page_obj.has_previous %}
-					<li><a href="?page={{ page_obj.previous_page_number }}{% if query %}&q={{query}}{% endif %}" {% if hx_target %}hx-target="{{ hx_target }}"{% endif %} {% if hx_swap %}hx-swap="{{ hx_swap }}"{% endif %} {% if hx_post %}hx-post="{{hx_post}}?page={{ page_obj.previous_page_number }}{% if query %}&q={{query}}{% endif %}" hx-include="[name='page']"{% endif %}>&lsaquo;</a></li>
+					<li><a href="{% url 'newsletterListPaginated' page_obj.previous_page_number %}{% if query %}&q={{query}}{% endif %}" {% if hx_target %}hx-target="{{ hx_target }}"{% endif %} {% if hx_swap %}hx-swap="{{ hx_swap }}"{% endif %} {% if hx_post %}hx-post="{{hx_post}}?page={{ page_obj.previous_page_number }}{% if query %}&q={{query}}{% endif %}" hx-include="[name='page']"{% endif %}>&lsaquo;</a></li>
 					<input type="hidden" value="{{ page_obj.previous_page_number }}" name="page">
 					{% else %}
 					<li class="disabled"><span>&lsaquo;</span></li>
 				{% endif %}
 				
 				{% if page_obj.number|add:'-3' > 1 %}
-					<li><a href="?page={{ page_obj.number|add:'-4' }}{% if query %}&q={{query}}{% endif %}" {% if hx_target %}hx-target="{{ hx_target }}"{% endif %} {% if hx_swap %}hx-swap="{{ hx_swap }}"{% endif %} {% if hx_post %}hx-post="{{hx_post}}?page={{ page_obj.number|add:'-4' }}{% if query %}&q={{query}}{% endif %}" hx-include="[name='page']"{% endif %}>&hellip;</a></li>
+					<li><a href="{% url 'newsletterListPaginated' page_obj.previous_page_number|add:'-4' %}{% if query %}&q={{query}}{% endif %}" {% if hx_target %}hx-target="{{ hx_target }}"{% endif %} {% if hx_swap %}hx-swap="{{ hx_swap }}"{% endif %} {% if hx_post %}hx-post="{{hx_post}}?page={{ page_obj.number|add:'-4' }}{% if query %}&q={{query}}{% endif %}" hx-include="[name='page']"{% endif %}>&hellip;</a></li>
 					<input type="hidden" value="{{ page_obj.number|add:'-4' }}" name="page">
 
 				{% endif %}
@@ -21,18 +21,18 @@
 					{% if page_obj.number == i %}
 						<li class="active"><span aria-current="page">{{ i }}</span></li>
 					{% elif i > page_obj.number|add:'-4' and i < page_obj.number|add:'4' %}
-						<li><a href="?page={{ i }}{% if query %}&q={{query}}{% endif %}" {% if hx_target %}hx-target="{{ hx_target }}"{% endif %} {% if hx_swap %}hx-swap="{{ hx_swap }}"{% endif %} {% if hx_post %}hx-post="{{hx_post}}?page={{ i }}{% if query %}&q={{query}}{% endif %}" hx-include="[name='page']"{% endif %}>{{ i }}</a></li>
+						<li><a href="{% url 'newsletterListPaginated' i %}{% if query %}&q={{query}}{% endif %}" {% if hx_target %}hx-target="{{ hx_target }}"{% endif %} {% if hx_swap %}hx-swap="{{ hx_swap }}"{% endif %} {% if hx_post %}hx-post="{{hx_post}}?page={{ i }}{% if query %}&q={{query}}{% endif %}" hx-include="[name='page']"{% endif %}>{{ i }}</a></li>
 						<input type="hidden" value="{{ i }}" name="page">
 					{% endif %}
 				{% endfor %}
 				
 				{% if page_obj.paginator.num_pages > page_obj.number|add:'3' %}
-					<li><a href="?page={{ page_obj.number|add:'3' }}{% if query %}&q={{query}}{% endif %}" {% if hx_target %}hx-target="{{ hx_target }}"{% endif %} {% if hx_swap %}hx-swap="{{ hx_swap }}"{% endif %} {% if hx_post %}hx-post="{{hx_post}}?page={{ page_obj.number|add:'3' }}{% if query %}&q={{query}}{% endif %}" hx-include="[name='page']"{% endif %}>&hellip;</a></li>
+					<li><a href="{% url 'newsletterListPaginated' page_obj.number|add:'3' %}{% if query %}&q={{query}}{% endif %}" {% if hx_target %}hx-target="{{ hx_target }}"{% endif %} {% if hx_swap %}hx-swap="{{ hx_swap }}"{% endif %} {% if hx_post %}hx-post="{{hx_post}}?page={{ page_obj.number|add:'3' }}{% if query %}&q={{query}}{% endif %}" hx-include="[name='page']"{% endif %}>&hellip;</a></li>
 					<input type="hidden" value="{{ page_obj.number|add:'3' }}" name="page">
 				{% endif %}
 				
 				{% if page_obj.has_next %}
-					<li><a href="?page={{ page_obj.next_page_number }}{% if query %}&q={{query}}{% endif %}" {% if hx_target %}hx-target="{{ hx_target }}"{% endif %} {% if hx_swap %}hx-swap="{{ hx_swap }}"{% endif %} {% if hx_post %}hx-post="{{hx_post}}?page={{ page_obj.next_page_number }}{% if query %}&q={{query}}{% endif %}" hx-include="[name='page']"{% endif %}>&rsaquo;</a></li>
+					<li><a href="{% url 'newsletterListPaginated' page_obj.next_page_number %}{% if query %}&q={{query}}{% endif %}" {% if hx_target %}hx-target="{{ hx_target }}"{% endif %} {% if hx_swap %}hx-swap="{{ hx_swap }}"{% endif %} {% if hx_post %}hx-post="{{hx_post}}?page={{ page_obj.next_page_number }}{% if query %}&q={{query}}{% endif %}" hx-include="[name='page']"{% endif %}>&rsaquo;</a></li>
 					<input type="hidden" value="{{ page_obj.next_page_number }}" name="page">
 				{% else %}
 					<li class="disabled"><span>&rsaquo;</span></li>
