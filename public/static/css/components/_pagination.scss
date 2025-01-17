@@ -1,0 +1,26 @@
+@use '../abstracts/colors.scss';
+@use '../abstracts/radius.scss';
+
+#paginator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pagination {
+    display: flex;    
+    gap: 1rem;
+    list-style: none;
+    padding: 2rem;
+    & li a , li span{
+        transition: all .15s ease-in;
+        padding: .5rem;
+        border-radius: radius.$tiny-radius;
+        &:hover {
+            background-color: rgba(colors.$white, .2);
+        }
+    }
+    & li.active span {
+        color: colors.$black;
+        background-color: colors.$white;
+    }
+}

@@ -5,7 +5,7 @@ from .models import Newsletter
 
 class NewsletterList(ListView):
     model = Newsletter # Use object_list in template
-    paginate_by = 15
+    paginate_by = 10
     template_name = 'newsletter/list.html'
     ordering = ['-publish_date']
 

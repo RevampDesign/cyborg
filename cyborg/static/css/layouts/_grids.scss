@@ -62,8 +62,13 @@
     position: relative;
     margin-top: 2rem;
     padding-top: 2.75rem;
+    transition: all .15s ease-in;
     @media screen and (min-width: 930px) {
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    &:has( a:hover ) .card {
+        --card-opacity: .6;
     }
 
     &::before {

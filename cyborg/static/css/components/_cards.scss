@@ -1,5 +1,9 @@
 @use '../abstracts/colors.scss';
 
+:root {
+    --card-opacity: 1;
+}
+
 a:has( .card ) {
     text-decoration: none;
     color: inherit;
@@ -13,6 +17,9 @@ a:has( .card ) {
     border-radius: var(--border-radius-primary);
     gap: var(--_card-gap);
     padding: var(--_card-gap);
+    opacity: var(--card-opacity);
+    transition: all .15s ease-in;
+
     .card-header {
         display: flex;
         justify-content: center;
@@ -40,7 +47,7 @@ a:has( .card ) {
         color: colors.$orange;
         opacity: 0;
     }
-    &:hover::after {
+    &:hover, &:hover::after {
         transition: all .15s ease-in;
         opacity: 1;
     }
@@ -53,7 +60,7 @@ a:has( .card ) {
     }
     .card-footer {
         display: flex;
-        
+        margin-right: 2rem;
     }
     .poster {
         font-size: 4rem;
