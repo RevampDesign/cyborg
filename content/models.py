@@ -1,6 +1,7 @@
 from django.db import models
+from meta_seo.models import MetaSEO
 
-class HomePage(models.Model):
+class HomePage(MetaSEO):
     headline = models.CharField(max_length=255, default="Upgrade your humanity.")
     subheadline = models.CharField(max_length=255, default="Lessons learned about humans through technology and systems...and vice versa")
 

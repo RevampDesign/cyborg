@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'content.apps.ContentConfig',
     'meta_seo.apps.MetaSeoConfig',
     'newsletter.apps.NewsletterConfig',
+    'policy.apps.PolicyConfig',
     'publishing.apps.PublishingConfig',
     'django.contrib.sites',
 	'django.contrib.sitemaps',
