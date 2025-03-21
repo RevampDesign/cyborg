@@ -74,6 +74,17 @@ main {
         width: 100%;
     }
 
+    blockquote {
+        border-left: 2px solid var(--white);
+        padding-left: 1rem;
+    }
+
+    figure:has( blockquote ) {
+        figcaption {
+            font-style: normal;
+        }
+    }
+
     figcaption {
         font-style: italic;
         font-size: var(--article-sm-font-size);
