@@ -66,12 +66,25 @@ main {
         margin-top: var(--article-space-md);
     }
 
-    img + p, p + img, picture + p, p + picture, figure + p, p + figure, audio + p, p + audio, iframe + p, p + iframe, video + p, p + video, p + button, p + .btn-primary {
+    img + p, p + img, picture + p, p + picture, figure + p, p + figure, p + blockquote, blockquote + p, audio + p, p + audio, iframe + p, p + iframe, video + p, p + video, p + button, p + .btn-primary {
         margin-top: var(--article-space-lg);
     }
 
     audio {
         width: 100%;
+    }
+
+    blockquote {
+        border-left: 1px solid var(--white);
+        padding-left: 1.5rem;
+        max-width: 55ch;
+        text-wrap: pretty;
+    }
+
+    figure:has( blockquote ) {
+        figcaption {
+            font-style: normal;
+        }
     }
 
     figcaption {

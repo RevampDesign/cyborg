@@ -1,6 +1,7 @@
 from django.db import models
 from publishing.models import ScheduledPublish, Approval
 from meta_seo.models import MetaSEO
+from taggit.managers import TaggableManager
 import marko
 
 class Newsletter(MetaSEO, Approval, ScheduledPublish):
@@ -16,8 +17,16 @@ class Newsletter(MetaSEO, Approval, ScheduledPublish):
 
     body = models.TextField(blank=True)
 
+    tags = TaggableManager(blank=True)
+
     live_view = 'newsletterDetail'
     preview_view = 'newsletterDetail'
+
+    def available_tags(self):
+        return u", ".join(o.name for o in self.tags.all())
+
+    def read_time(self):
+        return f"{round(len(self.body.split(" ")) / 200)} Min."
 
     def __str__(self):
         if self.title:

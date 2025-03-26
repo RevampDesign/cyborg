@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="breadcrumbs"><a href="/">Home</a> / {{ content.title }}</div>
+<header id="hero">
+    <h1>{{ content.headline }}</h1>
+    <p class="subheadline">{{ content.description }}</p>
+    <a href="/subscribe/" class="btn btn-primary">Subscribe <span class="cta-arrow"></span></a>    
+</header>
+
+<section class="topics">
+    <ul class="topics-list grid-topics">
+        {% for topic in object_list %}
+        <a href="{{ topic.get_absolute_url }}">
+            <li class="card card-list-item">
+                <div class="topic">
+                    <h2>{{ topic.title }}</h2>
+                </div>
+                <div class="topic-description">
+                    {{ topic.description }}
+                </div>
+                <div class="date">
+                    {{ topic.publish_date|date:"M j, Y" }}
+                </div>
+            </li>
+        </a>
+        {% endfor %}
+    </ul>
+
+    {% include 'partials/navigation/pagination.html' %}
+</section>
+
+
+{% include 'partials/cta/embedded-subscribe.html' %}
+
+{% endblock %}

@@ -58,5 +58,32 @@
         &copy; {% now "Y" %} Not Defined LLC. All rights reserved.
     </footer>
     {% endblock %}
+
+    {% if user.is_staff and change_url %}
+    <a href="{{ change_url }}">
+        <div class="admin-tools">
+            Edit Page
+        </div>
+    </a>
+    <style>
+        .admin-tools {
+            background-color: var(--white);
+            padding: 1rem;
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            right:0;
+            color: var(--black);
+            box-shadow: 1px 3px 10px rgba(221, 112, 15, 0.61);
+            z-index: 10000;
+            border-top-left-radius: 5rem;
+            border-bottom-left-radius: 5rem;
+        }
+    </style>
+    {% endif %}
+
+
+    <script src="{% static 'js/scripts.js' %}" defer></script>
+
 </body>
 </html>

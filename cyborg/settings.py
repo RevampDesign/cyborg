@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'author.apps.AuthorConfig',
     'content.apps.ContentConfig',
     'meta_seo.apps.MetaSeoConfig',
+    'topic.apps.TopicConfig',
     'newsletter.apps.NewsletterConfig',
     'policy.apps.PolicyConfig',
     'publishing.apps.PublishingConfig',
@@ -48,6 +49,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.redirects',
+    'taggit',
+    'adminsortable2',
     'django_distill',
 ]
 

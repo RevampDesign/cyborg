@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic.list import ListView
+from django.urls import reverse
 
 from .models import Newsletter
 
@@ -28,8 +29,10 @@ class NewsletterList(ListView):
 def newsletterDetail(request, slug):
     content = get_object_or_404(Newsletter, slug=slug)
 
+    change_url = reverse('admin:{app_label}_{model_name}_change'.format(app_label=content._meta.app_label, model_name=content._meta.model_name), args=(content.id,))
+
     template_name = 'newsletter/detail.html'
 
-    context = {'content': content,}
+    context = {'content': content, 'change_url': change_url,}
 
     return render(request, template_name, context)
