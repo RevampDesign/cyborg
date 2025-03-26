@@ -1,4 +1,10 @@
 .breadcrumbs {
     font-size: var(--p3);
     padding: 2rem;
+    list-style: none;
+    display: flex;
+    margin: 0;
+    & li {
+        margin: 0;
+    }
 }

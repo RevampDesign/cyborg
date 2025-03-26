@@ -3,7 +3,8 @@
 {% block body_classes %}article{% endblock %}
 
 {% block content %}
-<div class="breadcrumbs"><a href="/">Home</a> / <a href="{% url 'newsletterList' %}">Newsletters</a> / {{ content.title }}</div>
+{% include 'partials/navigation/breadcrumbs.html' %}
+
 <article class="article">
 
     <div class="grid-article">

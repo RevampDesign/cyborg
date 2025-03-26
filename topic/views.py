@@ -20,8 +20,10 @@ def topicDetail(request, slug):
     content = get_object_or_404(Topic, slug=slug)
     object_list = Newsletter.objects.filter(tags__name=content.title).order_by('-publish_date')
 
+    breadcrumb_parents = [{'url': '/topics/', 'title': 'Topics'}]
+
     template_name = 'topic/detail.html'
 
-    context = {'content': content, 'object_list': object_list}
+    context = {'content': content, 'object_list': object_list, 'breadcrumb_parents': breadcrumb_parents}
 
     return render(request, template_name, context)

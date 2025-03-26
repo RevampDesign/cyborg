@@ -1,5 +1,5 @@
 const trustedDomains = ['notdefined.tech', ]; // Add trusted domains here
-const affiliateLinks = ['redbubble.com', 'digitalocean.pxf.io']; // Add known affiliate domains here
+const affiliateLinks = ['redbubble.com', 'digitalocean.pxf.io', 'usefathom.com']; // Add known affiliate domains here
 
 document.querySelectorAll('a').forEach(link => {
     const linkHostname = link.hostname.replace(/^www\./, ''); // Normalize by removing 'www.'

@@ -29,10 +29,12 @@ class NewsletterList(ListView):
 def newsletterDetail(request, slug):
     content = get_object_or_404(Newsletter, slug=slug)
 
+    breadcrumb_parents = [{'title': 'Newsletters', 'url': '/newsletters/'}]
+
     change_url = reverse('admin:{app_label}_{model_name}_change'.format(app_label=content._meta.app_label, model_name=content._meta.model_name), args=(content.id,))
 
     template_name = 'newsletter/detail.html'
 
-    context = {'content': content, 'change_url': change_url,}
+    context = {'content': content, 'change_url': change_url, 'breadcrumb_parents': breadcrumb_parents}
 
     return render(request, template_name, context)

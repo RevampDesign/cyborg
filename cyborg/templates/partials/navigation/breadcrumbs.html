@@ -1,0 +1,15 @@
+<ul class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope
+    itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="/"><span itemprop="name">Home</span></a>&nbsp;/&nbsp;
+        <meta itemprop="position" content="1" />
+    </li>
+    {% for parent in breadcrumb_parents %}
+    <li itemprop="itemListElement" itemscope
+    itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="{{ parent.url }}"><span itemprop="name">{{ parent.title }}</span></a>&nbsp;/&nbsp;
+        <meta itemprop="position" content="{{ forloop.counter|add:1 }}" />
+    </li>
+    {% endfor %}
+    {{ content.title }}
+</ul>
