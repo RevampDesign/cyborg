@@ -19,6 +19,10 @@ from django.urls import path, include
 from django.views.generic import TemplateView
 from django_distill import distill_path
 
+from wagtail import urls as wagtail_urls
+from wagtail.admin import urls as wagtailadmin_urls
+from wagtail.documents import urls as wagtaildocs_urls
+
 from content.views import homePage
 
 urlpatterns = [
@@ -28,4 +32,8 @@ urlpatterns = [
     path('newsletters/', include('newsletter.urls')),
     path('policies/', include('policy.urls')),
     path('machina/', admin.site.urls),
+
+    path('admin/', include(wagtailadmin_urls)),
+    path('documents/', include(wagtaildocs_urls)),
+    path('pages/', include(wagtail_urls)),
 ]
