@@ -89,10 +89,25 @@
     The Small Stuff
 </ul>
 
-<article class="article">
+<article class="article" itemscope itemtype="https://schema.org/Article">
 
     <div class="grid-article">
-        <h1>The Small Stuff</h1>
+        <header>
+
+            <div itemprop="isPartOf" itemscope itemtype="https://schema.org/PublicationIssue" itemid="#issue">
+                <div itemscope itemtype="https://schema.org/Periodical" itemid="#periodical">
+                    <meta itemprop="name" content="CYBORG_ Newsletter">
+                    <meta itemprop="id" href="https://cyborgnewsletter.com/#periodical">
+                </div>
+                <meta itemprop="datePublished" content="July 30, 2024, 1:34 a.m.">
+                <div itemprop="isPartOf" itemscope itemtype="https://schema.org/PublicationVolume">
+                    <link itemprop="isPartOf" href="https://cyborgnewsletter.com/#periodical" />
+                    <meta itemprop="volumeNumber" content="30">
+                </div>
+            </div>
+            
+            <h1 itemprop="name">The Small Stuff</h1>
+        </header>
         
         <div class="article-content">
             <p>I have a script that I made years ago, but I use it multiple times every single day. It's super simple and all it does is check the status of various important pages on the websites I work on. It's my tiny little last-chance defense to make sure something I pushed out didn't break things.</p>

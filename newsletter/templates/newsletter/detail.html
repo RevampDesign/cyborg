@@ -5,10 +5,25 @@
 {% block content %}
 {% include 'partials/navigation/breadcrumbs.html' %}
 
-<article class="article">
+<article class="article" itemscope itemtype="https://schema.org/Article">
 
     <div class="grid-article">
-        <h1>{{content.title}}</h1>
+        <header>
+
+            <div itemprop="isPartOf" itemscope itemtype="https://schema.org/PublicationIssue" itemid="#issue">
+                <div itemscope itemtype="https://schema.org/Periodical" itemid="#periodical">
+                    <meta itemprop="name" content="CYBORG_ Newsletter">
+                    <meta itemprop="id" href="https://cyborgnewsletter.com/#periodical">
+                </div>
+                <meta itemprop="datePublished" content="{{ content.publish_date }}">
+                <div itemprop="isPartOf" itemscope itemtype="https://schema.org/PublicationVolume">
+                    <link itemprop="isPartOf" href="https://cyborgnewsletter.com/#periodical" />
+                    <meta itemprop="volumeNumber" content="{{ content.pk }}">
+                </div>
+            </div>
+            
+            <h1 itemprop="name">{{content.title}}</h1>
+        </header>
         
         <div class="article-content">
             {{ content.body|safe }}
