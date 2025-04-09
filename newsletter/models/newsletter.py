@@ -2,7 +2,7 @@ from django.db import models
 from publishing.models import ScheduledPublish, Approval
 from meta_seo.models import MetaSEO
 from taggit.managers import TaggableManager
-import marko
+import marko, re
 
 class Newsletter(MetaSEO, Approval, ScheduledPublish):
     author = models.ForeignKey(
@@ -27,6 +27,9 @@ class Newsletter(MetaSEO, Approval, ScheduledPublish):
 
     def read_time(self):
         return f"{round(len(self.body.split(" ")) / 200)} Min."
+
+    def schema_publish_date(self):
+        return self.publish_date.strftime("%Y-%m-%dT%H:%M:%SZ")
 
     def __str__(self):
         if self.title:

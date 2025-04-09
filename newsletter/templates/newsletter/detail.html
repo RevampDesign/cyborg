@@ -6,6 +6,13 @@
 {% include 'partials/navigation/breadcrumbs.html' %}
 
 <article class="article" itemscope itemtype="https://schema.org/Article">
+    <meta itemprop="name" content="{{ content.headline }}">
+    {% if content.description %}
+    <meta itemprop="description" content="{{ content.description }}">
+    {% endif %}
+    <meta itemprop="datePublished" content="{{ content.schema_publish_date }}">
+    <meta itemprop="author" content="Jess Brown">
+
 
     <div class="grid-article">
         <header>
@@ -15,17 +22,17 @@
                     <meta itemprop="name" content="CYBORG_ Newsletter">
                     <meta itemprop="id" href="https://cyborgnewsletter.com/#periodical">
                 </div>
-                <meta itemprop="datePublished" content="{{ content.publish_date }}">
+                <meta itemprop="copyrightHolder" content="Not Defined LLC">
                 <div itemprop="isPartOf" itemscope itemtype="https://schema.org/PublicationVolume">
                     <link itemprop="isPartOf" href="https://cyborgnewsletter.com/#periodical" />
                     <meta itemprop="volumeNumber" content="{{ content.pk }}">
                 </div>
             </div>
             
-            <h1 itemprop="name">{{content.title}}</h1>
+            <h1 itemprop="headline">{{content.title}}</h1>
         </header>
         
-        <div class="article-content">
+        <div class="article-content" itemprop="articleBody">
             {{ content.body|safe }}
         </div>
 
