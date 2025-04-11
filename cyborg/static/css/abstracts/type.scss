@@ -100,10 +100,10 @@ main {
         margin-top: var(--article-space-xs);
     }
     ul {
-        padding-left: .875rem;
+        padding-left: 3rem;
     }
     ol {
-        padding-left: 0;
+        padding-left: 3rem;
     }
     dl + p {
         margin-top: var(--article-space-md);
@@ -136,13 +136,17 @@ main {
     }
 
     table {
+        margin-top: var(--article-space-lg);
+        margin-bottom: var(--article-space-lg);
         border-collapse: collapse;
+        border: 1px solid #{colors.$white};
         & tr {
-            border-bottom: 1px solid #{colors.$black};
+            border-bottom: 1px solid #{colors.$white};
         }
         & thead {
             text-align: left;
             background-color: #{colors.$white};
+            color: #{colors.$black};
 
             & th {
                 padding: var(--article-space-sm);
