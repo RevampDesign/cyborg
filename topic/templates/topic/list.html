@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="breadcrumbs"><a href="/">Home</a> / {{ content.title }}</div>
+{% include 'partials/navigation/breadcrumbs.html' %}
+
 <header id="hero">
     <h1>{{ content.headline }}</h1>
     <p class="subheadline">{{ content.description }}</p>

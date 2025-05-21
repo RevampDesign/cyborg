@@ -55,7 +55,13 @@
     
     {% block footer %}
     <footer>
-        &copy; {% now "Y" %} Not Defined LLC. All rights reserved.
+        <div class="copyright">
+            &copy; {% now "Y" %} Not Defined LLC. All rights reserved.
+        </div>
+        <div class="policies">
+            <a href="{% url 'policyDetail' slug='artificial-intelligence' %}">AI Policy</a>
+        </div>
+        
     </footer>
     {% endblock %}
 
