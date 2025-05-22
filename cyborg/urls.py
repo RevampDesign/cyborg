@@ -18,12 +18,22 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
 from django_distill import distill_path
+from django.contrib.sitemaps.views import sitemap
 
 from wagtail import urls as wagtail_urls
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.documents import urls as wagtaildocs_urls
 
-from content.views import homePage
+from content.views import homePage, htmlSitemap
+from content.models import HomeSitemap
+from newsletter.models import NewsletterSitemap
+from topic.models import TopicSitemap
+
+sitemaps = {
+    'home': HomeSitemap,
+    'newsletters': NewsletterSitemap,
+    'topics': TopicSitemap,
+}
 
 urlpatterns = [
     distill_path('', homePage, name="homePage"),
@@ -31,6 +41,9 @@ urlpatterns = [
     path('topics/', include('topic.urls')),
     path('newsletters/', include('newsletter.urls')),
     path('policies/', include('policy.urls')),
+    distill_path('sitemap/', htmlSitemap, {'sitemaps': sitemaps}, name='htmlSitemap', ),
+	path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    distill_path('robots.txt', TemplateView.as_view(template_name='robots.txt', content_type="text/plain"), name='robots'),
     path('machina/', admin.site.urls),
 
     path('admin/', include(wagtailadmin_urls)),

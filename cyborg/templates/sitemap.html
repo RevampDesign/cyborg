@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Sitemap{% endblock %}
+
+{% block body_classes %}sitemap{% endblock %}
+
+{% block content %}
+
+<header>
+    <h1>CYBORG_ Sitemap</h1>
+</header>
+<div class="all-sitemaps">
+{% for app, section in sitemaps.items %}
+    {% if section.items %}
+    <section class="sitemap-section {% if section.items.count > 10 %}sitemap-long-section{% endif %}">
+        {% if section.heading_level %}<{{section.heading_level}} id="{{ section.heading|slugify }}">{% else %}<h2 id="{{ section.heading|slugify }}" class="{% if not forloop.first %}mt-5{% endif %} mb-2">{% endif %}
+            {{ section.heading }}
+        {% if section.heading_level %}</{{section.heading_level}}>{% else %}</h2>{% endif %}
+        <ul>
+            {% for page in section.items %}
+            <li><a href="{{ page.get_absolute_url }}">{{ page.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </section>
+    {% endif %}
+{% endfor %}
+</div>
+
+{% endblock %}
