@@ -27,8 +27,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 APPEND_SLASH = True
-SITE_ID = 1
-
+SITE_ID = 2 # Use prod settings for django distill. Uses SITE_ID=1 from local_settings
 
 # Application definition
 
