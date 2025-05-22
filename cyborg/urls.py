@@ -42,7 +42,7 @@ urlpatterns = [
     path('newsletters/', include('newsletter.urls')),
     path('policies/', include('policy.urls')),
     distill_path('sitemap/', htmlSitemap, {'sitemaps': sitemaps}, name='htmlSitemap', ),
-	path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+	distill_path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     distill_path('robots.txt', TemplateView.as_view(template_name='robots.txt', content_type="text/plain"), name='robots'),
     path('machina/', admin.site.urls),
 
