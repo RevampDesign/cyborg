@@ -1,9 +1,10 @@
 from django.contrib import admin
 from .models import Newsletter
-from cyborg.mixins import ExportModelCSVMixin
+from cyborg.mixins import ExportModelCSVMixin, AdminViewOnLocalSiteMixin
+
 
 @admin.register(Newsletter)
-class NewsletterAdmin(ExportModelCSVMixin, admin.ModelAdmin):
+class NewsletterAdmin(ExportModelCSVMixin, AdminViewOnLocalSiteMixin, admin.ModelAdmin):
     save_on_top = True
     list_display = ('title', 'tag_list', 'publish_date_only', 'content_review', 'visual_review', 'seo_review', 'approved')
     list_editable = ('content_review', 'visual_review', 'seo_review',)
