@@ -1,10 +1,10 @@
 from django.contrib import admin
 from .models import Topic
-from cyborg.mixins import ExportModelCSVMixin
+from cyborg.mixins import ExportModelCSVMixin, AdminViewOnLocalSiteMixin
 from adminsortable2.admin import SortableAdminMixin
 
 @admin.register(Topic)
-class TopicAdmin(SortableAdminMixin, ExportModelCSVMixin, admin.ModelAdmin):
+class TopicAdmin(SortableAdminMixin, ExportModelCSVMixin, AdminViewOnLocalSiteMixin, admin.ModelAdmin):
     save_on_top = True
     list_display = ('title', 'content_review', 'visual_review', 'seo_review', 'approved')
     list_editable = ('content_review', 'visual_review', 'seo_review',)

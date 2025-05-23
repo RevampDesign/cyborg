@@ -1,4 +1,5 @@
 from django.contrib import admin
+from cyborg.mixins import ExportModelCSVMixin, AdminViewOnLocalSiteMixin
 
 from .models import HomePage, HomeHeroButton
 
@@ -8,7 +9,7 @@ class InlineHomeHeroButton(admin.TabularInline):
 
 
 @admin.register(HomePage)
-class HomePageAdmin(admin.ModelAdmin):
+class HomePageAdmin(AdminViewOnLocalSiteMixin, admin.ModelAdmin):
     save_on_top = True
 
     inlines = [InlineHomeHeroButton, ]
