@@ -42,6 +42,6 @@ urlpatterns = [
         name='newsletterListPaginated',
         distill_func=get_paginated_newsletter_pages
     ),
-    distill_path('feed/', NewsletterFeed(), name='newsletterFeed', distill_file="rss.xml"),
+    distill_path('feed/', NewsletterFeed(), name='newsletterFeed', distill_file="newsletters/feed/index.xml"),
     distill_path('<slug:slug>/', views.newsletterDetail, name='newsletterDetail', distill_func=get_all_newsletters),
 ]
