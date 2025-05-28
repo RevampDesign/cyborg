@@ -1,5 +1,6 @@
 from django.urls import path
 from django_distill import distill_path
+from .models.feed import NewsletterFeed
 
 from . import views
 
@@ -41,5 +42,6 @@ urlpatterns = [
         name='newsletterListPaginated',
         distill_func=get_paginated_newsletter_pages
     ),
+    distill_path('feed/', NewsletterFeed(), name='newsletterFeed'),
     distill_path('<slug:slug>/', views.newsletterDetail, name='newsletterDetail', distill_func=get_all_newsletters),
 ]
