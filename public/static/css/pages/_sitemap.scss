@@ -1,0 +1,18 @@
+.sitemap {
+    .all-sitemaps {
+        margin-bottom: 5rem;
+    }
+    section {
+        padding:0;
+    }
+    .sitemap-long-section {
+        ul {
+            --_columns: 1;
+            columns: var(--_columns);
+            column-gap: 2rem;
+            @media screen and (min-width: 930px) {
+                --_columns: 2;
+            }
+        }
+    }
+}

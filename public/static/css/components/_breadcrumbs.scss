@@ -1,6 +1,11 @@
+.article {
+    .breadcrumbs {
+        padding: 2rem;
+    }
+}
 .breadcrumbs {
     font-size: var(--p3);
-    padding: 2rem;
+    padding: 2rem 0;
     list-style: none;
     display: flex;
     margin: 0;
