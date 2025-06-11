@@ -1,0 +1,12 @@
+.link-preview-popover {
+    position: absolute; /* Crucial for positioning */
+    bottom: calc(anchor(top) + 20px);
+
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 1rem;
+    z-index: 10000;
+    display: none;
+    max-width: 320px;
+    pointer-events: none; /* Allows mouse events to pass through if needed, but generally not for this simple popover */
+}
