@@ -66,7 +66,7 @@ main {
         margin-top: var(--article-space-md);
     }
 
-    img + p, p + img, picture + p, p + picture, figure + p, p + figure, p + blockquote, blockquote + p, audio + p, p + audio, iframe + p, p + iframe, video + p, p + video, p + button, p + .btn-primary {
+    img + p, p + img, picture + p, p + picture, figure + p, p + figure, p + blockquote, blockquote + p, audio + p, p + audio, iframe + p, p + iframe, video + p, p + video, p + button, p + .btn-primary, figure + figure {
         margin-top: var(--article-space-lg);
     }
 
