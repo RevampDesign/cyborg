@@ -176,10 +176,32 @@ main {
 
     aside {
         background-color: #{colors.$black};
-        padding: var(--article-space-xs);
-        border-radius: 3px;
+        padding: var(--article-space-xs) var(--article-space-sm);
         margin: var(--article-space-lg) 0;
-        border-left: 4px solid #{colors.$white};
+        
+        &.bracket {
+            border-radius: 10px;
+            border-left: 4px solid #{colors.$white};
+            border-right: 4px solid #{colors.$white};
+            position: relative;
+            font-size: .875rem;
+            
+            &::before {
+                content: '\25C0';
+                left: -8px;
+            }
+            &::after {
+                content: '\25B6';
+                right: -8px;
+            }
+            
+            &::before, &::after {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: .5rem;
+            }
+        }
     }
 
     address {
