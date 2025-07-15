@@ -72,8 +72,10 @@ footer {
 	border-top: 1px solid colors.$white;
 	padding: 2rem;
 	background-color: var(--menu);
-	display: flex;
-	justify-content: space-between;
+	.row {
+		display: flex;
+		justify-content: space-between;
+	}
 }
 
 

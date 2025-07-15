@@ -58,11 +58,18 @@
     
     {% block footer %}
     <footer>
-        <div class="copyright">
-            &copy; {% now "Y" %} Not Defined LLC. All rights reserved.
+        <div class="row">
+            <div class="copyright">
+                &copy; {% now "Y" %} Not Defined LLC. All rights reserved.
+            </div>
+            <div class="policies">
+                <a href="{% url 'policyDetail' slug='artificial-intelligence' %}">AI Policy</a>
+            </div>
         </div>
-        <div class="policies">
-            <a href="{% url 'policyDetail' slug='artificial-intelligence' %}">AI Policy</a>
+        <div class="row">
+            <div class="attribution">
+                Designed, developed, and written with 🌈 by Jess Brown.
+            </div>
         </div>
         
     </footer>
