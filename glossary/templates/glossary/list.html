@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block body_classes %}glossary{% endblock %}
+
+{% block content %}
+<header id="hero">
+    <h1>{{ content.headline }}</h1>
+    <p class="subheadline">{{ content.description }}</p>
+    <a href="/subscribe/" class="btn btn-primary">Subscribe <span class="cta-arrow"></span></a>    
+</header>
+
+<section class="glossary">
+    <ul class="terms-list grid-terms">
+        {% for term in object_list %}
+        <a href="{{ term.get_absolute_url }}">
+            <li class="term-item">
+                <div class="term">
+                    {{ term.title }}
+                </div>
+                <div class="date">
+                    {{ term.publish_date|date:"M j, Y" }}
+                </div>
+            </li>
+        </a>
+        {% endfor %}
+    </ul>
+
+    {% include 'partials/navigation/pagination.html' %}
+</section>
+
+{% include 'partials/cta/embedded-subscribe.html' %}
+
+{% endblock %}

@@ -1,0 +1,39 @@
+@use '../abstracts/colors.scss';
+
+.glossary {
+    & #hero {
+        h1 {
+            max-width: 20ch;
+        }
+        & .subheadline {
+            max-width: 75ch;
+        }
+    }
+
+    & .grid-terms {
+        --_grid-gap: .5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--_grid-gap);
+    position: relative;
+    margin-top: 2rem;
+    padding-top: 2.75rem;
+
+    &::before {
+        content: 'Glossary';
+        position: absolute;
+        text-transform: uppercase;
+        font-size: .75rem;
+        letter-spacing: 1.75px;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        width: calc(100% - 10ch);
+        height: 1px;
+        background-color: colors.$white;
+        right: 0;
+        top: 8px;
+    }
+    }
+}

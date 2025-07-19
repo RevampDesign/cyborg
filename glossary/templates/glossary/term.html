@@ -1,0 +1,30 @@
+{# <!-- THIS IS A TEST TEMPLATE FOR WAGTAIL, FOLLOWING THEIR TEMPLATE NAMING --> #}
+
+{% extends 'base.html' %}
+{% load wagtailcore_tags %}
+
+{% block body_classes %}article{% endblock %}
+
+{% block content %}
+{% include 'partials/navigation/breadcrumbs.html' %}
+
+<article class="article">
+    <div class="grid-article" itemscope itemtype="https://schema.org/DefinedTerm">
+        <header>
+            <h1 itemprop="name">{{page.title}}</h1>
+        </header>
+
+        <div class="body">
+            {{ page.body|richtext }}
+        </div>
+        
+        <div class="summary" itemprop="description">
+            {{ page.summary|safe }}
+        </div>
+
+
+    </div>
+</article>
+
+
+{% endblock %}
