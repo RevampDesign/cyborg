@@ -206,6 +206,13 @@ My sketchbook is my learning tool, my thinking tool. To get the most out of it, 
     </div>
 </article>
 
+<!-- <a href="/newsletters/the-story-that-undid-me/" class="link-with-preview" data-popover-target="are-we-asking-the-right-question">HOVER TO SHOW</a> -->
+
+<div class="linked-articles">
+    
+</div>
+
+
 
 
     </main>
@@ -233,6 +240,45 @@ My sketchbook is my learning tool, my thinking tool. To get the most out of it, 
 
 
     <script src="/static/js/scripts.js" defer></script>
+
+    
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+    const newsletterLinks = document.querySelectorAll('a[href^="/newsletters/"]');
+
+    newsletterLinks.forEach(link => {
+        link.classList.add("link-with-preview");
+        // Extract the slug from the link's href attribute
+        const url = link.getAttribute('href');
+        const slugMatch = url.match(/\/newsletters\/([^/]+)\/$/);
+        if (slugMatch && slugMatch[1]) {
+            link.setAttribute('data-popover-target', slugMatch[1])
+        }
+    });
+
+
+
+  const links = document.querySelectorAll('.link-with-preview');
+
+  links.forEach(link => {
+    const popoverId = link.getAttribute('data-popover-target');
+    const popover = document.getElementById(popoverId);
+
+    if (popover) {
+      link.addEventListener('mouseenter', () => {
+        popover.showPopover();
+      });
+
+      // Hide the popover when the mouse leaves the link
+      link.addEventListener('mouseleave', () => {
+        popover.hidePopover();
+      });
+
+    }
+  });
+});
+</script>
+
 
 </body>
 </html>

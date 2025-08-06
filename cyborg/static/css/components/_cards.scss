@@ -80,3 +80,44 @@ a:has( .card ) {
         text-align: left;
     }
 }
+
+.link-preview {
+    max-width: clamp(250px, 25vw, 500px);
+    border: 0;
+    transition: all .15s;
+    background: none;
+    & .card {
+        background-color: var(--black);
+        & h2 {
+            font-size: var(--article-h4-font-size);
+            margin: 0;
+        }
+    }
+}
+
+.link-with-preview {
+    anchor-name: --preview-link;
+}
+[popover] {
+    position: absolute;
+    position-anchor: --preview-link;
+    // inset: unset;
+    position-try-fallbacks: --top-to-bottom;
+    top: calc(anchor(top) + 2rem);
+    left: anchor(center);
+    translate: -50%;
+    margin-bottom: 1rem;
+    max-width: clamp(250px, 35vw, 500px);
+    // max-width: 250px;
+}
+
+@position-fallback --top-to-bottom {
+    @try {
+        bottom: anchor(top);
+        left: anchor(center);
+    }
+    @try {
+        top: anchor(bottom);
+        left: anchor(center);
+    }
+}
