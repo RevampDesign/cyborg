@@ -1,0 +1,9 @@
+@use '../abstracts/colors.scss';
+@use '../abstracts/radius.scss';
+
+.article-content {
+    img {
+        border: 1px solid colors.$white;
+        border-radius: radius.$img-radius;
+    }
+}
