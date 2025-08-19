@@ -24,8 +24,9 @@ def get_all_terms():
     # has named parameters. You can just export a small subset of values
     # here if you wish to limit what pages will be generated.
     for post in Term.objects.all():
-        # Note 'slug' match the URL parameter names
-        yield {'slug': post.slug}
+        if post.approved:
+            # Note 'slug' match the URL parameter names
+            yield {'slug': post.slug}
 
 
 urlpatterns = [
