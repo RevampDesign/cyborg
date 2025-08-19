@@ -39,3 +39,24 @@ class Term(MetaSEO, Approval): # Removed Page to avoid migration issues merging 
             self.sources = marko.convert(self.sources)
 
         super().save(*args, **kwargs)
+
+
+class TermSource(models.Model):
+    """ Junction so that we can put sources on terms, but reuse sources throughout site """
+    term = models.ForeignKey(
+        'glossary.Term',
+        on_delete=models.CASCADE,
+    )
+
+    source = models.ForeignKey(
+        'glossary.Source',
+        on_delete=models.CASCADE,
+    )
+
+    page_number = models.CharField(blank=True, max_length=50, help_text="Number or range")
+
+    order = models.PositiveIntegerField(default=0, blank=False, null=False)
+
+    class Meta(object):
+        # Auto Ordering field for sortable2
+        ordering = ['order']

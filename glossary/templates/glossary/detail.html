@@ -6,14 +6,31 @@
 {% include 'partials/navigation/breadcrumbs.html' %}
 
 <article class="article">
-    <div class="grid-article" itemscope itemtype="https://schema.org/DefinedTerm">
-        <header>
-            <h1 itemprop="name">{{content.title}}</h1>
-        </header>
-        
-        <div class="summary" itemprop="description">
-            {{ content.summary|safe }}
+    <div class="grid-article">
+        <div itemscope itemtype="https://schema.org/DefinedTerm">
+            <header>
+                <h1 itemprop="name">{{content.title}}</h1>
+            </header>
+            
+            <div class="summary" itemprop="description">
+                {{ content.summary|safe }}
+            </div>
         </div>
+
+        {% if content.sources or content.termsource_set.first %}
+        <section id="sources" aria-labelledby="sources-headline">
+            <h2 id="sources-headline">Sources</h2>
+            {% if content.termsource_set.first %}
+                {% for item in content.termsource_set.all %}
+                    {% include 'glossary/partials/term-source.html' with item=item %}
+                {% endfor %}
+            {% endif %}
+
+            {{ content.sources|safe }}
+        </section>
+        {% endif %}
+
+
 
         {% comment %}
         <aside id="article-outline">

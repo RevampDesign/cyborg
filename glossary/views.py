@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import Http404
 from django.views.generic.list import ListView
 from django.urls import reverse
 
@@ -19,6 +20,9 @@ class TermList(ListView):
 
 def termDetail(request, slug):
     content = get_object_or_404(Term, slug=slug)
+
+    if not content.approved:
+        raise Http404("Not Found")
 
     breadcrumb_parents = [{'title': 'Glossary', 'url': '/glossary/'}]
 

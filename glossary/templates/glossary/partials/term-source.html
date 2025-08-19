@@ -1,0 +1,24 @@
+{% spaceless %}
+<div itemscope itemtype="https://schema.org/{% if item.source.creative_work_type %}{{ item.source.creative_work_type }}{% else %}CreativeWork{% endif %}">
+    <p>
+        <cite itemprop="name">{{ item.source.title }}</cite>, 
+        
+        {{ item.source.chicago_authors|safe }}
+        
+        {% if item.source.publisher or item.source.copyright_year %}
+            (
+            {% if item.source.publisher %}
+                {{ item.source.publisher }},  
+            {% endif %}
+            {% if item.source.copyright_year %}
+                {{ item.source.copyright_year }}
+            {% endif %}
+            )
+        {% endif %}
+
+        {% if item.page_number %}
+            , {{ item.page_number }}
+        {% endif %}
+    </p>
+</div>
+{% endspaceless %}

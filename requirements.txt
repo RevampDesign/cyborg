@@ -10,3 +10,4 @@ psycopg2-binary==2.9.10
 requests==2.32.3
 sqlparse==0.5.1
 urllib3==2.3.0
+django-admin-sortable2=2.2.4

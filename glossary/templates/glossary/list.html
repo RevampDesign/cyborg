@@ -11,7 +11,8 @@
 
 <section class="glossary">
     <ul class="terms-list grid-terms">
-        {% for term in object_list %}
+    {% for term in object_list %}
+        {% if term.approved %}
         <a href="{{ term.get_absolute_url }}">
             <li class="term-item">
                 <div class="term">
@@ -22,7 +23,8 @@
                 </div>
             </li>
         </a>
-        {% endfor %}
+        {% endif %}
+    {% endfor %}
     </ul>
 
     {% include 'partials/navigation/pagination.html' %}
