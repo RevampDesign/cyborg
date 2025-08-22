@@ -13,7 +13,8 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
     <!-- /FONTS -->
 
-    
+    <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Upgrade your humanity.">
     <meta name="twitter:description" content="An exploration of technology and systems and how they interact, dominate, or support our humanity.">
@@ -33,7 +34,10 @@
 
     
     <link rel="icon" href="/static/images/brand/favicon/cyborg.ico" sizes="32x32">
+
     
+    <link rel="alternate" type="application/rss+xml" title="CYBORG_ Newsletter" href="/newsletters/feed/">
+
     
 </head>
 <body class="article">
@@ -157,45 +161,49 @@
 <p>There’s always a chance you’ll come back when you’re ready; when it’s the right time. Not every book is worth reading. You may need a summary to know if it <em>might</em> be worth reading. Summarize all you want, but everything has a cost, and it may be worth paying as long as you know that you’re paying it.</p>
         </div>
 
-        <aside id="article-outline">
-            <h2>Outline</h2>
-            <nav aria-label="Outline">
-                <ul id="article-outline-content"></ul>
-            </nav>
-            <script>
-            const outline = document.getElementById('article-outline-content');
-            const content = document.querySelector('.article-content');
+        <div class="rail">
+            <aside id="article-outline">
+                <h2>Outline</h2>
+                <nav aria-label="Outline">
+                    <ul id="article-outline-content"></ul>
+                </nav>
+                <script>
+                const outline = document.getElementById('article-outline-content');
+                const content = document.querySelector('.article-content');
+                
+                function generateOutline(contentElement) {
+                const headings = contentElement.querySelectorAll('h1, h2, h3, h4, h5, h6');
+                if(headings.length > 0){
+                        headings.forEach(heading => {
+                            const outlineItem = document.createElement('li');
+                            const anchor = document.createElement('a');
+                            anchor.href = '#' + heading.id; // If headings have IDs
+                            anchor.textContent = heading.textContent;
+                            outlineItem.appendChild(anchor);
+                            outlineItem.classList.add(heading.tagName.toLowerCase()); 
             
-            function generateOutline(contentElement) {
-              const headings = contentElement.querySelectorAll('h1, h2, h3, h4, h5, h6');
-              if(headings.length > 0){
-                    headings.forEach(heading => {
-                        const outlineItem = document.createElement('li');
-                        const anchor = document.createElement('a');
-                        anchor.href = '#' + heading.id; // If headings have IDs
-                        anchor.textContent = heading.textContent;
-                        outlineItem.appendChild(anchor);
-                        outlineItem.classList.add(heading.tagName.toLowerCase()); 
-        
-                        anchor.addEventListener('click', (event) => {
-                            event.preventDefault();
-                            heading.scrollIntoView({ behavior: 'smooth' });
+                            anchor.addEventListener('click', (event) => {
+                                event.preventDefault();
+                                heading.scrollIntoView({ behavior: 'smooth' });
+                            });
+            
+                            outline.appendChild(outlineItem);
                         });
-        
-                        outline.appendChild(outlineItem);
-                    });
+                    }
+                    else {
+                        const article = document.getElementById("blog-article");
+                        const sidebar = document.getElementById("outline-sidebar");
+                        article.classList.remove("justify-content-between");
+                        article.classList.add("justify-content-center");
+                        sidebar.classList.add("d-none");
+                    }
                 }
-                else {
-                    const article = document.getElementById("blog-article");
-                    const sidebar = document.getElementById("outline-sidebar");
-                    article.classList.remove("justify-content-between");
-                    article.classList.add("justify-content-center");
-                    sidebar.classList.add("d-none");
-                }
-            }
-            generateOutline(content);
-            </script>
-        </aside>
+                generateOutline(content);
+                </script>
+            </aside>
+
+            
+        </div>
     </div>
 </article>
 

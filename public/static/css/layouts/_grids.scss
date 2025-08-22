@@ -31,11 +31,22 @@
 .grid-article > *, .full-width > * {
     grid-column: content;
 }
-.grid-article > aside#article-outline {
+/* .grid-article > aside#article-outline, */ 
+.rail {
+    height: fit-content;
+}
+.grid-article > .rail {
     position: sticky;
     top: calc(var(--nav-height) + 2rem);
     grid-column: 1;
     grid-row: 2;
+
+    & aside {
+        margin-top: var(--article-space-lg);
+        &:first-of-type {
+            margin-top: 0;
+        }
+    }
 }
 
 .callout {
