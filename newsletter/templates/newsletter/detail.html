@@ -36,45 +36,61 @@
             {{ content.body|safe }}
         </div>
 
-        <aside id="article-outline">
-            <h2>Outline</h2>
-            <nav aria-label="Outline">
-                <ul id="article-outline-content"></ul>
-            </nav>
-            <script>
-            const outline = document.getElementById('article-outline-content');
-            const content = document.querySelector('.article-content');
+        <div class="rail">
+            <aside id="article-outline">
+                <h2>Outline</h2>
+                <nav aria-label="Outline">
+                    <ul id="article-outline-content"></ul>
+                </nav>
+                <script>
+                const outline = document.getElementById('article-outline-content');
+                const content = document.querySelector('.article-content');
+                
+                function generateOutline(contentElement) {
+                const headings = contentElement.querySelectorAll('h1, h2, h3, h4, h5, h6');
+                if(headings.length > 0){
+                        headings.forEach(heading => {
+                            const outlineItem = document.createElement('li');
+                            const anchor = document.createElement('a');
+                            anchor.href = '#' + heading.id; // If headings have IDs
+                            anchor.textContent = heading.textContent;
+                            outlineItem.appendChild(anchor);
+                            outlineItem.classList.add(heading.tagName.toLowerCase()); 
             
-            function generateOutline(contentElement) {
-              const headings = contentElement.querySelectorAll('h1, h2, h3, h4, h5, h6');
-              if(headings.length > 0){
-                    headings.forEach(heading => {
-                        const outlineItem = document.createElement('li');
-                        const anchor = document.createElement('a');
-                        anchor.href = '#' + heading.id; // If headings have IDs
-                        anchor.textContent = heading.textContent;
-                        outlineItem.appendChild(anchor);
-                        outlineItem.classList.add(heading.tagName.toLowerCase()); 
-        
-                        anchor.addEventListener('click', (event) => {
-                            event.preventDefault();
-                            heading.scrollIntoView({ behavior: 'smooth' });
+                            anchor.addEventListener('click', (event) => {
+                                event.preventDefault();
+                                heading.scrollIntoView({ behavior: 'smooth' });
+                            });
+            
+                            outline.appendChild(outlineItem);
                         });
-        
-                        outline.appendChild(outlineItem);
-                    });
+                    }
+                    else {
+                        const article = document.getElementById("blog-article");
+                        const sidebar = document.getElementById("outline-sidebar");
+                        article.classList.remove("justify-content-between");
+                        article.classList.add("justify-content-center");
+                        sidebar.classList.add("d-none");
+                    }
                 }
-                else {
-                    const article = document.getElementById("blog-article");
-                    const sidebar = document.getElementById("outline-sidebar");
-                    article.classList.remove("justify-content-between");
-                    article.classList.add("justify-content-center");
-                    sidebar.classList.add("d-none");
-                }
-            }
-            generateOutline(content);
-            </script>
-        </aside>
+                generateOutline(content);
+                </script>
+            </aside>
+
+            {% if content.glossary_links.first %}
+            <!-- TODO: https://gemini.google.com/app/0f90f3c7d176a1d3 Set up a recommendation engine for my admin, then can create a glossary links list -->
+            <aside id="glossary">
+                <h2>Glossary</h2>
+                <nav aria-label="Outline">
+                    <ul id="article-glossary-content">
+                        {% for link in content.glossary_links.all %}
+                        <li itemprop="relatedLink"><a href="{{ link.url }}">{{ link.text }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+            </aside>
+            {% endif %}
+        </div>
     </div>
 </article>
 

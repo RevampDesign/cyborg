@@ -13,7 +13,7 @@ class NewsletterAdmin(ExportModelCSVMixin, AdminViewOnLocalSiteMixin, admin.Mode
 
     fieldsets = (
         ('Meta / SEO', {
-            'fields': ('title', 'description', 'keywords', 'slug', 'author',),
+            'fields': ('title', 'description', 'keywords', 'slug', 'author', 'noindex_nofollow'),
         }),
         ('Article', {
             'fields': ('body', 'tags', ),
