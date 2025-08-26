@@ -77,15 +77,18 @@
                 </script>
             </aside>
 
-            {% if content.glossary_links.first %}
+            {% if content.recommended_links.first %}
             <!-- TODO: https://gemini.google.com/app/0f90f3c7d176a1d3 Set up a recommendation engine for my admin, then can create a glossary links list -->
             <aside id="glossary">
                 <h2>Glossary</h2>
                 <nav aria-label="Outline">
                     <ul id="article-glossary-content">
-                        {% for link in content.glossary_links.all %}
-                        <li itemprop="relatedLink"><a href="{{ link.url }}">{{ link.text }}</a></li>
-                        {% endfor %}
+                    {% for link in content.recommended_links.all %}
+                        {% if link.term.approved %}
+                        {# <!-- Warning since doesn't work within Article type... itemprop="relatedLink" --> #}
+                        <li><a href="{{ link.term.get_absolute_url }}">{{ link.term.title }}&nbsp;&rsaquo;</a></li>
+                        {% endif %}
+                    {% endfor %}
                     </ul>
                 </nav>
             </aside>

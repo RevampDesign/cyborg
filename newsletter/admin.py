@@ -1,14 +1,21 @@
 from django.contrib import admin
 from .models import Newsletter
+from recommendation.models import RecommendedLink
 from cyborg.mixins import ExportModelCSVMixin, AdminViewOnLocalSiteMixin
 
+
+class InlineGLossaryLink(admin.TabularInline):
+    model = RecommendedLink
+    extra = 0
 
 @admin.register(Newsletter)
 class NewsletterAdmin(ExportModelCSVMixin, AdminViewOnLocalSiteMixin, admin.ModelAdmin):
     save_on_top = True
     list_display = ('title', 'tag_list', 'publish_date_only', 'content_review', 'visual_review', 'seo_review', 'approved')
     list_editable = ('content_review', 'visual_review', 'seo_review',)
+    search_fields = ('title', 'body',)
 
+    inlines = (InlineGLossaryLink,)
     actions = ['export_urls_as_csv',]
 
     fieldsets = (

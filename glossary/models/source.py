@@ -31,7 +31,7 @@ class Source(models.Model):
     # Add foreignkey to a publisher model???
     # Add image??? if uploader then the Schema image prop will be the src...
 
-    copyright_year = models.PositiveIntegerField(blank=True)
+    copyright_year = models.PositiveIntegerField(blank=True, null=True)
 
     url = models.URLField(blank=True)
 

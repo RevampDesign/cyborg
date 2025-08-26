@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'glossary.apps.GlossaryConfig',
     'policy.apps.PolicyConfig',
     'publishing.apps.PublishingConfig',
+    'recommendation.apps.RecommendationConfig',
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
     'wagtail.embeds',
