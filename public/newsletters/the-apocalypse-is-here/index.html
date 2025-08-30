@@ -130,7 +130,7 @@
             <h1 itemprop="headline">The Apocalypse Is Here</h1>
         </header>
         
-        <div class="article-content" itemprop="articleBody">
+        <div id="article-body" class="article-content" itemprop="articleBody">
             <p>It was a brisk November night. I was anxiously touching the trigger of my gun just to reassure myself that it was there, ready. A giant soccer goal was being pulled into place at my right, acting as a barrier, and 40 or 50 people backed up with me into the chain link fence.</p>
 <p>&quot;Get ready!&quot; someone shouted into the moonless night. The only light dimly drifted onto the field from a building 300 feet away.</p>
 <p>The chill of the imminent threat zapped through my spine and around my ears. At the other end of the field, a crowd was gathering. An amorphous mass of bodies moving both individually and collectively was both growing and approaching.</p>
@@ -236,19 +236,23 @@
     </div>
 </article>
 
-<!-- <a href="/newsletters/the-story-that-undid-me/" class="link-with-preview" data-popover-target="are-we-asking-the-right-question">HOVER TO SHOW</a> -->
-
 <div class="linked-articles">
     
     <div id="someone-you-can-build-a-nest-in" class="link-preview" popover>
         <a href="/newsletters/someone-you-can-build-a-nest-in/">
             <div class="card">
-                <h2>Someone You Can Build a Nest In</h2>
-                <div>Humans and monsters have a lot more in common than you might think. Explore what monstrosity does or can do for humanity even in the age of technology.</div>
-                <div><small>April 15, 2025</small></div>
+                <div class="card-body">
+                    <h2>Someone You Can Build a Nest In</h2>
+                    <div>Humans and monsters have a lot more in common than you might think. Explore what monstrosity does or can do for humanity even in the age of technology.</div>
+                    <div class="date"><small>April 15, 2025</small></div>
+                </div>
             </div>
         </a>
     </div>
+    
+</div>
+
+<div class="linked-terms">
     
 </div>
 
@@ -284,15 +288,28 @@
     
 <script defer>
 document.addEventListener('DOMContentLoaded', () => {
-    const newsletterLinks = document.querySelectorAll('a[href^="/newsletters/"]');
+    const article = document.getElementById("article-body");
+    const newsletterLinks = article.querySelectorAll('a[href^="/newsletters/"]');
 
     newsletterLinks.forEach(link => {
         link.classList.add("link-with-preview");
-        // Extract the slug from the link's href attribute
+        // Get slug
         const url = link.getAttribute('href');
         const slugMatch = url.match(/\/newsletters\/([^/]+)\/$/);
         if (slugMatch && slugMatch[1]) {
             link.setAttribute('data-popover-target', slugMatch[1])
+        }
+    });
+    
+    // Must search within article body only, since there are glossaryLinks in the aside, now.
+    const glossaryLinks = article.querySelectorAll('a[href^="/glossary/"]');
+
+    glossaryLinks.forEach(link => {
+        link.classList.add("link-with-preview");
+        const termUrl = link.getAttribute('href');
+        const termSlugMatch = termUrl.match(/\/(glossary)\/([^/]+)\/$/);
+        if (termSlugMatch && termSlugMatch[1]) {
+            link.setAttribute('data-popover-target', (termSlugMatch[1] + '-' + termSlugMatch[2]))
         }
     });
 
@@ -303,17 +320,20 @@ document.addEventListener('DOMContentLoaded', () => {
   links.forEach(link => {
     const popoverId = link.getAttribute('data-popover-target');
     const popover = document.getElementById(popoverId);
+    const popoverAnchor = '--' + popoverId;
+
+    // Have to override the anchor-name/position-anchor so that each link uniquely positions the preview (otherwise it all goes to the last one)
+    link.style.anchorName = popoverAnchor;
+    popover.style.positionAnchor = popoverAnchor;
 
     if (popover) {
       link.addEventListener('mouseenter', () => {
         popover.showPopover();
       });
 
-      // Hide the popover when the mouse leaves the link
       link.addEventListener('mouseleave', () => {
         popover.hidePopover();
       });
-
     }
   });
 });

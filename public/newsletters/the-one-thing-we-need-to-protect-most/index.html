@@ -130,7 +130,7 @@
             <h1 itemprop="headline">The One Thing We Need to Protect Most</h1>
         </header>
         
-        <div class="article-content" itemprop="articleBody">
+        <div id="article-body" class="article-content" itemprop="articleBody">
             <p>The kill-switch, shut-off valve, air-lock, buffer zone. All of these are designed to protect us or some system in an emergency. </p>
 <p>One of the strongest criticisms of the stance that AI is a threat is that we can always just pull the plug, shut it down, and turn it off. However, I'm not so sure this is actually an effective means of protection. AI is an unprecedented technology—leaps beyond what we've done before, and that could also mean that our typical methods of shutting something off may be insufficient.</p>
 <p>I don't think we're prepared for what AI is bringing, because we're still so used to technology that (mostly) plays by our rules and is predictable and repeatable. It's almost like all of our previous technology was in 2-dimensions, but AI is a leap into 3-dimensions. The way we (the public, not just tech people) talk about, conceptualize, and interact with tech must upgrade to meet the new challenges and complexities that it presents.</p>
@@ -240,9 +240,11 @@
     </div>
 </article>
 
-<!-- <a href="/newsletters/the-story-that-undid-me/" class="link-with-preview" data-popover-target="are-we-asking-the-right-question">HOVER TO SHOW</a> -->
-
 <div class="linked-articles">
+    
+</div>
+
+<div class="linked-terms">
     
 </div>
 
@@ -278,15 +280,28 @@
     
 <script defer>
 document.addEventListener('DOMContentLoaded', () => {
-    const newsletterLinks = document.querySelectorAll('a[href^="/newsletters/"]');
+    const article = document.getElementById("article-body");
+    const newsletterLinks = article.querySelectorAll('a[href^="/newsletters/"]');
 
     newsletterLinks.forEach(link => {
         link.classList.add("link-with-preview");
-        // Extract the slug from the link's href attribute
+        // Get slug
         const url = link.getAttribute('href');
         const slugMatch = url.match(/\/newsletters\/([^/]+)\/$/);
         if (slugMatch && slugMatch[1]) {
             link.setAttribute('data-popover-target', slugMatch[1])
+        }
+    });
+    
+    // Must search within article body only, since there are glossaryLinks in the aside, now.
+    const glossaryLinks = article.querySelectorAll('a[href^="/glossary/"]');
+
+    glossaryLinks.forEach(link => {
+        link.classList.add("link-with-preview");
+        const termUrl = link.getAttribute('href');
+        const termSlugMatch = termUrl.match(/\/(glossary)\/([^/]+)\/$/);
+        if (termSlugMatch && termSlugMatch[1]) {
+            link.setAttribute('data-popover-target', (termSlugMatch[1] + '-' + termSlugMatch[2]))
         }
     });
 
@@ -297,17 +312,20 @@ document.addEventListener('DOMContentLoaded', () => {
   links.forEach(link => {
     const popoverId = link.getAttribute('data-popover-target');
     const popover = document.getElementById(popoverId);
+    const popoverAnchor = '--' + popoverId;
+
+    // Have to override the anchor-name/position-anchor so that each link uniquely positions the preview (otherwise it all goes to the last one)
+    link.style.anchorName = popoverAnchor;
+    popover.style.positionAnchor = popoverAnchor;
 
     if (popover) {
       link.addEventListener('mouseenter', () => {
         popover.showPopover();
       });
 
-      // Hide the popover when the mouse leaves the link
       link.addEventListener('mouseleave', () => {
         popover.hidePopover();
       });
-
     }
   });
 });

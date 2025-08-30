@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Newsletter
 from recommendation.models import RecommendedLink
 from cyborg.mixins import ExportModelCSVMixin, AdminViewOnLocalSiteMixin
-
+from .forms import NewsletterForm
 
 class InlineGLossaryLink(admin.TabularInline):
     model = RecommendedLink
@@ -17,6 +17,7 @@ class NewsletterAdmin(ExportModelCSVMixin, AdminViewOnLocalSiteMixin, admin.Mode
 
     inlines = (InlineGLossaryLink,)
     actions = ['export_urls_as_csv',]
+    form = NewsletterForm
 
     fieldsets = (
         ('Meta / SEO', {

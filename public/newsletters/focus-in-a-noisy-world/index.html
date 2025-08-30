@@ -130,7 +130,7 @@
             <h1 itemprop="headline">Focus in a Noisy World</h1>
         </header>
         
-        <div class="article-content" itemprop="articleBody">
+        <div id="article-body" class="article-content" itemprop="articleBody">
             <p>Signal, clarity, focus seems ever harder to achieve in our noisy world. It's not that it was ever easy before, but our technology invites more information to process and parse, more choices, and more opportunities both wanted and unwanted.</p>
 <p>How, then, can we find the state of focus that we do want, and eliminate distractions that we don't want?</p>
 <h2>Semantics</h2>
@@ -247,9 +247,11 @@ Especially consider the prevalence of choice overload:<ul>
     </div>
 </article>
 
-<!-- <a href="/newsletters/the-story-that-undid-me/" class="link-with-preview" data-popover-target="are-we-asking-the-right-question">HOVER TO SHOW</a> -->
-
 <div class="linked-articles">
+    
+</div>
+
+<div class="linked-terms">
     
 </div>
 
@@ -285,15 +287,28 @@ Especially consider the prevalence of choice overload:<ul>
     
 <script defer>
 document.addEventListener('DOMContentLoaded', () => {
-    const newsletterLinks = document.querySelectorAll('a[href^="/newsletters/"]');
+    const article = document.getElementById("article-body");
+    const newsletterLinks = article.querySelectorAll('a[href^="/newsletters/"]');
 
     newsletterLinks.forEach(link => {
         link.classList.add("link-with-preview");
-        // Extract the slug from the link's href attribute
+        // Get slug
         const url = link.getAttribute('href');
         const slugMatch = url.match(/\/newsletters\/([^/]+)\/$/);
         if (slugMatch && slugMatch[1]) {
             link.setAttribute('data-popover-target', slugMatch[1])
+        }
+    });
+    
+    // Must search within article body only, since there are glossaryLinks in the aside, now.
+    const glossaryLinks = article.querySelectorAll('a[href^="/glossary/"]');
+
+    glossaryLinks.forEach(link => {
+        link.classList.add("link-with-preview");
+        const termUrl = link.getAttribute('href');
+        const termSlugMatch = termUrl.match(/\/(glossary)\/([^/]+)\/$/);
+        if (termSlugMatch && termSlugMatch[1]) {
+            link.setAttribute('data-popover-target', (termSlugMatch[1] + '-' + termSlugMatch[2]))
         }
     });
 
@@ -304,17 +319,20 @@ document.addEventListener('DOMContentLoaded', () => {
   links.forEach(link => {
     const popoverId = link.getAttribute('data-popover-target');
     const popover = document.getElementById(popoverId);
+    const popoverAnchor = '--' + popoverId;
+
+    // Have to override the anchor-name/position-anchor so that each link uniquely positions the preview (otherwise it all goes to the last one)
+    link.style.anchorName = popoverAnchor;
+    popover.style.positionAnchor = popoverAnchor;
 
     if (popover) {
       link.addEventListener('mouseenter', () => {
         popover.showPopover();
       });
 
-      // Hide the popover when the mouse leaves the link
       link.addEventListener('mouseleave', () => {
         popover.hidePopover();
       });
-
     }
   });
 });

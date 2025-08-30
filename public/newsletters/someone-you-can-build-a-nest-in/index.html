@@ -130,7 +130,7 @@
             <h1 itemprop="headline">Someone You Can Build a Nest In</h1>
         </header>
         
-        <div class="article-content" itemprop="articleBody">
+        <div id="article-body" class="article-content" itemprop="articleBody">
             <p>Surrounded by science and technology, with very few frontiers left to penetrate, it's an odd thing for a 21st century society to continue to lean on monster stories. From movies to games, it's become a vast industry of entertainment to explore what we know are mere figments of our imaginations—or at least, artifacts of our cognition. Monsters aren't real, but they are still among us.</p>
 <p>Fear of the unknown becomes encapsulated in the bodies and behaviors of monsters. Any decent horror film exploits the deep, ancient parts of our brains to cause even the most hearty and posturing human to feel something. A tingle on the spine, a falling sensation in the chest, or a subtle feeling of dread teasing your mind.</p>
 <p>Monster stories spoke to me as a kid in a way that other stories did not initially. I was a closeted queer kid without any concept of <em>why</em> or <em>how</em> I was different than my peers, yet I still knew that I was. I felt like a monster from stories I'd read or even ones I'd created: Something different, something others feared, despite being benevolent—the good guy. Being misunderstood and misrepresented makes it easy to relate to the creatures we've invented since the beginning of our humanity. And the worst part is that we usually make monsters out of humans.</p>
@@ -226,16 +226,16 @@
     </div>
 </article>
 
-<!-- <a href="/newsletters/the-story-that-undid-me/" class="link-with-preview" data-popover-target="are-we-asking-the-right-question">HOVER TO SHOW</a> -->
-
 <div class="linked-articles">
     
     <div id="value-driven" class="link-preview" popover>
         <a href="/newsletters/value-driven/">
             <div class="card">
-                <h2>Value Driven</h2>
-                <div>How to stand when the numbers are stacked against you.</div>
-                <div><small>January 28, 2025</small></div>
+                <div class="card-body">
+                    <h2>Value Driven</h2>
+                    <div>How to stand when the numbers are stacked against you.</div>
+                    <div class="date"><small>January 28, 2025</small></div>
+                </div>
             </div>
         </a>
     </div>
@@ -243,12 +243,18 @@
     <div id="i-fasted-from-watching-violence-for-twelve-years" class="link-preview" popover>
         <a href="/newsletters/i-fasted-from-watching-violence-for-twelve-years/">
             <div class="card">
-                <h2>I Fasted From Watching Violence for 12 Years</h2>
-                <div>What role does violence play in our lives? Are we harming ourselves more by closing our eyes to the violence around us?</div>
-                <div><small>May 21, 2025</small></div>
+                <div class="card-body">
+                    <h2>I Fasted From Watching Violence for 12 Years</h2>
+                    <div>What role does violence play in our lives? Are we harming ourselves more by closing our eyes to the violence around us?</div>
+                    <div class="date"><small>May 21, 2025</small></div>
+                </div>
             </div>
         </a>
     </div>
+    
+</div>
+
+<div class="linked-terms">
     
 </div>
 
@@ -284,15 +290,28 @@
     
 <script defer>
 document.addEventListener('DOMContentLoaded', () => {
-    const newsletterLinks = document.querySelectorAll('a[href^="/newsletters/"]');
+    const article = document.getElementById("article-body");
+    const newsletterLinks = article.querySelectorAll('a[href^="/newsletters/"]');
 
     newsletterLinks.forEach(link => {
         link.classList.add("link-with-preview");
-        // Extract the slug from the link's href attribute
+        // Get slug
         const url = link.getAttribute('href');
         const slugMatch = url.match(/\/newsletters\/([^/]+)\/$/);
         if (slugMatch && slugMatch[1]) {
             link.setAttribute('data-popover-target', slugMatch[1])
+        }
+    });
+    
+    // Must search within article body only, since there are glossaryLinks in the aside, now.
+    const glossaryLinks = article.querySelectorAll('a[href^="/glossary/"]');
+
+    glossaryLinks.forEach(link => {
+        link.classList.add("link-with-preview");
+        const termUrl = link.getAttribute('href');
+        const termSlugMatch = termUrl.match(/\/(glossary)\/([^/]+)\/$/);
+        if (termSlugMatch && termSlugMatch[1]) {
+            link.setAttribute('data-popover-target', (termSlugMatch[1] + '-' + termSlugMatch[2]))
         }
     });
 
@@ -303,17 +322,20 @@ document.addEventListener('DOMContentLoaded', () => {
   links.forEach(link => {
     const popoverId = link.getAttribute('data-popover-target');
     const popover = document.getElementById(popoverId);
+    const popoverAnchor = '--' + popoverId;
+
+    // Have to override the anchor-name/position-anchor so that each link uniquely positions the preview (otherwise it all goes to the last one)
+    link.style.anchorName = popoverAnchor;
+    popover.style.positionAnchor = popoverAnchor;
 
     if (popover) {
       link.addEventListener('mouseenter', () => {
         popover.showPopover();
       });
 
-      // Hide the popover when the mouse leaves the link
       link.addEventListener('mouseleave', () => {
         popover.hidePopover();
       });
-
     }
   });
 });

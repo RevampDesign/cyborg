@@ -130,7 +130,7 @@
             <h1 itemprop="headline">Afraid</h1>
         </header>
         
-        <div class="article-content" itemprop="articleBody">
+        <div id="article-body" class="article-content" itemprop="articleBody">
             <p>Only three years ago, I was shamed in a Slack conversation at work for praising the concept behind GitHub’s Copilot. It was one of the first times that AI was packaged into something easy and workable for a larger market (to my knowledge anyway).</p>
 <p>Copilot’s promise was to help developers write code faster, by turning comments or partial snippets into real code—meaning the human does all the thinking and the AI translates it (or predicts it) into the programming language.</p>
 <p>I had been working on the concept of building artificial assistants to my work with special focus after my MS diagnosis. These “assistants” were in the form of bots, which are little scripts that execute tasks. These bots are not like AI at all, because anything the bot can do is completely defined by my programming—no ability to learn, take orders in “natural language,” or do anything that isn’t already programmed. I have to create each bot by hand.</p>
@@ -212,19 +212,23 @@
     </div>
 </article>
 
-<!-- <a href="/newsletters/the-story-that-undid-me/" class="link-with-preview" data-popover-target="are-we-asking-the-right-question">HOVER TO SHOW</a> -->
-
 <div class="linked-articles">
     
     <div id="the-problem-we-are-avoiding-with-ai" class="link-preview" popover>
         <a href="/newsletters/the-problem-we-are-avoiding-with-ai/">
             <div class="card">
-                <h2>The Problem We&#x27;re Avoiding with AI</h2>
-                <div>Forget killer robots. There&#x27;s something much more concerning in the quiet, everyday problems AI presents that society prefers to ignore—until it&#x27;s too late.</div>
-                <div><small>March 26, 2024</small></div>
+                <div class="card-body">
+                    <h2>The Problem We&#x27;re Avoiding with AI</h2>
+                    <div>Forget killer robots. There&#x27;s something much more concerning in the quiet, everyday problems AI presents that society prefers to ignore—until it&#x27;s too late.</div>
+                    <div class="date"><small>March 26, 2024</small></div>
+                </div>
             </div>
         </a>
     </div>
+    
+</div>
+
+<div class="linked-terms">
     
 </div>
 
@@ -260,15 +264,28 @@
     
 <script defer>
 document.addEventListener('DOMContentLoaded', () => {
-    const newsletterLinks = document.querySelectorAll('a[href^="/newsletters/"]');
+    const article = document.getElementById("article-body");
+    const newsletterLinks = article.querySelectorAll('a[href^="/newsletters/"]');
 
     newsletterLinks.forEach(link => {
         link.classList.add("link-with-preview");
-        // Extract the slug from the link's href attribute
+        // Get slug
         const url = link.getAttribute('href');
         const slugMatch = url.match(/\/newsletters\/([^/]+)\/$/);
         if (slugMatch && slugMatch[1]) {
             link.setAttribute('data-popover-target', slugMatch[1])
+        }
+    });
+    
+    // Must search within article body only, since there are glossaryLinks in the aside, now.
+    const glossaryLinks = article.querySelectorAll('a[href^="/glossary/"]');
+
+    glossaryLinks.forEach(link => {
+        link.classList.add("link-with-preview");
+        const termUrl = link.getAttribute('href');
+        const termSlugMatch = termUrl.match(/\/(glossary)\/([^/]+)\/$/);
+        if (termSlugMatch && termSlugMatch[1]) {
+            link.setAttribute('data-popover-target', (termSlugMatch[1] + '-' + termSlugMatch[2]))
         }
     });
 
@@ -279,17 +296,20 @@ document.addEventListener('DOMContentLoaded', () => {
   links.forEach(link => {
     const popoverId = link.getAttribute('data-popover-target');
     const popover = document.getElementById(popoverId);
+    const popoverAnchor = '--' + popoverId;
+
+    // Have to override the anchor-name/position-anchor so that each link uniquely positions the preview (otherwise it all goes to the last one)
+    link.style.anchorName = popoverAnchor;
+    popover.style.positionAnchor = popoverAnchor;
 
     if (popover) {
       link.addEventListener('mouseenter', () => {
         popover.showPopover();
       });
 
-      // Hide the popover when the mouse leaves the link
       link.addEventListener('mouseleave', () => {
         popover.hidePopover();
       });
-
     }
   });
 });

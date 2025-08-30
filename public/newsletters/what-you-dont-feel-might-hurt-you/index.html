@@ -130,7 +130,7 @@
             <h1 itemprop="headline">What You Don&#x27;t Feel Might Hurt You</h1>
         </header>
         
-        <div class="article-content" itemprop="articleBody">
+        <div id="article-body" class="article-content" itemprop="articleBody">
             <p>In January this year, after the current U.S. president had been sworn in, I looked outside at the sky. I was very upset, because all of the warning signs in my brain were painting a picture of intense suffering and destruction across the nation and even the entire world. Trying to imagine the future of the U.S. was horrifying, and there was nothing I could do to stop it.</p>
 <p>&quot;It's bizarre! I look outside and everything looks fine—normal. It doesn't match,&quot; I told my wife. I couldn't wrap my head around the serene view in front of me in such sharp contrast to what I knew was coming.</p>
 <p>Note that it is absolute privilege and luck that I was still able to look at the sky at all—I recognize some people faced immediate threats, dangers, and life-altering situations the moment the new president was sworn in.</p>
@@ -193,19 +193,23 @@
     </div>
 </article>
 
-<!-- <a href="/newsletters/the-story-that-undid-me/" class="link-with-preview" data-popover-target="are-we-asking-the-right-question">HOVER TO SHOW</a> -->
-
 <div class="linked-articles">
     
     <div id="so-predictable" class="link-preview" popover>
         <a href="/newsletters/so-predictable/">
             <div class="card">
-                <h2>So Predictable</h2>
-                <div>How to deal with predictions that shouldn&#x27;t be dismissed, even though we want to due to fear or disbelief.</div>
-                <div><small>August 12, 2025</small></div>
+                <div class="card-body">
+                    <h2>So Predictable</h2>
+                    <div>How to deal with predictions that shouldn&#x27;t be dismissed, even though we want to due to fear or disbelief.</div>
+                    <div class="date"><small>August 12, 2025</small></div>
+                </div>
             </div>
         </a>
     </div>
+    
+</div>
+
+<div class="linked-terms">
     
 </div>
 
@@ -241,15 +245,28 @@
     
 <script defer>
 document.addEventListener('DOMContentLoaded', () => {
-    const newsletterLinks = document.querySelectorAll('a[href^="/newsletters/"]');
+    const article = document.getElementById("article-body");
+    const newsletterLinks = article.querySelectorAll('a[href^="/newsletters/"]');
 
     newsletterLinks.forEach(link => {
         link.classList.add("link-with-preview");
-        // Extract the slug from the link's href attribute
+        // Get slug
         const url = link.getAttribute('href');
         const slugMatch = url.match(/\/newsletters\/([^/]+)\/$/);
         if (slugMatch && slugMatch[1]) {
             link.setAttribute('data-popover-target', slugMatch[1])
+        }
+    });
+    
+    // Must search within article body only, since there are glossaryLinks in the aside, now.
+    const glossaryLinks = article.querySelectorAll('a[href^="/glossary/"]');
+
+    glossaryLinks.forEach(link => {
+        link.classList.add("link-with-preview");
+        const termUrl = link.getAttribute('href');
+        const termSlugMatch = termUrl.match(/\/(glossary)\/([^/]+)\/$/);
+        if (termSlugMatch && termSlugMatch[1]) {
+            link.setAttribute('data-popover-target', (termSlugMatch[1] + '-' + termSlugMatch[2]))
         }
     });
 
@@ -260,17 +277,20 @@ document.addEventListener('DOMContentLoaded', () => {
   links.forEach(link => {
     const popoverId = link.getAttribute('data-popover-target');
     const popover = document.getElementById(popoverId);
+    const popoverAnchor = '--' + popoverId;
+
+    // Have to override the anchor-name/position-anchor so that each link uniquely positions the preview (otherwise it all goes to the last one)
+    link.style.anchorName = popoverAnchor;
+    popover.style.positionAnchor = popoverAnchor;
 
     if (popover) {
       link.addEventListener('mouseenter', () => {
         popover.showPopover();
       });
 
-      // Hide the popover when the mouse leaves the link
       link.addEventListener('mouseleave', () => {
         popover.hidePopover();
       });
-
     }
   });
 });

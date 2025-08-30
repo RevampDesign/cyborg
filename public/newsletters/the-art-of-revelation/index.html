@@ -130,7 +130,7 @@
             <h1 itemprop="headline">The Art of Revelation</h1>
         </header>
         
-        <div class="article-content" itemprop="articleBody">
+        <div id="article-body" class="article-content" itemprop="articleBody">
             <p>For the last year, the ghost of a prior failure haunted me every time I went into my garage. This particular phantom was a canvas that I had messed up while painting. It had a beautifully blended rainbow background, starting at the top with a deep crimson, melding into orange and yellow, then somewhat sharply changing to green, then blue, and a hint of indigo at the bottom. The idea was to depict a sunset over water, so that my Pride-flag colors could be projected onto a somewhat natural scene. The only flaw was that the transition to the &quot;water&quot; surface got a little too abrupt with a few misplaced strokes of green that were too high to make it appear intentional, and too dark to hide under another coat of yellow.</p>
 <p>Finally fed up with its taunts, I grabbed my paints, determined to try again. I had a ruined canvas before me, but the original image and composition still interested me, so I turned it into an experiment to see if it could work in a different style: instead of a perfectly smooth gradient, I opted for something messy and chaotic. I layered on the paint, rebuilding scene on top of the previous one, but this time I didn't care about perfection. I wasn't painting—I was playing.</p>
 <p>In perfect irony, the final image was much more visually appealing—even with the exact same issue that it had before: small green splashes of paint on top of the fragile yellow area. I had gotten carried away with my palette knife, just like I had with my brush last year. This time around, however, this doesn't bother me—it's not trying to be photo-realistic, it's trying to say something.</p>
@@ -223,9 +223,11 @@
     </div>
 </article>
 
-<!-- <a href="/newsletters/the-story-that-undid-me/" class="link-with-preview" data-popover-target="are-we-asking-the-right-question">HOVER TO SHOW</a> -->
-
 <div class="linked-articles">
+    
+</div>
+
+<div class="linked-terms">
     
 </div>
 
@@ -261,15 +263,28 @@
     
 <script defer>
 document.addEventListener('DOMContentLoaded', () => {
-    const newsletterLinks = document.querySelectorAll('a[href^="/newsletters/"]');
+    const article = document.getElementById("article-body");
+    const newsletterLinks = article.querySelectorAll('a[href^="/newsletters/"]');
 
     newsletterLinks.forEach(link => {
         link.classList.add("link-with-preview");
-        // Extract the slug from the link's href attribute
+        // Get slug
         const url = link.getAttribute('href');
         const slugMatch = url.match(/\/newsletters\/([^/]+)\/$/);
         if (slugMatch && slugMatch[1]) {
             link.setAttribute('data-popover-target', slugMatch[1])
+        }
+    });
+    
+    // Must search within article body only, since there are glossaryLinks in the aside, now.
+    const glossaryLinks = article.querySelectorAll('a[href^="/glossary/"]');
+
+    glossaryLinks.forEach(link => {
+        link.classList.add("link-with-preview");
+        const termUrl = link.getAttribute('href');
+        const termSlugMatch = termUrl.match(/\/(glossary)\/([^/]+)\/$/);
+        if (termSlugMatch && termSlugMatch[1]) {
+            link.setAttribute('data-popover-target', (termSlugMatch[1] + '-' + termSlugMatch[2]))
         }
     });
 
@@ -280,17 +295,20 @@ document.addEventListener('DOMContentLoaded', () => {
   links.forEach(link => {
     const popoverId = link.getAttribute('data-popover-target');
     const popover = document.getElementById(popoverId);
+    const popoverAnchor = '--' + popoverId;
+
+    // Have to override the anchor-name/position-anchor so that each link uniquely positions the preview (otherwise it all goes to the last one)
+    link.style.anchorName = popoverAnchor;
+    popover.style.positionAnchor = popoverAnchor;
 
     if (popover) {
       link.addEventListener('mouseenter', () => {
         popover.showPopover();
       });
 
-      // Hide the popover when the mouse leaves the link
       link.addEventListener('mouseleave', () => {
         popover.hidePopover();
       });
-
     }
   });
 });

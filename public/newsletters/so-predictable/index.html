@@ -130,7 +130,7 @@
             <h1 itemprop="headline">So Predictable</h1>
         </header>
         
-        <div class="article-content" itemprop="articleBody">
+        <div id="article-body" class="article-content" itemprop="articleBody">
             <p>I'm not sure if there's any role more polarizing than a &quot;prophet.&quot; They either are, or they're not a prophet. They're listened to or dismissed. They're inspired or they're crazy.</p>
 <p>Prophets, for the purposes of today's letter, is less about religious leadership and more about the function that the role implies: prophecy. Being able to see, predict, or warn about the future is something that we humans seem to crave. Weather apps were already pre-loaded onto every smartphone I've ever had. We look to experts to tell us if it's a good time to buy a house. We depend on organizations to &quot;watch&quot; for warning signs of all kinds in business. We rely on doctors to help us make decisions about future health concerns.</p>
 <p>It's an ironic pairing that science and technology are so entangled with the idea of prophecy—even enabling prophecy in a lot of ways. The mystical is inextricably linked to our applications of science. We perhaps feel accustomed to it now: having vast amounts of predictive information swirling around our fingers as they glide across crystal tablets. </p>
@@ -220,16 +220,32 @@
     </div>
 </article>
 
-<!-- <a href="/newsletters/the-story-that-undid-me/" class="link-with-preview" data-popover-target="are-we-asking-the-right-question">HOVER TO SHOW</a> -->
-
 <div class="linked-articles">
     
     <div id="the-one-thing-we-need-to-protect-most" class="link-preview" popover>
         <a href="/newsletters/the-one-thing-we-need-to-protect-most/">
             <div class="card">
-                <h2>The One Thing We Need to Protect Most</h2>
-                <div>AI has raised the stakes of everything it touches, and we need to be proactive to find protections now before it&#x27;s too late.</div>
-                <div><small>May 27, 2025</small></div>
+                <div class="card-body">
+                    <h2>The One Thing We Need to Protect Most</h2>
+                    <div>AI has raised the stakes of everything it touches, and we need to be proactive to find protections now before it&#x27;s too late.</div>
+                    <div class="date"><small>May 27, 2025</small></div>
+                </div>
+            </div>
+        </a>
+    </div>
+    
+</div>
+
+<div class="linked-terms">
+    
+    <div id="glossary-apophany" class="link-preview" popover>
+        <a href="/glossary/apophany/">
+            <div class="card">
+                <div class="card-body">
+                    <div class="chips"><div class="chip">Glossary</div></div>
+                    <h2>Apophany</h2>
+                    <div>Perceiving patterns out of noise—even when the patterns don&#x27;t actually exist or connect.</div>
+                </div>
             </div>
         </a>
     </div>
@@ -268,15 +284,28 @@
     
 <script defer>
 document.addEventListener('DOMContentLoaded', () => {
-    const newsletterLinks = document.querySelectorAll('a[href^="/newsletters/"]');
+    const article = document.getElementById("article-body");
+    const newsletterLinks = article.querySelectorAll('a[href^="/newsletters/"]');
 
     newsletterLinks.forEach(link => {
         link.classList.add("link-with-preview");
-        // Extract the slug from the link's href attribute
+        // Get slug
         const url = link.getAttribute('href');
         const slugMatch = url.match(/\/newsletters\/([^/]+)\/$/);
         if (slugMatch && slugMatch[1]) {
             link.setAttribute('data-popover-target', slugMatch[1])
+        }
+    });
+    
+    // Must search within article body only, since there are glossaryLinks in the aside, now.
+    const glossaryLinks = article.querySelectorAll('a[href^="/glossary/"]');
+
+    glossaryLinks.forEach(link => {
+        link.classList.add("link-with-preview");
+        const termUrl = link.getAttribute('href');
+        const termSlugMatch = termUrl.match(/\/(glossary)\/([^/]+)\/$/);
+        if (termSlugMatch && termSlugMatch[1]) {
+            link.setAttribute('data-popover-target', (termSlugMatch[1] + '-' + termSlugMatch[2]))
         }
     });
 
@@ -287,17 +316,20 @@ document.addEventListener('DOMContentLoaded', () => {
   links.forEach(link => {
     const popoverId = link.getAttribute('data-popover-target');
     const popover = document.getElementById(popoverId);
+    const popoverAnchor = '--' + popoverId;
+
+    // Have to override the anchor-name/position-anchor so that each link uniquely positions the preview (otherwise it all goes to the last one)
+    link.style.anchorName = popoverAnchor;
+    popover.style.positionAnchor = popoverAnchor;
 
     if (popover) {
       link.addEventListener('mouseenter', () => {
         popover.showPopover();
       });
 
-      // Hide the popover when the mouse leaves the link
       link.addEventListener('mouseleave', () => {
         popover.hidePopover();
       });
-
     }
   });
 });

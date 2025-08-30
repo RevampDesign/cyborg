@@ -128,7 +128,7 @@
             <h1 itemprop="headline">Practical Focus</h1>
         </header>
         
-        <div class="article-content" itemprop="articleBody">
+        <div id="article-body" class="article-content" itemprop="articleBody">
             <p>We talked <a href="/newsletters/focus-in-a-noisy-world/">last week</a> about some theory and strategy behind achieving focus in a noisy world. </p>
 <p>Our principal strategy is still about cutting out options, distractions, decisions. The less we have to choose from, the easier it is to act.</p>
 <p>Now it's time to get practical. Here are three ways I've found to be very effective in helping me focus.</p>
@@ -246,19 +246,23 @@
     </div>
 </article>
 
-<!-- <a href="/newsletters/the-story-that-undid-me/" class="link-with-preview" data-popover-target="are-we-asking-the-right-question">HOVER TO SHOW</a> -->
-
 <div class="linked-articles">
     
     <div id="focus-in-a-noisy-world" class="link-preview" popover>
         <a href="/newsletters/focus-in-a-noisy-world/">
             <div class="card">
-                <h2>Focus in a Noisy World</h2>
-                <div>Strategies to reclaim your attention that&#x27;s being snagged by decision fatigue, distraction.</div>
-                <div><small>July 2, 2024</small></div>
+                <div class="card-body">
+                    <h2>Focus in a Noisy World</h2>
+                    <div>Strategies to reclaim your attention that&#x27;s being snagged by decision fatigue, distraction.</div>
+                    <div class="date"><small>July 2, 2024</small></div>
+                </div>
             </div>
         </a>
     </div>
+    
+</div>
+
+<div class="linked-terms">
     
 </div>
 
@@ -294,15 +298,28 @@
     
 <script defer>
 document.addEventListener('DOMContentLoaded', () => {
-    const newsletterLinks = document.querySelectorAll('a[href^="/newsletters/"]');
+    const article = document.getElementById("article-body");
+    const newsletterLinks = article.querySelectorAll('a[href^="/newsletters/"]');
 
     newsletterLinks.forEach(link => {
         link.classList.add("link-with-preview");
-        // Extract the slug from the link's href attribute
+        // Get slug
         const url = link.getAttribute('href');
         const slugMatch = url.match(/\/newsletters\/([^/]+)\/$/);
         if (slugMatch && slugMatch[1]) {
             link.setAttribute('data-popover-target', slugMatch[1])
+        }
+    });
+    
+    // Must search within article body only, since there are glossaryLinks in the aside, now.
+    const glossaryLinks = article.querySelectorAll('a[href^="/glossary/"]');
+
+    glossaryLinks.forEach(link => {
+        link.classList.add("link-with-preview");
+        const termUrl = link.getAttribute('href');
+        const termSlugMatch = termUrl.match(/\/(glossary)\/([^/]+)\/$/);
+        if (termSlugMatch && termSlugMatch[1]) {
+            link.setAttribute('data-popover-target', (termSlugMatch[1] + '-' + termSlugMatch[2]))
         }
     });
 
@@ -313,17 +330,20 @@ document.addEventListener('DOMContentLoaded', () => {
   links.forEach(link => {
     const popoverId = link.getAttribute('data-popover-target');
     const popover = document.getElementById(popoverId);
+    const popoverAnchor = '--' + popoverId;
+
+    // Have to override the anchor-name/position-anchor so that each link uniquely positions the preview (otherwise it all goes to the last one)
+    link.style.anchorName = popoverAnchor;
+    popover.style.positionAnchor = popoverAnchor;
 
     if (popover) {
       link.addEventListener('mouseenter', () => {
         popover.showPopover();
       });
 
-      // Hide the popover when the mouse leaves the link
       link.addEventListener('mouseleave', () => {
         popover.hidePopover();
       });
-
     }
   });
 });

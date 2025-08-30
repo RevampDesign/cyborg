@@ -130,7 +130,7 @@
             <h1 itemprop="headline">Partner in Creation</h1>
         </header>
         
-        <div class="article-content" itemprop="articleBody">
+        <div id="article-body" class="article-content" itemprop="articleBody">
             <p>Over the last three weeks, my wrist has started to weaken and supply me with a lovely dose of pain at any kind of pressure. My ankle decided to follow suit with a pinching pain just for flexing my foot. I don't know what's causing these issues, but as someone with a chronic illness, it's easy to get trapped in anxiety over whether this is another &quot;new normal,&quot; or if it means something worse is coming.</p>
 <p>Not a medical professional here, so none of this is advice. However, I have been filling my head with stories and research and theories over the last year or so to try and better understand the human condition and how to find meaning and purpose despite disability.</p>
 <p>I uncovered something yesterday that I think can be helpful in sorting through all of the painful and confusing experiences that we all go through at one time or another. I always get nervous speaking about ability and disability, because I know that I am not representative of everyone in the disabled community, so please remember that these are my own thoughts drawn out of my own situation. Don't weaponize my story (or anyone else's) to try and manipulate someone into &quot;cheering up&quot; or &quot;pushing through&quot; if they're not ready.</p>
@@ -225,9 +225,11 @@ It asked a crumb - of me.</p>
     </div>
 </article>
 
-<!-- <a href="/newsletters/the-story-that-undid-me/" class="link-with-preview" data-popover-target="are-we-asking-the-right-question">HOVER TO SHOW</a> -->
-
 <div class="linked-articles">
+    
+</div>
+
+<div class="linked-terms">
     
 </div>
 
@@ -263,15 +265,28 @@ It asked a crumb - of me.</p>
     
 <script defer>
 document.addEventListener('DOMContentLoaded', () => {
-    const newsletterLinks = document.querySelectorAll('a[href^="/newsletters/"]');
+    const article = document.getElementById("article-body");
+    const newsletterLinks = article.querySelectorAll('a[href^="/newsletters/"]');
 
     newsletterLinks.forEach(link => {
         link.classList.add("link-with-preview");
-        // Extract the slug from the link's href attribute
+        // Get slug
         const url = link.getAttribute('href');
         const slugMatch = url.match(/\/newsletters\/([^/]+)\/$/);
         if (slugMatch && slugMatch[1]) {
             link.setAttribute('data-popover-target', slugMatch[1])
+        }
+    });
+    
+    // Must search within article body only, since there are glossaryLinks in the aside, now.
+    const glossaryLinks = article.querySelectorAll('a[href^="/glossary/"]');
+
+    glossaryLinks.forEach(link => {
+        link.classList.add("link-with-preview");
+        const termUrl = link.getAttribute('href');
+        const termSlugMatch = termUrl.match(/\/(glossary)\/([^/]+)\/$/);
+        if (termSlugMatch && termSlugMatch[1]) {
+            link.setAttribute('data-popover-target', (termSlugMatch[1] + '-' + termSlugMatch[2]))
         }
     });
 
@@ -282,17 +297,20 @@ document.addEventListener('DOMContentLoaded', () => {
   links.forEach(link => {
     const popoverId = link.getAttribute('data-popover-target');
     const popover = document.getElementById(popoverId);
+    const popoverAnchor = '--' + popoverId;
+
+    // Have to override the anchor-name/position-anchor so that each link uniquely positions the preview (otherwise it all goes to the last one)
+    link.style.anchorName = popoverAnchor;
+    popover.style.positionAnchor = popoverAnchor;
 
     if (popover) {
       link.addEventListener('mouseenter', () => {
         popover.showPopover();
       });
 
-      // Hide the popover when the mouse leaves the link
       link.addEventListener('mouseleave', () => {
         popover.hidePopover();
       });
-
     }
   });
 });

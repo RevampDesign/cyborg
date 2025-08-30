@@ -130,7 +130,7 @@
             <h1 itemprop="headline">Rigidity is death...</h1>
         </header>
         
-        <div class="article-content" itemprop="articleBody">
+        <div id="article-body" class="article-content" itemprop="articleBody">
             <p>...flexibility is life. So says my Sensei.</p>
 <p>When we build systems and tools to help us solve problems, there is a pitfall, especially when you first start.</p>
 <p>The first version of the CMS I created at work was exceptionally rigid. There was a field for every bit of text, and you weren’t supposed to be able to break the template design because each field was mapped exactly.</p>
@@ -214,16 +214,16 @@
     </div>
 </article>
 
-<!-- <a href="/newsletters/the-story-that-undid-me/" class="link-with-preview" data-popover-target="are-we-asking-the-right-question">HOVER TO SHOW</a> -->
-
 <div class="linked-articles">
     
     <div id="how-to-fail-gracefully" class="link-preview" popover>
         <a href="/newsletters/how-to-fail-gracefully/">
             <div class="card">
-                <h2>How to Fail Gracefully</h2>
-                <div>Embracing failure and designing for recovery can transform mistakes into resilient systems that make errors less disruptive and easier to recover from.</div>
-                <div><small>March 5, 2024</small></div>
+                <div class="card-body">
+                    <h2>How to Fail Gracefully</h2>
+                    <div>Embracing failure and designing for recovery can transform mistakes into resilient systems that make errors less disruptive and easier to recover from.</div>
+                    <div class="date"><small>March 5, 2024</small></div>
+                </div>
             </div>
         </a>
     </div>
@@ -231,12 +231,18 @@
     <div id="learners-mind" class="link-preview" popover>
         <a href="/newsletters/learners-mind/">
             <div class="card">
-                <h2>Learner&#x27;s Mind</h2>
-                <div>White belt to black belt to white belt. How the cycle of learning, achievement, and learning again can help us in modern contexts.</div>
-                <div><small>March 4, 2025</small></div>
+                <div class="card-body">
+                    <h2>Learner&#x27;s Mind</h2>
+                    <div>White belt to black belt to white belt. How the cycle of learning, achievement, and learning again can help us in modern contexts.</div>
+                    <div class="date"><small>March 4, 2025</small></div>
+                </div>
             </div>
         </a>
     </div>
+    
+</div>
+
+<div class="linked-terms">
     
 </div>
 
@@ -272,15 +278,28 @@
     
 <script defer>
 document.addEventListener('DOMContentLoaded', () => {
-    const newsletterLinks = document.querySelectorAll('a[href^="/newsletters/"]');
+    const article = document.getElementById("article-body");
+    const newsletterLinks = article.querySelectorAll('a[href^="/newsletters/"]');
 
     newsletterLinks.forEach(link => {
         link.classList.add("link-with-preview");
-        // Extract the slug from the link's href attribute
+        // Get slug
         const url = link.getAttribute('href');
         const slugMatch = url.match(/\/newsletters\/([^/]+)\/$/);
         if (slugMatch && slugMatch[1]) {
             link.setAttribute('data-popover-target', slugMatch[1])
+        }
+    });
+    
+    // Must search within article body only, since there are glossaryLinks in the aside, now.
+    const glossaryLinks = article.querySelectorAll('a[href^="/glossary/"]');
+
+    glossaryLinks.forEach(link => {
+        link.classList.add("link-with-preview");
+        const termUrl = link.getAttribute('href');
+        const termSlugMatch = termUrl.match(/\/(glossary)\/([^/]+)\/$/);
+        if (termSlugMatch && termSlugMatch[1]) {
+            link.setAttribute('data-popover-target', (termSlugMatch[1] + '-' + termSlugMatch[2]))
         }
     });
 
@@ -291,17 +310,20 @@ document.addEventListener('DOMContentLoaded', () => {
   links.forEach(link => {
     const popoverId = link.getAttribute('data-popover-target');
     const popover = document.getElementById(popoverId);
+    const popoverAnchor = '--' + popoverId;
+
+    // Have to override the anchor-name/position-anchor so that each link uniquely positions the preview (otherwise it all goes to the last one)
+    link.style.anchorName = popoverAnchor;
+    popover.style.positionAnchor = popoverAnchor;
 
     if (popover) {
       link.addEventListener('mouseenter', () => {
         popover.showPopover();
       });
 
-      // Hide the popover when the mouse leaves the link
       link.addEventListener('mouseleave', () => {
         popover.hidePopover();
       });
-
     }
   });
 });

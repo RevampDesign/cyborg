@@ -130,7 +130,7 @@
             <h1 itemprop="headline">Disadvantaged Conundrum</h1>
         </header>
         
-        <div class="article-content" itemprop="articleBody">
+        <div id="article-body" class="article-content" itemprop="articleBody">
             <p>In a private communications channel centered around exploring AI, I posted several papers and articles that discussed the biases that are baked into AI (<a href="https://www.media.mit.edu/publications/full-gender-shades-thesis-17/">gender</a>, <a href="https://hai.stanford.edu/news/covert-racism-ai-how-language-models-are-reinforcing-outdated-stereotypes">race</a>, etc.) and at the end asked:</p>
 <p>&quot;How do we know that [Product Name] AI doesn't have some or many biases? Is this a blindspot?&quot;</p>
 <p>I was attempting to start a conversation that would lead to some introspection. Instead I was met with some resistance, deflection, and dollop of man-splaining. The first response posed an important question, though:</p>
@@ -211,19 +211,23 @@
     </div>
 </article>
 
-<!-- <a href="/newsletters/the-story-that-undid-me/" class="link-with-preview" data-popover-target="are-we-asking-the-right-question">HOVER TO SHOW</a> -->
-
 <div class="linked-articles">
     
     <div id="are-we-asking-the-right-question" class="link-preview" popover>
         <a href="/newsletters/are-we-asking-the-right-question/">
             <div class="card">
-                <h2>Are We Asking the Right Question?</h2>
-                <div>AI challenges our understanding of what it means to be human—or does it? The questions we ask are vital to the conclusions we can draw.</div>
-                <div><small>July 15, 2025</small></div>
+                <div class="card-body">
+                    <h2>Are We Asking the Right Question?</h2>
+                    <div>AI challenges our understanding of what it means to be human—or does it? The questions we ask are vital to the conclusions we can draw.</div>
+                    <div class="date"><small>July 15, 2025</small></div>
+                </div>
             </div>
         </a>
     </div>
+    
+</div>
+
+<div class="linked-terms">
     
 </div>
 
@@ -259,15 +263,28 @@
     
 <script defer>
 document.addEventListener('DOMContentLoaded', () => {
-    const newsletterLinks = document.querySelectorAll('a[href^="/newsletters/"]');
+    const article = document.getElementById("article-body");
+    const newsletterLinks = article.querySelectorAll('a[href^="/newsletters/"]');
 
     newsletterLinks.forEach(link => {
         link.classList.add("link-with-preview");
-        // Extract the slug from the link's href attribute
+        // Get slug
         const url = link.getAttribute('href');
         const slugMatch = url.match(/\/newsletters\/([^/]+)\/$/);
         if (slugMatch && slugMatch[1]) {
             link.setAttribute('data-popover-target', slugMatch[1])
+        }
+    });
+    
+    // Must search within article body only, since there are glossaryLinks in the aside, now.
+    const glossaryLinks = article.querySelectorAll('a[href^="/glossary/"]');
+
+    glossaryLinks.forEach(link => {
+        link.classList.add("link-with-preview");
+        const termUrl = link.getAttribute('href');
+        const termSlugMatch = termUrl.match(/\/(glossary)\/([^/]+)\/$/);
+        if (termSlugMatch && termSlugMatch[1]) {
+            link.setAttribute('data-popover-target', (termSlugMatch[1] + '-' + termSlugMatch[2]))
         }
     });
 
@@ -278,17 +295,20 @@ document.addEventListener('DOMContentLoaded', () => {
   links.forEach(link => {
     const popoverId = link.getAttribute('data-popover-target');
     const popover = document.getElementById(popoverId);
+    const popoverAnchor = '--' + popoverId;
+
+    // Have to override the anchor-name/position-anchor so that each link uniquely positions the preview (otherwise it all goes to the last one)
+    link.style.anchorName = popoverAnchor;
+    popover.style.positionAnchor = popoverAnchor;
 
     if (popover) {
       link.addEventListener('mouseenter', () => {
         popover.showPopover();
       });
 
-      // Hide the popover when the mouse leaves the link
       link.addEventListener('mouseleave', () => {
         popover.hidePopover();
       });
-
     }
   });
 });

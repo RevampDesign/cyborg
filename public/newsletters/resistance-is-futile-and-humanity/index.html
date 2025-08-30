@@ -128,12 +128,12 @@
             <h1 itemprop="headline">Resistance is futile...and humanity</h1>
         </header>
         
-        <div class="article-content" itemprop="articleBody">
+        <div id="article-body" class="article-content" itemprop="articleBody">
             <h2>What's the Point?</h2>
 <p>I have Multiple Sclerosis (MS), and that has revealed a challenge that I can barely wrap my mind around: How do you deal with uncertainty? MS is nicknamed the snowflake disease, because it can affect people in wildly different ways. My experience with MS has been relatively mild, but with major ups and downs, as well as an over-arching threat of great disability in my future.</p>
 <p>&quot;Maintain hope for good things&quot; was a common message that others gave to me when I was first diagnosed. I sneered at the platitude internally. <em>How dare you assume there's something good that I can ever experience now? Don't talk to me about hope. Hope is for fools.</em></p>
 <p>I think I was both right and wrong. It's a paradox: how do you continue living today, when you have no guarantees of tomorrow? As it turns out, this isn't a problem just for people with MS—it is the human problem. Everyone has to grapple with this at some point. No one is guaranteed a &quot;tomorrow,&quot; because there is no way to avoid pain or death.</p>
-<p>Although no one is exempt, I think it's easier to push off this paradox almost like a survivorship bias. When I'm healthy and feeling good, I don't put any thought to it, because I live my days in a long, unbroken chain. The past makes the future seem predictable: wake up, exercise, go to work, watch <em>Buffy the Vampire Slayer</em>, fall asleep, repeat.</p>
+<p>Although no one is exempt, I think it's easier to push off this paradox almost like a survivorship bias. When I'm healthy and feeling good, I don't put any thought to it, because I live my days in a long, unbroken chain. The past makes the future seem predictable: wake up, exercise, go to work, watch <cite>Buffy the Vampire Slayer</cite>, fall asleep, repeat.</p>
 <p>Last week, however, I was hit with something that broke my chain. I've only had two migraines in my whole life until last week when I had three: Saturday, Thursday, and Friday. After two migraines, I was worried—<em>is this a pattern? Did I just push past recovery too fast?</em> Once the third one hit, the fear really sunk in: <em>Is there something wrong with my brain? Has MS progressed more than I know? Is this something to expect more of in the future?</em></p>
 <p>At times like these, when uncertainty slaps my face, the paradox comes into full view. What is the point of continuing on, when there is great risk of suffering in the future? Why not end it now?</p>
 <h2>Humanity is Resistance</h2>
@@ -220,19 +220,23 @@
     </div>
 </article>
 
-<!-- <a href="/newsletters/the-story-that-undid-me/" class="link-with-preview" data-popover-target="are-we-asking-the-right-question">HOVER TO SHOW</a> -->
-
 <div class="linked-articles">
     
     <div id="partner-in-creation" class="link-preview" popover>
         <a href="/newsletters/partner-in-creation/">
             <div class="card">
-                <h2>Partner in Creation</h2>
-                <div>The loss of ability brings tremendous grief. What do we have at our disposal to work through it and is there any hope to be found?</div>
-                <div><small>February 11, 2025</small></div>
+                <div class="card-body">
+                    <h2>Partner in Creation</h2>
+                    <div>The loss of ability brings tremendous grief. What do we have at our disposal to work through it and is there any hope to be found?</div>
+                    <div class="date"><small>February 11, 2025</small></div>
+                </div>
             </div>
         </a>
     </div>
+    
+</div>
+
+<div class="linked-terms">
     
 </div>
 
@@ -268,15 +272,28 @@
     
 <script defer>
 document.addEventListener('DOMContentLoaded', () => {
-    const newsletterLinks = document.querySelectorAll('a[href^="/newsletters/"]');
+    const article = document.getElementById("article-body");
+    const newsletterLinks = article.querySelectorAll('a[href^="/newsletters/"]');
 
     newsletterLinks.forEach(link => {
         link.classList.add("link-with-preview");
-        // Extract the slug from the link's href attribute
+        // Get slug
         const url = link.getAttribute('href');
         const slugMatch = url.match(/\/newsletters\/([^/]+)\/$/);
         if (slugMatch && slugMatch[1]) {
             link.setAttribute('data-popover-target', slugMatch[1])
+        }
+    });
+    
+    // Must search within article body only, since there are glossaryLinks in the aside, now.
+    const glossaryLinks = article.querySelectorAll('a[href^="/glossary/"]');
+
+    glossaryLinks.forEach(link => {
+        link.classList.add("link-with-preview");
+        const termUrl = link.getAttribute('href');
+        const termSlugMatch = termUrl.match(/\/(glossary)\/([^/]+)\/$/);
+        if (termSlugMatch && termSlugMatch[1]) {
+            link.setAttribute('data-popover-target', (termSlugMatch[1] + '-' + termSlugMatch[2]))
         }
     });
 
@@ -287,17 +304,20 @@ document.addEventListener('DOMContentLoaded', () => {
   links.forEach(link => {
     const popoverId = link.getAttribute('data-popover-target');
     const popover = document.getElementById(popoverId);
+    const popoverAnchor = '--' + popoverId;
+
+    // Have to override the anchor-name/position-anchor so that each link uniquely positions the preview (otherwise it all goes to the last one)
+    link.style.anchorName = popoverAnchor;
+    popover.style.positionAnchor = popoverAnchor;
 
     if (popover) {
       link.addEventListener('mouseenter', () => {
         popover.showPopover();
       });
 
-      // Hide the popover when the mouse leaves the link
       link.addEventListener('mouseleave', () => {
         popover.hidePopover();
       });
-
     }
   });
 });

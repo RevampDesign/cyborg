@@ -1,0 +1,70 @@
+.rebel-tag-input {
+            font-family: 'Helvetica Neue', 'Lucida Grande', sans-serif;
+            max-width: 100%;
+            display: flex;
+            align-content: flex-start;
+            flex-wrap: wrap;
+            background-color: #FFF;
+            border: solid 1px #CCC;
+            border-radius: 2px;
+            min-height: 33px;
+            padding: 0 5px;
+        }
+
+        #tag-input {
+            flex-grow: 1;
+            display: inline-block;
+            order: 200;
+            border: none;
+            height: 33px;
+            line-height: 33px;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        #tag-input:focus {
+            outline: none;
+        }
+
+        .rebel-tag-input .tag {
+            display: inline-block;
+            flex-grow: 0;
+            margin: 5px 5px 5px 0;
+            padding: 0 10px;
+            height: 25px;
+            line-height: 25px;
+            background-color: #E1E1E1;
+            color: #333;
+            font-size: 14px;
+            order: 100;
+            border-radius: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rebel-tag-input .tag.duplicate {
+            background-color: rgba(255, 64, 27, 0.71);
+            transition: all 0.3s linear;
+        }
+
+        .rebel-tag-input .tag:last-child {
+            margin-right: 5px;
+        }
+
+        .rebel-tag-input .tag .remove {
+            display: inline-block;
+            background-color: rgba(255, 64, 27, 0.71);
+            color: #FFF;
+            position: absolute;
+            right: -20px;
+            width: 20px;
+            text-align: center;
+            border-top-right-radius: 2px;
+            border-bottom-right-radius: 2px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .rebel-tag-input .tag:hover .remove {
+            right: 0;
+        }

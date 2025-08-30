@@ -130,7 +130,7 @@
             <h1 itemprop="headline">The Right to Be Forgotten</h1>
         </header>
         
-        <div class="article-content" itemprop="articleBody">
+        <div id="article-body" class="article-content" itemprop="articleBody">
             <p>In my first job as a full-time web developer, I ran into a scary-sounding set of regulations: GDPR. It was the EU's pushback against shady digital marketing and made things much more tricky for teams like mine to be able to track website visitors and provide targeted, personalized ad campaigns (among other things).</p>
 <p>I thought it was silly at first, my naïveté on full display, but now the concern of privacy is top of mind. Getting scammed or hounded by unwanted ads is the least of the worries in a world where hacking or identity theft can shut down your life, not to mention the physical dangers of an angry person or group targeting someone with violence.</p>
 <p>Among the key issues cited in the GDPR is one that has gotten me thinking about other applications, not just in a legal sense, and not just in terms of digital marketing. </p>
@@ -207,19 +207,23 @@
     </div>
 </article>
 
-<!-- <a href="/newsletters/the-story-that-undid-me/" class="link-with-preview" data-popover-target="are-we-asking-the-right-question">HOVER TO SHOW</a> -->
-
 <div class="linked-articles">
     
     <div id="truth-and-art-and-ai" class="link-preview" popover>
         <a href="/newsletters/truth-and-art-and-ai/">
             <div class="card">
-                <h2>Truth and Art and AI</h2>
-                <div>Is a photograph the most honest form of art? Or can it deceive us as well as an AI-generated photo? The role of truth in art.</div>
-                <div><small>March 12, 2024</small></div>
+                <div class="card-body">
+                    <h2>Truth and Art and AI</h2>
+                    <div>Is a photograph the most honest form of art? Or can it deceive us as well as an AI-generated photo? The role of truth in art.</div>
+                    <div class="date"><small>March 12, 2024</small></div>
+                </div>
             </div>
         </a>
     </div>
+    
+</div>
+
+<div class="linked-terms">
     
 </div>
 
@@ -255,15 +259,28 @@
     
 <script defer>
 document.addEventListener('DOMContentLoaded', () => {
-    const newsletterLinks = document.querySelectorAll('a[href^="/newsletters/"]');
+    const article = document.getElementById("article-body");
+    const newsletterLinks = article.querySelectorAll('a[href^="/newsletters/"]');
 
     newsletterLinks.forEach(link => {
         link.classList.add("link-with-preview");
-        // Extract the slug from the link's href attribute
+        // Get slug
         const url = link.getAttribute('href');
         const slugMatch = url.match(/\/newsletters\/([^/]+)\/$/);
         if (slugMatch && slugMatch[1]) {
             link.setAttribute('data-popover-target', slugMatch[1])
+        }
+    });
+    
+    // Must search within article body only, since there are glossaryLinks in the aside, now.
+    const glossaryLinks = article.querySelectorAll('a[href^="/glossary/"]');
+
+    glossaryLinks.forEach(link => {
+        link.classList.add("link-with-preview");
+        const termUrl = link.getAttribute('href');
+        const termSlugMatch = termUrl.match(/\/(glossary)\/([^/]+)\/$/);
+        if (termSlugMatch && termSlugMatch[1]) {
+            link.setAttribute('data-popover-target', (termSlugMatch[1] + '-' + termSlugMatch[2]))
         }
     });
 
@@ -274,17 +291,20 @@ document.addEventListener('DOMContentLoaded', () => {
   links.forEach(link => {
     const popoverId = link.getAttribute('data-popover-target');
     const popover = document.getElementById(popoverId);
+    const popoverAnchor = '--' + popoverId;
+
+    // Have to override the anchor-name/position-anchor so that each link uniquely positions the preview (otherwise it all goes to the last one)
+    link.style.anchorName = popoverAnchor;
+    popover.style.positionAnchor = popoverAnchor;
 
     if (popover) {
       link.addEventListener('mouseenter', () => {
         popover.showPopover();
       });
 
-      // Hide the popover when the mouse leaves the link
       link.addEventListener('mouseleave', () => {
         popover.hidePopover();
       });
-
     }
   });
 });

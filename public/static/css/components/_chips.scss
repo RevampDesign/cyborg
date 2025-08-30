@@ -1,0 +1,13 @@
+@use '../abstracts';
+
+.chip {
+    background: abstracts.$white;
+    color: abstracts.$black;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    width: fit-content;
+    padding: 0 .35rem;
+    border-radius: 3px;
+    font-size: var(--p3);
+    font-weight: abstracts.$font-bold;
+}

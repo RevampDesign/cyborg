@@ -130,7 +130,7 @@
             <h1 itemprop="headline">The Hardest Skill</h1>
         </header>
         
-        <div class="article-content" itemprop="articleBody">
+        <div id="article-body" class="article-content" itemprop="articleBody">
             <p>In 2011, I found myself alone in an art gallery in Switzerland. I had gravitated to the quiet space for a special exhibition, partly grateful for a break from my peers and partly intrigued by this bizarre room of white paintings. Even then, I had been skeptical of &ldquo;modern art,&rdquo; and despite the inclination to arrogantly dismiss a painting that was monochromatic, something about the collection's topic, <em>shanshui</em>, drew me towards the room that was completely ignored by the other students.</p>
 <p>The full title of the exhibition was <cite>Shanshui—Poetry Without Sound? Landscape in Chinese Contemporary Art.</cite> The handout that I still have explained that <em>shanshui</em> is made of the symbols for &ldquo;mountain&rdquo; and &ldquo;water&rdquo; in Chinese and <a href="https://en.wikipedia.org/wiki/Shan_shui"><em>shanshui</em> painting</a> has been developing for over 1,500 years.</p>
 <p>Determined to be respectful to the artist and to prove to myself that I was taking to heart everything I had learned as an art major in college, I entered the room and approached a wall. It seemed like all of the paintings were some kind of <a href="https://galerie-karsten-greve.com/en/works/2437-untitled?tab=werke">cross-hatched noise</a> of extremely similar tints of white. </p>
@@ -227,9 +227,11 @@
     </div>
 </article>
 
-<!-- <a href="/newsletters/the-story-that-undid-me/" class="link-with-preview" data-popover-target="are-we-asking-the-right-question">HOVER TO SHOW</a> -->
-
 <div class="linked-articles">
+    
+</div>
+
+<div class="linked-terms">
     
 </div>
 
@@ -265,15 +267,28 @@
     
 <script defer>
 document.addEventListener('DOMContentLoaded', () => {
-    const newsletterLinks = document.querySelectorAll('a[href^="/newsletters/"]');
+    const article = document.getElementById("article-body");
+    const newsletterLinks = article.querySelectorAll('a[href^="/newsletters/"]');
 
     newsletterLinks.forEach(link => {
         link.classList.add("link-with-preview");
-        // Extract the slug from the link's href attribute
+        // Get slug
         const url = link.getAttribute('href');
         const slugMatch = url.match(/\/newsletters\/([^/]+)\/$/);
         if (slugMatch && slugMatch[1]) {
             link.setAttribute('data-popover-target', slugMatch[1])
+        }
+    });
+    
+    // Must search within article body only, since there are glossaryLinks in the aside, now.
+    const glossaryLinks = article.querySelectorAll('a[href^="/glossary/"]');
+
+    glossaryLinks.forEach(link => {
+        link.classList.add("link-with-preview");
+        const termUrl = link.getAttribute('href');
+        const termSlugMatch = termUrl.match(/\/(glossary)\/([^/]+)\/$/);
+        if (termSlugMatch && termSlugMatch[1]) {
+            link.setAttribute('data-popover-target', (termSlugMatch[1] + '-' + termSlugMatch[2]))
         }
     });
 
@@ -284,17 +299,20 @@ document.addEventListener('DOMContentLoaded', () => {
   links.forEach(link => {
     const popoverId = link.getAttribute('data-popover-target');
     const popover = document.getElementById(popoverId);
+    const popoverAnchor = '--' + popoverId;
+
+    // Have to override the anchor-name/position-anchor so that each link uniquely positions the preview (otherwise it all goes to the last one)
+    link.style.anchorName = popoverAnchor;
+    popover.style.positionAnchor = popoverAnchor;
 
     if (popover) {
       link.addEventListener('mouseenter', () => {
         popover.showPopover();
       });
 
-      // Hide the popover when the mouse leaves the link
       link.addEventListener('mouseleave', () => {
         popover.hidePopover();
       });
-
     }
   });
 });

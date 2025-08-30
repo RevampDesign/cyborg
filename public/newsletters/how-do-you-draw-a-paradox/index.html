@@ -130,7 +130,7 @@
             <h1 itemprop="headline">How Do You Draw a Paradox?</h1>
         </header>
         
-        <div class="article-content" itemprop="articleBody">
+        <div id="article-body" class="article-content" itemprop="articleBody">
             <p>My friend threw a Christmas party and the crowd she invited was almost exclusively nerds (hence my invitation, I guess). We were engaged in making little ornaments out of various materials including wood circles that were cut from a fallen branch along with the usual crafting supplies. I got busy trying to do something overly complex on my little piece of wood, but I was mostly focused on eavesdropping on a conversation about something I'd never heard of before: a Moebius strip.</p>
 <p>The engineer had cut a strip of paper, gave it a half-twist and then glued the ends together, making a weird, curvy shape—almost like a rubber band that had gotten twisted. He said that the cool part about this shape is that if you take your finger and trace the edge all the way around, you'll never find an endpoint. The shape's edge is a single, continuous line.</p>
 <p><em>Woah, woah, woah, what did he just say?!</em> I thought to myself. Abandoning my ornament, I slowly merged into the conversation like a squirrel cautiously inching closer to steal food. I grabbed a strip of paper, put the two ends together like a chain link, then gave one end a half-twist and pinched it together so I could compare my shape to the original. Once I figured out how to make it, I had to test this guy's claim that you could trace the edge around the entire shape (being careful not to get a papercut).</p>
@@ -220,9 +220,11 @@
     </div>
 </article>
 
-<!-- <a href="/newsletters/the-story-that-undid-me/" class="link-with-preview" data-popover-target="are-we-asking-the-right-question">HOVER TO SHOW</a> -->
-
 <div class="linked-articles">
+    
+</div>
+
+<div class="linked-terms">
     
 </div>
 
@@ -258,15 +260,28 @@
     
 <script defer>
 document.addEventListener('DOMContentLoaded', () => {
-    const newsletterLinks = document.querySelectorAll('a[href^="/newsletters/"]');
+    const article = document.getElementById("article-body");
+    const newsletterLinks = article.querySelectorAll('a[href^="/newsletters/"]');
 
     newsletterLinks.forEach(link => {
         link.classList.add("link-with-preview");
-        // Extract the slug from the link's href attribute
+        // Get slug
         const url = link.getAttribute('href');
         const slugMatch = url.match(/\/newsletters\/([^/]+)\/$/);
         if (slugMatch && slugMatch[1]) {
             link.setAttribute('data-popover-target', slugMatch[1])
+        }
+    });
+    
+    // Must search within article body only, since there are glossaryLinks in the aside, now.
+    const glossaryLinks = article.querySelectorAll('a[href^="/glossary/"]');
+
+    glossaryLinks.forEach(link => {
+        link.classList.add("link-with-preview");
+        const termUrl = link.getAttribute('href');
+        const termSlugMatch = termUrl.match(/\/(glossary)\/([^/]+)\/$/);
+        if (termSlugMatch && termSlugMatch[1]) {
+            link.setAttribute('data-popover-target', (termSlugMatch[1] + '-' + termSlugMatch[2]))
         }
     });
 
@@ -277,17 +292,20 @@ document.addEventListener('DOMContentLoaded', () => {
   links.forEach(link => {
     const popoverId = link.getAttribute('data-popover-target');
     const popover = document.getElementById(popoverId);
+    const popoverAnchor = '--' + popoverId;
+
+    // Have to override the anchor-name/position-anchor so that each link uniquely positions the preview (otherwise it all goes to the last one)
+    link.style.anchorName = popoverAnchor;
+    popover.style.positionAnchor = popoverAnchor;
 
     if (popover) {
       link.addEventListener('mouseenter', () => {
         popover.showPopover();
       });
 
-      // Hide the popover when the mouse leaves the link
       link.addEventListener('mouseleave', () => {
         popover.hidePopover();
       });
-
     }
   });
 });

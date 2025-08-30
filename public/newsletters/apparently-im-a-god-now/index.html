@@ -130,7 +130,7 @@
             <h1 itemprop="headline">Apparently I&#x27;m a god now</h1>
         </header>
         
-        <div class="article-content" itemprop="articleBody">
+        <div id="article-body" class="article-content" itemprop="articleBody">
             <p>As the sole developer on my team at work, I've been called a lot of things: magician, wizard, king. Ironic as it may seem since my job is very heavily documented, technical, and (in a way) scientific, these mystical descriptions track with the subconscious culture of technology.</p>
 <p>The first time I encountered the idea that there was a mystical or spiritual aspect to how we humans interact with, build, and explore technology was listening to this podcast:
 <a href="https://www.humanetech.com/podcast/can-myth-teach-us-anything-about-the-race-to-build-artificial-general-intelligence-with-josh-schrei">Can Myth Teach Us Anything About the Race to Build Artificial General Intelligence? With Josh Schrei</a>. Turns out, there is a whole lot more out there and I've only started scratching the surface in the literature about myths and machines.</p>
@@ -225,7 +225,7 @@ I think people should be exposed to more magic. I think 20-30 years down the lin
             </aside>
 
             
-            <!-- TODO: https://gemini.google.com/app/0f90f3c7d176a1d3 Set up a recommendation engine for my admin, then can create a glossary links list -->
+            
             <aside id="glossary">
                 <h2>Glossary</h2>
                 <nav aria-label="Outline">
@@ -244,9 +244,11 @@ I think people should be exposed to more magic. I think 20-30 years down the lin
     </div>
 </article>
 
-<!-- <a href="/newsletters/the-story-that-undid-me/" class="link-with-preview" data-popover-target="are-we-asking-the-right-question">HOVER TO SHOW</a> -->
-
 <div class="linked-articles">
+    
+</div>
+
+<div class="linked-terms">
     
 </div>
 
@@ -282,15 +284,28 @@ I think people should be exposed to more magic. I think 20-30 years down the lin
     
 <script defer>
 document.addEventListener('DOMContentLoaded', () => {
-    const newsletterLinks = document.querySelectorAll('a[href^="/newsletters/"]');
+    const article = document.getElementById("article-body");
+    const newsletterLinks = article.querySelectorAll('a[href^="/newsletters/"]');
 
     newsletterLinks.forEach(link => {
         link.classList.add("link-with-preview");
-        // Extract the slug from the link's href attribute
+        // Get slug
         const url = link.getAttribute('href');
         const slugMatch = url.match(/\/newsletters\/([^/]+)\/$/);
         if (slugMatch && slugMatch[1]) {
             link.setAttribute('data-popover-target', slugMatch[1])
+        }
+    });
+    
+    // Must search within article body only, since there are glossaryLinks in the aside, now.
+    const glossaryLinks = article.querySelectorAll('a[href^="/glossary/"]');
+
+    glossaryLinks.forEach(link => {
+        link.classList.add("link-with-preview");
+        const termUrl = link.getAttribute('href');
+        const termSlugMatch = termUrl.match(/\/(glossary)\/([^/]+)\/$/);
+        if (termSlugMatch && termSlugMatch[1]) {
+            link.setAttribute('data-popover-target', (termSlugMatch[1] + '-' + termSlugMatch[2]))
         }
     });
 
@@ -301,17 +316,20 @@ document.addEventListener('DOMContentLoaded', () => {
   links.forEach(link => {
     const popoverId = link.getAttribute('data-popover-target');
     const popover = document.getElementById(popoverId);
+    const popoverAnchor = '--' + popoverId;
+
+    // Have to override the anchor-name/position-anchor so that each link uniquely positions the preview (otherwise it all goes to the last one)
+    link.style.anchorName = popoverAnchor;
+    popover.style.positionAnchor = popoverAnchor;
 
     if (popover) {
       link.addEventListener('mouseenter', () => {
         popover.showPopover();
       });
 
-      // Hide the popover when the mouse leaves the link
       link.addEventListener('mouseleave', () => {
         popover.hidePopover();
       });
-
     }
   });
 });

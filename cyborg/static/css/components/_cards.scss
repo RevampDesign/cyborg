@@ -30,6 +30,11 @@ a:has( .card ) {
         margin-top: var(--article-space-sm);
         margin-bottom: var(--article-space-md);
     }
+    .chips {
+        & + h2, & + .h2 {
+            margin-top: var(--article-space-sm);
+        }
+    }
 
     .card-header {
         display: flex;
@@ -88,9 +93,20 @@ a:has( .card ) {
     background: none;
     & .card {
         background-color: var(--black);
+        box-shadow: 0 0 25px 15px var(--black);
+        line-height: 1.6;
+
+        &:not(:has(.chips)) {
+            & h2 {
+                margin-top: 0;
+            }
+        }
         & h2 {
             font-size: var(--article-h4-font-size);
-            margin: 0;
+            margin-bottom: var(--article-space-sm);
+        }
+        & .date {
+            margin-top: var(--article-space-sm);
         }
     }
 }
@@ -101,14 +117,13 @@ a:has( .card ) {
 [popover] {
     position: absolute;
     position-anchor: --preview-link;
-    // inset: unset;
     position-try-fallbacks: --top-to-bottom;
-    top: calc(anchor(top) + 2rem);
+    top: calc(anchor(top) + 1.75rem);
     left: anchor(center);
     translate: -50%;
     margin-bottom: 1rem;
     max-width: clamp(250px, 35vw, 500px);
-    // max-width: 250px;
+    padding: 0 2rem 2rem 2rem; // Allows space for drop shadow
 }
 
 @position-fallback --top-to-bottom {

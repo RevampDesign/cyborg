@@ -130,7 +130,7 @@
             <h1 itemprop="headline">The Question of Our Lives</h1>
         </header>
         
-        <div class="article-content" itemprop="articleBody">
+        <div id="article-body" class="article-content" itemprop="articleBody">
             <p>It's a dark, cold room with a table and a fire. The hostage named Caesar accuses the Colonel, who is standing at the table near the fireplace, of having no mercy. The Colonel looks over his shoulder at the ape who has scrutinized his actions. Eventually he launches into his diatribe:</p>
 <p>&ldquo;Mercy. You have any idea what mercy would do to us?&rdquo; He asks Caesar.</p>
 <p>&ldquo;You're much stronger than we are. You're smart as hell. No matter what you say, you'd eventually replace us. That's the law of nature. The irony is we created you. We tried to defy nature, bend it to our will. Nature has been punishing us for our arrogance ever since.&rdquo;</p>
@@ -179,7 +179,7 @@
 <figcaption>
 <p>—<cite>Pathogenesis</cite>, by Jonathan Kennedy, pg 228</p>
 </figcaption>
-<figure>
+</figure>
 <h2>Cyborg</h2>
 <p>Though it may not seem it from my writing here, this exploration has brought me a feeling of deep compassion as well as sadness. When I first wrote about the <a href="https://cyborgnewsletter.com/newsletters/the-problem-we-are-avoiding-with-ai/">dangers of AI, especially concerning our cognitive biases</a> almost a year ago, I was angry. I felt deceived by my own brain, taken advantage of by companies, and stuck in an infinite loop of traps.</p>
 <p>The year since, I've really tried to understand the major systems at play, at least in my country and my particular culture. Anger has been replaced with sadness as I contemplate what we've built and how we perpetuate harm to our own species, let alone others in this vast world.</p>
@@ -234,23 +234,42 @@
             </aside>
 
             
+            
+            <aside id="glossary">
+                <h2>Glossary</h2>
+                <nav aria-label="Outline">
+                    <ul id="article-glossary-content">
+                    
+                        
+                        
+                        <li><a href="/glossary/agency/">Agency&nbsp;&rsaquo;</a></li>
+                        
+                    
+                    </ul>
+                </nav>
+            </aside>
+            
         </div>
     </div>
 </article>
-
-<!-- <a href="/newsletters/the-story-that-undid-me/" class="link-with-preview" data-popover-target="are-we-asking-the-right-question">HOVER TO SHOW</a> -->
 
 <div class="linked-articles">
     
     <div id="the-problem-we-are-avoiding-with-ai" class="link-preview" popover>
         <a href="/newsletters/the-problem-we-are-avoiding-with-ai/">
             <div class="card">
-                <h2>The Problem We&#x27;re Avoiding with AI</h2>
-                <div>Forget killer robots. There&#x27;s something much more concerning in the quiet, everyday problems AI presents that society prefers to ignore—until it&#x27;s too late.</div>
-                <div><small>March 26, 2024</small></div>
+                <div class="card-body">
+                    <h2>The Problem We&#x27;re Avoiding with AI</h2>
+                    <div>Forget killer robots. There&#x27;s something much more concerning in the quiet, everyday problems AI presents that society prefers to ignore—until it&#x27;s too late.</div>
+                    <div class="date"><small>March 26, 2024</small></div>
+                </div>
             </div>
         </a>
     </div>
+    
+</div>
+
+<div class="linked-terms">
     
 </div>
 
@@ -286,15 +305,28 @@
     
 <script defer>
 document.addEventListener('DOMContentLoaded', () => {
-    const newsletterLinks = document.querySelectorAll('a[href^="/newsletters/"]');
+    const article = document.getElementById("article-body");
+    const newsletterLinks = article.querySelectorAll('a[href^="/newsletters/"]');
 
     newsletterLinks.forEach(link => {
         link.classList.add("link-with-preview");
-        // Extract the slug from the link's href attribute
+        // Get slug
         const url = link.getAttribute('href');
         const slugMatch = url.match(/\/newsletters\/([^/]+)\/$/);
         if (slugMatch && slugMatch[1]) {
             link.setAttribute('data-popover-target', slugMatch[1])
+        }
+    });
+    
+    // Must search within article body only, since there are glossaryLinks in the aside, now.
+    const glossaryLinks = article.querySelectorAll('a[href^="/glossary/"]');
+
+    glossaryLinks.forEach(link => {
+        link.classList.add("link-with-preview");
+        const termUrl = link.getAttribute('href');
+        const termSlugMatch = termUrl.match(/\/(glossary)\/([^/]+)\/$/);
+        if (termSlugMatch && termSlugMatch[1]) {
+            link.setAttribute('data-popover-target', (termSlugMatch[1] + '-' + termSlugMatch[2]))
         }
     });
 
@@ -305,17 +337,20 @@ document.addEventListener('DOMContentLoaded', () => {
   links.forEach(link => {
     const popoverId = link.getAttribute('data-popover-target');
     const popover = document.getElementById(popoverId);
+    const popoverAnchor = '--' + popoverId;
+
+    // Have to override the anchor-name/position-anchor so that each link uniquely positions the preview (otherwise it all goes to the last one)
+    link.style.anchorName = popoverAnchor;
+    popover.style.positionAnchor = popoverAnchor;
 
     if (popover) {
       link.addEventListener('mouseenter', () => {
         popover.showPopover();
       });
 
-      // Hide the popover when the mouse leaves the link
       link.addEventListener('mouseleave', () => {
         popover.hidePopover();
       });
-
     }
   });
 });

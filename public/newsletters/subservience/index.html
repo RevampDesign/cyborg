@@ -130,7 +130,7 @@
             <h1 itemprop="headline">Subservience</h1>
         </header>
         
-        <div class="article-content" itemprop="articleBody">
+        <div id="article-body" class="article-content" itemprop="articleBody">
             <p>I sometimes feel like stories and movies are a suspension of reality—an escape, an exploration. When it comes to AI, I was particularly convinced it was all ridiculous fantasy. Until I heard a mythologist explain how the lore we've developed about AI over time has and will continue to impact the designers of this technology. </p>
 <p>Movies, particularly, have wide reach across fields. We're actually fooling ourselves to assume that we can disregard the outlandish Sci-Fi plots, warnings, and design features of artificial intelligence. </p>
 <p>After all, Sam Altman, CEO of OpenAI (creators of ChatGPT), <a href="https://youtu.be/x7bW4u1QZJs?si=hM-rTp_6DC1VmXRk">admitted that the movie</a>, <em>Her</em>, &quot;certainly more than a little bit inspired us.&quot; We can speculate that the <a href="https://www.youtube.com/watch?v=YhgYMH6n004&amp;pp=ygUebGVnYWwgZWFnbGUgc2NhcmxldHQgam9oYW5zc29u">lawsuit Scarlet Johansson filed against OpenAI</a> for using what sure sounded like her as ChatGPT's voice when the feature first launched is potentially a nod to that &quot;inspiration.&quot;</p>
@@ -216,9 +216,11 @@ We have an awkward plot point where an entire team of construction workers are r
     </div>
 </article>
 
-<!-- <a href="/newsletters/the-story-that-undid-me/" class="link-with-preview" data-popover-target="are-we-asking-the-right-question">HOVER TO SHOW</a> -->
-
 <div class="linked-articles">
+    
+</div>
+
+<div class="linked-terms">
     
 </div>
 
@@ -254,15 +256,28 @@ We have an awkward plot point where an entire team of construction workers are r
     
 <script defer>
 document.addEventListener('DOMContentLoaded', () => {
-    const newsletterLinks = document.querySelectorAll('a[href^="/newsletters/"]');
+    const article = document.getElementById("article-body");
+    const newsletterLinks = article.querySelectorAll('a[href^="/newsletters/"]');
 
     newsletterLinks.forEach(link => {
         link.classList.add("link-with-preview");
-        // Extract the slug from the link's href attribute
+        // Get slug
         const url = link.getAttribute('href');
         const slugMatch = url.match(/\/newsletters\/([^/]+)\/$/);
         if (slugMatch && slugMatch[1]) {
             link.setAttribute('data-popover-target', slugMatch[1])
+        }
+    });
+    
+    // Must search within article body only, since there are glossaryLinks in the aside, now.
+    const glossaryLinks = article.querySelectorAll('a[href^="/glossary/"]');
+
+    glossaryLinks.forEach(link => {
+        link.classList.add("link-with-preview");
+        const termUrl = link.getAttribute('href');
+        const termSlugMatch = termUrl.match(/\/(glossary)\/([^/]+)\/$/);
+        if (termSlugMatch && termSlugMatch[1]) {
+            link.setAttribute('data-popover-target', (termSlugMatch[1] + '-' + termSlugMatch[2]))
         }
     });
 
@@ -273,17 +288,20 @@ document.addEventListener('DOMContentLoaded', () => {
   links.forEach(link => {
     const popoverId = link.getAttribute('data-popover-target');
     const popover = document.getElementById(popoverId);
+    const popoverAnchor = '--' + popoverId;
+
+    // Have to override the anchor-name/position-anchor so that each link uniquely positions the preview (otherwise it all goes to the last one)
+    link.style.anchorName = popoverAnchor;
+    popover.style.positionAnchor = popoverAnchor;
 
     if (popover) {
       link.addEventListener('mouseenter', () => {
         popover.showPopover();
       });
 
-      // Hide the popover when the mouse leaves the link
       link.addEventListener('mouseleave', () => {
         popover.hidePopover();
       });
-
     }
   });
 });

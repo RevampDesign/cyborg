@@ -29,6 +29,7 @@ def get_all_newsletters():
 
 
 urlpatterns = [
+    path('tag-lookup/', views.tag_autocomplete, name="tag_autocomplete"),
     distill_path('', views.NewsletterList.as_view(), name='newsletterList'),
     # distill_path(
     #     '', 

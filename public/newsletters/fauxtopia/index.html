@@ -130,7 +130,7 @@
             <h1 itemprop="headline">Fauxtopia</h1>
         </header>
         
-        <div class="article-content" itemprop="articleBody">
+        <div id="article-body" class="article-content" itemprop="articleBody">
             <p>&quot;Words are built by putting together these stems,&quot; my favorite elementary teacher told us as she handed out a blue sheet of paper. I was astonished at this new idea that words were infused with meaning—built as if by LEGO bricks.</p>
 <p>miss = to send, like in missile, missionary<br>
 de = down, like in degrade, detoxify<br>
@@ -218,19 +218,23 @@ eu = good, like in euphemism, euphoria</p>
     </div>
 </article>
 
-<!-- <a href="/newsletters/the-story-that-undid-me/" class="link-with-preview" data-popover-target="are-we-asking-the-right-question">HOVER TO SHOW</a> -->
-
 <div class="linked-articles">
     
     <div id="technotopia" class="link-preview" popover>
         <a href="/newsletters/technotopia/">
             <div class="card">
-                <h2>Technotopia</h2>
-                <div>Digital spaces aren&#x27;t solving the problems we thought they could. In a connected world where knowledge is at our fingertips, why aren&#x27;t we in eutopia already?</div>
-                <div><small>April 9, 2025</small></div>
+                <div class="card-body">
+                    <h2>Technotopia</h2>
+                    <div>Digital spaces aren&#x27;t solving the problems we thought they could. In a connected world where knowledge is at our fingertips, why aren&#x27;t we in eutopia already?</div>
+                    <div class="date"><small>April 9, 2025</small></div>
+                </div>
             </div>
         </a>
     </div>
+    
+</div>
+
+<div class="linked-terms">
     
 </div>
 
@@ -266,15 +270,28 @@ eu = good, like in euphemism, euphoria</p>
     
 <script defer>
 document.addEventListener('DOMContentLoaded', () => {
-    const newsletterLinks = document.querySelectorAll('a[href^="/newsletters/"]');
+    const article = document.getElementById("article-body");
+    const newsletterLinks = article.querySelectorAll('a[href^="/newsletters/"]');
 
     newsletterLinks.forEach(link => {
         link.classList.add("link-with-preview");
-        // Extract the slug from the link's href attribute
+        // Get slug
         const url = link.getAttribute('href');
         const slugMatch = url.match(/\/newsletters\/([^/]+)\/$/);
         if (slugMatch && slugMatch[1]) {
             link.setAttribute('data-popover-target', slugMatch[1])
+        }
+    });
+    
+    // Must search within article body only, since there are glossaryLinks in the aside, now.
+    const glossaryLinks = article.querySelectorAll('a[href^="/glossary/"]');
+
+    glossaryLinks.forEach(link => {
+        link.classList.add("link-with-preview");
+        const termUrl = link.getAttribute('href');
+        const termSlugMatch = termUrl.match(/\/(glossary)\/([^/]+)\/$/);
+        if (termSlugMatch && termSlugMatch[1]) {
+            link.setAttribute('data-popover-target', (termSlugMatch[1] + '-' + termSlugMatch[2]))
         }
     });
 
@@ -285,17 +302,20 @@ document.addEventListener('DOMContentLoaded', () => {
   links.forEach(link => {
     const popoverId = link.getAttribute('data-popover-target');
     const popover = document.getElementById(popoverId);
+    const popoverAnchor = '--' + popoverId;
+
+    // Have to override the anchor-name/position-anchor so that each link uniquely positions the preview (otherwise it all goes to the last one)
+    link.style.anchorName = popoverAnchor;
+    popover.style.positionAnchor = popoverAnchor;
 
     if (popover) {
       link.addEventListener('mouseenter', () => {
         popover.showPopover();
       });
 
-      // Hide the popover when the mouse leaves the link
       link.addEventListener('mouseleave', () => {
         popover.hidePopover();
       });
-
     }
   });
 });
