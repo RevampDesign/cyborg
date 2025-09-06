@@ -95,6 +95,23 @@ a:hover, a:focus{
 	color: colors.$primary;
 }
 
+// EXTERNAL LINK ICON. FIX COLORS (USED OPACITY)
+a[target="_blank"] {
+	&::after {
+		content: url('data:image/svg+xml,<svg  viewBox="0 0 106 106" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M92.5867 62.3357L92.5867 23.1582L48.1331 65.3401L37.4529 54.66L81.9066 12.478L42.7291 12.478L56.5252 0.490299L105.697 0.490294L105.697 50.9903L92.5867 62.3357Z" fill="%23F86E38"/><path d="M26 27H24C19.0294 27 15 31.0294 15 36V82C15 86.9706 19.0294 91 24 91H70C74.9706 91 79 86.9706 79 82V79H94V82C94 95.2548 83.2548 106 70 106H24L23.3809 105.992C10.4122 105.664 0 95.0478 0 82V36C0 22.9522 10.4122 12.3362 23.3809 12.0078L24 12H26V27Z" fill="%23F86E38"/></svg>');
+		// background-image: url('data:image/svg+xml,<svg  viewBox="0 0 106 106" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M92.5867 62.3357L92.5867 23.1582L48.1331 65.3401L37.4529 54.66L81.9066 12.478L42.7291 12.478L56.5252 0.490299L105.697 0.490294L105.697 50.9903L92.5867 62.3357Z" fill="currentColor"/><path d="M26 27H24C19.0294 27 15 31.0294 15 36V82C15 86.9706 19.0294 91 24 91H70C74.9706 91 79 86.9706 79 82V79H94V82C94 95.2548 83.2548 106 70 106H24L23.3809 105.992C10.4122 105.664 0 95.0478 0 82V36C0 22.9522 10.4122 12.3362 23.3809 12.0078L24 12H26V27Z" fill="currentColor"/></svg>');
+		color: colors.$primary;
+		fill: colors.$primary;
+		display: inline-block;
+		vertical-align: baseline;
+		width: .65rem;
+		height: .65rem;
+		margin: 0 .15rem 0 .25rem;
+		background-repeat: no-repeat;
+		opacity: .8;
+	}
+}
+
 p:empty {
 	display: none;
 }

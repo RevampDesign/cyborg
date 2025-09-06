@@ -37,20 +37,33 @@ class NewsletterList(ListView):
 
 #     return render(request, template_name, context)
 
-def find_linked_newsletters(article):
+def get_linked_newsletters(article):
     # Look for CYBORG_ newsletter slugs and return a list of them.
-    slug_search = re.compile(r'\/newsletters\/(.+)\/\"\>')
+    slug_search = re.compile(r'\/newsletters\/([\w-]+)\/\"\>')
     slugs_found = slug_search.findall(article)
-    slugs = []
-    if slugs_found:
-        for slug in slugs_found:
-            slugs.append(slug)
-        return slugs
-    return None
+    if not slugs_found:
+        return None
+
+    newsletter_previews = []
+    for slug in slugs_found:
+        try:
+            pre = Newsletter.objects.get(slug=slug)
+            obj = {
+                'title': pre.title,
+                'slug': slug,
+                'url': pre.get_absolute_url(), 
+                'description': pre.description,
+                'publish_date': pre.publish_date,
+            }
+            newsletter_previews.append(obj)
+        except:
+            print(f"Couldn't find slug: {slug}")
+
+    return newsletter_previews
 
 def get_linked_terms(article):
     # Look for glossary/terms slugs and return a list of them.
-    slug_search = re.compile(r'\/glossary\/(.+)\/\"\>')
+    slug_search = re.compile(r'\/glossary\/([\w-]+)\/\"\>')
     slugs_found = slug_search.findall(article)
     if not slugs_found:
         return None
@@ -78,24 +91,8 @@ def newsletterDetail(request, slug):
 
     breadcrumb_parents = [{'title': 'Newsletters', 'url': '/newsletters/'}]
 
-    newsletter_slugs_found = find_linked_newsletters(content.body)
-
-    newsletter_previews = []
-    
-    if newsletter_slugs_found:
-        for slug in newsletter_slugs_found:
-            pre = Newsletter.objects.get(slug=slug)
-            obj = {
-                'title': pre.title,
-                'slug': slug,
-                'url': pre.get_absolute_url(), 
-                'description': pre.description,
-                'publish_date': pre.publish_date,
-            }
-            newsletter_previews.append(obj)
-
-
-    print("LINKED:\t", newsletter_previews)
+    newsletter_previews = get_linked_newsletters(content.body)
+    # print("LINKED:\t", newsletter_previews)
 
     glossary_terms_previews = get_linked_terms(content.body)
 

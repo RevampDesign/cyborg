@@ -90,7 +90,7 @@ main {
 
     figcaption {
         font-style: italic;
-        font-size: var(--article-sm-font-size);
+        font-size: var(--p2);
         margin-top: var(--article-space-xs);
     }
 
@@ -118,8 +118,9 @@ main {
     }
 
     kbd {
+        color: #{colors.$black};
         background-color: #{colors.$white};
-        font-size: var(--article-xs-font-size);
+        font-size: .9rem;
         border-radius: 3px;
         padding: 3px;
     }
@@ -129,7 +130,7 @@ main {
     }
 
     samp {
-        font-size: var(--article-xs-font-size);
+        font-size: .9rem;
         color: #{colors.$white};
         background-color: #{colors.$black};
         border-radius: 3px;
@@ -215,7 +216,7 @@ main {
     }
 
     .footnote {
-        font-size: var(--article-sm-font-size);
+        font-size: var(--p2);
         margin: var(--article-space-lg) 0;
         padding: var(--article-space-md) 0;
         border-top: 1px solid #{colors.$white};
