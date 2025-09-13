@@ -33,6 +33,10 @@ class TermAdmin(SortableAdminBase, AdminViewOnLocalSiteMixin, admin.ModelAdmin):
 class SourceAdmin(AdminViewOnLocalSiteMixin, admin.ModelAdmin):
     save_on_top = True
     filter_horizontal = ('author',)
+    list_display = ('__str__',  'authors', )
+
+    def authors(self, obj):
+        return ", ".join(o.name for o in obj.author.all())
 
 
 @admin.register(SourceAuthor)

@@ -11,7 +11,9 @@
     <meta itemprop="description" content="{{ content.description }}">
     {% endif %}
     <meta itemprop="datePublished" content="{{ content.schema_publish_date }}">
-    <meta itemprop="author" content="Jess Brown">
+    <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <meta itemprop="name" content="Jess Brown">
+    </div>
 
 
     <div class="grid-article">
@@ -22,7 +24,9 @@
                     <meta itemprop="name" content="CYBORG_ Newsletter">
                     <meta itemprop="id" href="https://cyborgnewsletter.com/#periodical">
                 </div>
-                <meta itemprop="copyrightHolder" content="Not Defined LLC">
+                <div itemprop="copyrightHolder" itemscope itemtype="https://schema.org/Organization">
+                    <meta itemprop="name" content="Not Defined LLC">
+                </div>
                 <div itemprop="isPartOf" itemscope itemtype="https://schema.org/PublicationVolume">
                     <link itemprop="isPartOf" href="https://cyborgnewsletter.com/#periodical" />
                     <meta itemprop="volumeNumber" content="{{ content.pk }}">
