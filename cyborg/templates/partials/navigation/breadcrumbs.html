@@ -7,7 +7,11 @@
     {% for parent in breadcrumb_parents %}
     <li itemprop="itemListElement" itemscope
     itemtype="https://schema.org/ListItem">
+        {% if parent.url %}
         <a itemprop="item" href="{{ parent.url }}"><span itemprop="name">{{ parent.title }}</span></a>&nbsp;/&nbsp;
+        {% else %}
+        <span itemprop="name">{{ parent.title }}</span>&nbsp;/&nbsp;
+        {% endif %}
         <meta itemprop="position" content="{{ forloop.counter|add:1 }}" />
     </li>
     {% endfor %}

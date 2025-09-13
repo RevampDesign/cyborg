@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block body_classes %}article{% endblock %}
+
+{% block content %}
+{% include 'partials/navigation/breadcrumbs.html' %}
+
+<article class="article">
+    <div class="grid-article">
+        <div itemscope itemtype="https://schema.org/WebPage">
+            <header>
+                <h1 itemprop="headline">{{ content.title }}</h1>
+            </header>
+            
+            <div class="body" itemprop="description">
+                {{ content.body|safe }}
+            </div>
+        </div>
+        {% if content.artwork.image %}
+        <div itemscope itemtype="https://schema.org/VisualArtwork">
+            <picture>
+                {% if content.artwork.image_webp %}
+                <source srcset="{{ content.artwork.image_webp.url }}" type="image/webp">
+                {% endif %}
+                <img src="{{ content.artwork.image.url }}" alt="">
+            </picture>
+
+            {{ content.artwork.copyright_notice }}
+        </div>
+        {% endif %}
+
+
+    </div>
+</article>
+
+
+{% endblock %}

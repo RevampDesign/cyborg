@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'meta_seo.apps.MetaSeoConfig',
     'topic.apps.TopicConfig',
     'newsletter.apps.NewsletterConfig',
+    'gallery.apps.GalleryConfig',
     'glossary.apps.GlossaryConfig',
     'policy.apps.PolicyConfig',
     'publishing.apps.PublishingConfig',

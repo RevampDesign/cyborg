@@ -39,6 +39,7 @@ urlpatterns = [
     distill_path('', homePage, name="homePage"),
     distill_path('subscribe/', TemplateView.as_view(template_name='content/subscribe.html'), name='subscribe'),
     path('topics/', include('topic.urls')),
+    path('gallery/', include('gallery.urls')),
     path('glossary/', include('glossary.urls')),
     path('newsletters/', include('newsletter.urls')),
     path('policies/', include('policy.urls')),

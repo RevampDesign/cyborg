@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block body_classes %}gallery{% endblock %}
+
+{% block content %}
+<header id="hero">
+    <h1>{{ content.headline }}</h1>
+    {% if content.subheadline %}
+    <p class="subheadline">{{ content.description }}</p>
+    {% endif %}
+    <a href="/subscribe/" class="btn btn-primary">Subscribe <span class="cta-arrow"></span></a>    
+</header>
+
+<section class="gallery">
+    <ul class="works-list grid-works">
+    {% for work in object_list %}
+        {% if work.approved %}
+        <a href="{{ work.get_absolute_url }}">
+            <li class="work-item">
+                <div class="work">
+                    {{ work.title }}
+                </div>
+                <div class="date">
+                    {{ work.publish_date|date:"M j, Y" }}
+                </div>
+            </li>
+        </a>
+        {% endif %}
+    {% endfor %}
+    </ul>
+
+    {% include 'partials/navigation/pagination.html' %}
+</section>
+
+{% include 'partials/cta/embedded-subscribe.html' %}
+
+{% endblock %}
