@@ -26,3 +26,9 @@ class WorkDetail(MetaSEO, Approval):
             'slug': self.slug
         }
         return reverse('workDetail', kwargs=kwargs)
+
+    def save(self, *args, **kwargs):
+        if self.body:
+            self.body = marko.convert(self.body)
+
+        super().save(*args, **kwargs)
