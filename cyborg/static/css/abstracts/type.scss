@@ -80,6 +80,10 @@ main {
         padding-left: 1.5rem;
         max-width: 55ch;
         text-wrap: pretty;
+        & p {
+            font-family: inherit !important;
+            font-size: inherit !important;
+        }
     }
 
     figure:has( blockquote ) {

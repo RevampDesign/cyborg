@@ -4,6 +4,12 @@ from meta_seo.models import MetaSEO
 from taggit.managers import TaggableManager
 import marko, re
 
+# def discover_possible_citations_in_text(body):
+#     pattern = r'<em>([^<]*[A-Z][^<]*)</em>'
+#     matches = re.findall(pattern, body)
+#     for potential in matches:
+
+
 class Newsletter(MetaSEO, Approval, ScheduledPublish):
     author = models.ForeignKey(
         'author.Author',
