@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block body_classes %}home{% endblock %}
+
+{% block robots %}<meta name="robots" content="noindex, nofollow"/>{% endblock %}
+
+
+{% block content %}
+<header id="hero">
+
+    <div class="hero-content">
+
+        <h1>Art Show Parking</h1>
+        
+        <p>Most available parking will be on-street parking along Slate Canyon Dr.</p>
+        <p>Note that once you turn off of Slate Canyon Dr. street parking is illegal and you must park in a stall.</p>
+        <p>Most stalls will be occupied.</p>
+        
+        <p>Open in <a href="https://maps.app.goo.gl/Ju7qARnpDy6tncneA">Google Maps</a></p>
+    </div>
+    
+</header>
+<section style="display: flex; justify-content: center; align-items: center;">
+    <img src="/static/images/sdrp/sdrp.jpg" alt="">
+</section>
+{% endblock %}

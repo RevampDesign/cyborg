@@ -1,11 +1,11 @@
-{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if content.title %}{{content.title}} | {% endif %}CYBORG_ Newsletter</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>CYBORG_ Newsletter</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
 
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
     <!-- /FONTS -->
 
-    {% block robots %}<meta name="robots" content="{% if content.noindex_nofollow %}noindex, nofollow{% else %}max-snippet:-1, max-image-preview:large, max-video-preview:-1{% endif %}"/>{% endblock %}
+    <meta name="robots" content="noindex, nofollow"/>
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Upgrade your humanity.">
@@ -32,15 +32,15 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
 
-    {# <!-- FAVICONS --> #}
+    
     <link rel="icon" href="/static/images/brand/favicon/cyborg.ico" sizes="32x32">
 
-    {# <!-- OPEN WEB PROTOCOLS --> #}
+    
     <link rel="alternate" type="application/rss+xml" title="CYBORG_ Newsletter" href="/newsletters/feed/">
 
-    {% block extra_head %}{% endblock %}
+    
 </head>
-<body class="{% block body_classes %}{% endblock %}">
+<body class="home">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JGP9HHYEJ7"></script>
     <script>
@@ -51,23 +51,70 @@
     gtag('config', 'G-JGP9HHYEJ7');
     </script>
 
-    {% block nav_header %}
-        {% include 'partials/navigation/nav-header.html' %}
-    {% endblock %}
+    
+        <nav id="header">
+    <a href="/">
+        <div class="brand">
+            <img src="/static/images/brand/logo-light.svg" alt="CYBORG" style="width: 120px;">
+        </div>
+    </a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-toggle-button">
+        <span></span>
+    </label>
+    <div class="menu">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="/newsletters/" class="">Newsletters</a>
+                </li>
+                <li>
+                    <a href="/topics/">Topics</a>
+                </li>
+            </ul>
+        </div>
+        <div class="action">
+            <ul>
+                <li>
+                    <a href="/subscribe/" class="btn btn-primary">Subscribe <span class="cta-arrow"></span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    
     
     <main id="main">
-        {% block content %}
-        {% endblock %}
+        
+<header id="hero">
+
+    <div class="hero-content">
+
+        <h1>Art Show Parking</h1>
+        
+        <p>Most available parking will be on-street parking along Slate Canyon Dr.</p>
+        <p>Note that once you turn off of Slate Canyon Dr. street parking is illegal and you must park in a stall.</p>
+        <p>Most stalls will be occupied.</p>
+        
+        <p>Open in <a href="https://maps.app.goo.gl/Ju7qARnpDy6tncneA">Google Maps</a></p>
+    </div>
+    
+</header>
+<section style="display: flex; justify-content: center; align-items: center;">
+    <img src="/static/images/sdrp/sdrp.jpg" alt="">
+</section>
+
     </main>
     
-    {% block footer %}
+    
     <footer>
         <div class="row">
             <div class="copyright">
-                &copy; {% now "Y" %} Not Defined LLC. All rights reserved.
+                &copy; 2025 Not Defined LLC. All rights reserved.
             </div>
             <div class="policies">
-                <a href="{% url 'policyDetail' slug='artificial-intelligence' %}">AI Policy</a>
+                <a href="/policies/artificial-intelligence/">AI Policy</a>
             </div>
         </div>
         <div class="row">
@@ -77,34 +124,13 @@
         </div>
         
     </footer>
-    {% endblock %}
+    
 
-    {% if user.is_staff and change_url %}
-    <a href="{{ change_url }}">
-        <div class="admin-tools">
-            Edit Page
-        </div>
-    </a>
-    <style>
-        .admin-tools {
-            background-color: var(--white);
-            padding: 1rem;
-            position: fixed;
-            top: 50%;
-            transform: translateY(-50%);
-            right:0;
-            color: var(--black);
-            box-shadow: 1px 3px 10px rgba(221, 112, 15, 0.61);
-            z-index: 10000;
-            border-top-left-radius: 5rem;
-            border-bottom-left-radius: 5rem;
-        }
-    </style>
-    {% endif %}
+    
 
 
-    <script src="{% static 'js/scripts.js' %}" defer></script>
+    <script src="/static/js/scripts.js" defer></script>
 
-    {% block extra_scripts %}{% endblock %}
+    
 </body>
 </html>

@@ -46,6 +46,7 @@ urlpatterns = [
     distill_path('sitemap/', htmlSitemap, {'sitemaps': sitemaps}, name='htmlSitemap', ),
 	distill_path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     distill_path('robots.txt', TemplateView.as_view(template_name='robots.txt', content_type="text/plain"), name='robots'),
+    distill_path('sdrp/', TemplateView.as_view(template_name='content/sdrp.html'), name='sdrp'),
     path('machina/', admin.site.urls),
 
     path('admin/', include(wagtailadmin_urls)),
