@@ -136,3 +136,19 @@ a:has( .card ) {
         left: anchor(center);
     }
 }
+
+
+.sequence-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30ch, 1fr));
+    gap: 2rem;
+    counter-reset: card;
+    .card {
+        text-wrap: pretty;
+        &::before {
+            counter-increment: card;
+            content: "0" counter(card);
+            
+        }
+    }
+}

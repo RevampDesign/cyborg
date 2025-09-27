@@ -147,7 +147,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATICFILES_DIRS = [
-	os.path.join(BASE_DIR, 'cyborg/static/')
+	os.path.join(BASE_DIR, 'cyborg/static/'),
+    os.path.join(BASE_DIR, 'media'),
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')

@@ -1,2 +1,2 @@
 from .artwork import Artwork
-from .work_detail import WorkDetail
+from .work_detail import WorkDetail, WorkButton

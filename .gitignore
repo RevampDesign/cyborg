@@ -5,11 +5,7 @@ __pycache__/
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
-/static/admin
-/static/admin*
-/static/js
-/static/css
-/static/wag*
+/static
 .DS_Store
 gulpfile.js
 package.json

@@ -2,7 +2,7 @@ from django.contrib import admin
 from cyborg.mixins import ExportModelCSVMixin, AdminViewOnLocalSiteMixin
 from adminsortable2.admin import SortableAdminBase, SortableInlineAdminMixin
 
-from .models import Artwork, WorkDetail
+from .models import Artwork, WorkDetail, WorkButton
 
 @admin.register(Artwork)
 class ArtworkAdmin(SortableAdminBase, AdminViewOnLocalSiteMixin, admin.ModelAdmin):
@@ -23,6 +23,9 @@ class ArtworkAdmin(SortableAdminBase, AdminViewOnLocalSiteMixin, admin.ModelAdmi
     )
 
 
+class InlineWorkButton(admin.TabularInline):
+    model = WorkButton
+    extra = 0
 
 
 @admin.register(WorkDetail)
@@ -31,12 +34,15 @@ class WorkDetailAdmin(SortableAdminBase, AdminViewOnLocalSiteMixin, admin.ModelA
     list_display = ('title',  'content_review', 'visual_review', 'seo_review', 'approved')
     list_editable = ('content_review', 'visual_review', 'seo_review',)
 
+    inlines = [InlineWorkButton, ]
+
+
     fieldsets = (
         ('Meta / SEO', {
             'fields': ('title', 'description', 'keywords', 'slug', ),
         }),
         ('Article', {
-            'fields': ('artwork', 'body',),
+            'fields': ('artwork', 'body', 'impact',),
         }),
         ('Publishing', {
             'fields': ('content_review', 'visual_review', 'seo_review', 'approved',),

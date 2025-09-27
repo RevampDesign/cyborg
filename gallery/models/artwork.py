@@ -1,6 +1,7 @@
 from django.db import models
 from core.fields import OptimizedImageField
 import datetime
+from django.utils.html import format_html
 
 class Artwork(models.Model):
     """ Most fields pulled from schema: 
@@ -63,7 +64,7 @@ class Artwork(models.Model):
 
     def image_preview(self):
         if self.image_webp:
-            return format_html("<div style='width:30px; margin:0;'>{image}</div>", image=format_html(self.image_webp.url))
+            return format_html('<img src="{src}" style="width:30px; margin:0;">', src=self.image_webp.url)
         if self.image:
             return format_html('<img src="{src}" style="width:30px; margin:0;">', src=self.image.url)
         return ''
