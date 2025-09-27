@@ -110,6 +110,9 @@ a[target="_blank"] {
 		background-repeat: no-repeat;
 		opacity: .8;
 	}
+	&.btn::after {
+		display: none;
+	}
 }
 
 p:empty {
