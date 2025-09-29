@@ -5,9 +5,32 @@
 {% block content %}
 {% include 'partials/navigation/breadcrumbs.html' %}
 
-<article class="artwork">
+<article class="work" itemscope itemtype="https://schema.org/WebPage">
     <div class="grid-artwork">
-        <div itemscope itemtype="https://schema.org/WebPage" class="description">
+        
+        <div itemscope itemtype="https://schema.org/VisualArtwork" class="media">
+            <div class="artwork">
+
+                {% if content.artwork.image %}
+                <picture>
+                    {% if content.artwork.image_webp %}
+                    <source srcset="{{ content.artwork.image_webp.url }}" type="image/webp">
+                    {% endif %}
+                    <img src="{{ content.artwork.image.url }}" alt="">
+                </picture>
+                
+                {% endif %}
+                <div class="artwork-footer">
+                    <div class="copyright" itemprop="copyrightNotice">
+                        {{ content.artwork.copyright_notice }}
+                    </div>
+                    <div class="medium" itemprop="artMedium">
+                        {{ content.artwork.art_medium }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="description">
             <header>
                 <h1 itemprop="headline">{{ content.title }}</h1>
             </header>
@@ -20,31 +43,8 @@
             <a href="{{ button.link }}" class="btn {{ button.template }}" style="margin-top: var(--article-space-lg);">{{ button.title }} <span class="cta-arrow"></span></a>    
             {% endfor %}
         </div>
-        <div itemscope itemtype="https://schema.org/VisualArtwork" class="media">
-            {% if content.artwork.image %}
-            <picture>
-                {% if content.artwork.image_webp %}
-                <source srcset="{{ content.artwork.image_webp.url }}" type="image/webp">
-                {% endif %}
-                <img src="{{ content.artwork.image.url }}" alt="">
-            </picture>
-
-            {% endif %}
-        </div>
     </div>
-    <div class="artwork-footer">
-        <div class="grid-artwork">
-
-            <div class="media">
-                <div class="copyright" itemprop="copyrightNotice">
-                    {{ content.artwork.copyright_notice }}
-                </div>
-                <div class="medium" itemprop="artMedium">
-                    {{ content.artwork.art_medium }}
-                </div>
-            </div>
-        </div>
-    </div>
+    
 
     {% if content.impact %}
     <section class="make-impact">

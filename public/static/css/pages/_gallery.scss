@@ -1,8 +1,18 @@
+.gallery {
+    --artwork-grid-cols: 1;
+    --artwork-column-gap: 0;
+    @media screen and (min-width: 930px) {
+        --artwork-column-gap: 5rem;
+        --artwork-grid-cols: [art-start] 1fr [art-end desc-start] 50ch [desc-end];
+    }
+}
 .grid-artwork {
     display: grid;
-    grid-template-columns: [art-start] 1fr [art-end desc-start] 50ch [desc-end];
-    column-gap: 5rem;
+    width: 100%;
+    grid-template-columns: var(--artwork-grid-cols);
+    column-gap: var(--artwork-column-gap);
     h1 {
+        margin-top: 0;
         font-size: clamp(2rem, 5dvh, var(--article-h1-font-size));
     }
     & .description {
@@ -12,12 +22,15 @@
         grid-column: art;
     } 
 }
+.artwork {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
 .artwork-footer {
-    padding: var(--article-space-lg) 0;
-    & .media {
+        padding: var(--article-space-lg) 0;
         display: flex;
         justify-content: space-between;
-    }
 }
 section.make-impact {
     .ruled-heading {
