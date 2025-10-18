@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block body_classes %}exhibit{% endblock %}
+
+{% block extra_head %}
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+{% endblock %}
+
+
+{% block content %}
+<article class="work" itemscope itemtype="https://schema.org/WebPage">
+    <div class="scroll-artwork">
+        {% for work in content.exhibitwork_set.all %}
+        <div class="artwork" itemscope itemtype="https://schema.org/VisualArtwork">
+            <div data-aos="fade-right" class="media">
+
+                {% if work.artwork.image %}
+                <picture>
+                    {% if work.artwork.image_webp %}
+                    <source srcset="{{ work.artwork.image_webp.url }}" type="image/webp">
+                    {% endif %}
+                    <img src="{{ work.artwork.image.url }}" alt="">
+                </picture>
+                
+                {% endif %}
+                <div class="artwork-footer">
+                    
+                </div>
+            </div>
+            <div data-aos="fade-right" class="description">
+                <header>
+                    <h1 itemprop="headline">{{ work.artwork.name }}</h1>
+                </header>
+                
+                <div class="body" itemprop="description">
+                    {{ work.artwork.about|safe }}
+                </div>
+                <div class="details">
+                    <div class="copyright" itemprop="copyrightNotice">
+                        {{ work.artwork.copyright_notice }}
+                    </div>
+                    <div class="medium" itemprop="artMedium">
+                        {{ work.artwork.art_medium }}
+                    </div>
+                </div>
+
+                {% for button in work.buttons.all %}
+                <a href="{{ button.link }}" class="btn {{ button.template }}" style="margin-top: var(--article-space-lg);">{{ button.title }} <span class="cta-arrow"></span></a>    
+                {% endfor %}
+            </div>
+        </div>{# <!-- /.artwork --> #}
+        {% endfor %}
+    </div>
+    
+
+</article>
+
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script defer>
+  AOS.init();
+</script>
+{% endblock %}

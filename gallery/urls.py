@@ -3,7 +3,7 @@ from django_distill import distill_path
 
 from . import views
 
-from .models import Artwork, WorkDetail
+from .models import Artwork, WorkDetail, Exhibit
 
 def get_paginated_work_pages():
     """
@@ -27,6 +27,16 @@ def get_all_works():
             # Note 'slug' match the URL parameter names
             yield {'slug': post.slug}
 
+def get_all_exhibits():
+    # This function needs to return an iterable of dictionaries.
+    # Dictionaries are required as the URL this distill function is used by
+    # has named parameters. You can just export a small subset of values
+    # here if you wish to limit what pages will be generated.
+    for post in Exhibit.objects.all():
+        if post.approved:
+            # Note 'slug' match the URL parameter names
+            yield {'slug': post.slug, 'year': post.start_date.year}
+
 
 urlpatterns = [
     distill_path('', views.Gallery.as_view(), name='gallery'),
@@ -43,5 +53,6 @@ urlpatterns = [
         distill_func=get_paginated_work_pages
     ),
     # distill_path('feed/', TermFeed(), name='termFeed', distill_file="terms/feed/index.xml"),
+    distill_path('exhibit/<slug:slug>/<int:year>/', views.exhibit, name='exhibit', distill_func=get_all_exhibits),
     distill_path('<slug:slug>/', views.workDetail, name='workDetail', distill_func=get_all_works),
 ]

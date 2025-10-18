@@ -1,0 +1,27 @@
+.exhibit {
+    height: 100dvh;
+    .scroll-artwork {
+        overflow-x: auto;
+        // white-space: nowrap;
+        height: 100%;
+        display: grid;
+        grid-auto-flow: column;
+        overscroll-behavior-inline: contain;
+        scroll-snap-type: inline mandatory;
+        scroll-padding-left: 0;
+        scroll-padding-right: 0;
+        scroll-padding-inline: 0;
+    }
+    .artwork {
+        display: flex;
+        flex-direction: row;
+        gap: 4rem;
+        height: fit-content;
+        width: 100dvw;
+        & .description {
+            & .body {
+                width: 65ch;
+            }
+        }
+    }
+}
