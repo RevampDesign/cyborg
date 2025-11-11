@@ -7,6 +7,12 @@
 {% endblock %}
 
 
+{# <!-- Turn off navs --> #}
+{% block nav_header %}{% endblock %}
+{% block footer %}{% endblock %}
+
+
+
 {% block content %}
 <article class="work" itemscope itemtype="https://schema.org/WebPage">
     <div class="scroll-artwork">
@@ -23,9 +29,6 @@
                 </picture>
                 
                 {% endif %}
-                <div class="artwork-footer">
-                    
-                </div>
             </div>
             <div data-aos="fade-right" class="description">
                 <header>
@@ -36,11 +39,11 @@
                     {{ work.artwork.about|safe }}
                 </div>
                 <div class="details">
-                    <div class="copyright" itemprop="copyrightNotice">
-                        {{ work.artwork.copyright_notice }}
-                    </div>
                     <div class="medium" itemprop="artMedium">
                         {{ work.artwork.art_medium }}
+                    </div>
+                    <div class="copyright" itemprop="copyrightNotice">
+                        {{ work.artwork.copyright_notice }}
                     </div>
                 </div>
 
