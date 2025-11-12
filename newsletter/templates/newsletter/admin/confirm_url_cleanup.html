@@ -1,0 +1,81 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_urls static admin_list %}
+
+{% block content %}
+<div id="content-main">
+    <div class="module">
+        <h2>{% trans "Cleanup Absolute URLs to Relative URLs" %}</h2>
+        <p>
+            You are about to modify the **body** content of 
+            <span style="font-weight: bold;">{{ queryset|length }}</span> 
+            newsletter(s).
+        </p>
+        <p>
+            **The following absolute URLs were found and will be converted to relative URLs:**
+        </p>
+
+        <table class="table" style="width: 100%;">
+            <thead>
+                <tr>
+                    <th style="width: 30%;">Newsletter</th>
+                    <th style="width: 35%;">Original Absolute URL</th>
+                    <th style="width: 35%;">Cleaned Relative URL</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pk, data in all_matches.items %}
+                    {% for match in data.matches %}
+                        <tr>
+                            {% if forloop.first %}
+                            <td rowspan="{{ data.matches|length }}" style="vertical-align: top; border-top: 1px solid #ccc;">
+                                <strong>{{ data.title }} (ID: {{ pk }})</strong>
+                            </td>
+                            {% endif %}
+                            <td>
+                                <code>{{ match.original }}</code>
+                            </td>
+                            <td>
+                                <code>{{ match.relative }}</code>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% empty %}
+                    <tr>
+                        <td colspan="3">No matching URLs found.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <form action="" method="post">{% csrf_token %}
+            <div>
+                {{ form.non_field_errors }}
+                <fieldset class="module aligned">
+                    {% for field in form %}
+                        {% if field.is_hidden %}
+                            {{ field }}
+                        {% else %}
+                            <div class="form-row">
+                                {{ field.errors }}
+                                <label for="{{ field.id_for_label }}">
+                                    {{ field.label }}
+                                    {% if field.help_text %}
+                                        <p class="help">{{ field.help_text }}</p>
+                                    {% endif %}
+                                </label>
+                                {{ field }}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </fieldset>
+                
+                <div class="submit-row">
+                    <input type="submit" value="{% trans 'Yes, I’m sure. Proceed with Cleanup' %}" name="confirm">
+                    <a href="#" onclick="window.history.back(); return false;" class="button cancel link">{% trans 'Cancel' %}</a>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

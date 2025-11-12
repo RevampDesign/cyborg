@@ -18,6 +18,17 @@ class TaggitSelect2(forms.TextInput):
             'js/admin/taggit-select2-init.js', 
         )
 
+class ConfirmURLCleanupForm(forms.Form):
+    _selected_action = forms.CharField(widget=forms.MultipleHiddenInput)
+    action = forms.CharField(widget=forms.HiddenInput, initial='cleanup_urls')
+    
+    # This field is just for the user to confirm the action
+    confirm = forms.BooleanField(
+        required=True,
+        label="I understand and confirm the permanent URL cleanup.",
+        help_text="This action will permanently modify the 'body' field of the selected newsletters.",
+        initial=False
+    )
 
 class NewsletterForm(forms.ModelForm):
     class Meta:

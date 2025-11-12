@@ -36,6 +36,12 @@ class Newsletter(MetaSEO, Approval, ScheduledPublish):
 
     def schema_publish_date(self):
         return self.publish_date.strftime("%Y-%m-%dT%H:%M:%SZ")
+    
+    # def schema_updated_date(self):
+    #     return self.date_updated.strftime("%Y-%m-%dT%H:%M:%SZ")
+    
+    def pretty_publish_date(self):
+        return self.publish_date.strftime("%B %e, %Y")
 
     def __str__(self):
         if self.title:
