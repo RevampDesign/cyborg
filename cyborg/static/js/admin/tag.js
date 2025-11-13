@@ -10,6 +10,26 @@ class RblTagInput extends HTMLElement {
 
     connectedCallback() {
         this.render();
+        
+        // 🛑 FIX: Use requestAnimationFrame to defer the query until the Light DOM is attached.
+        window.requestAnimationFrame(() => {
+            // Get the reference to the actual form field which is a direct child of the host element.
+            this.formInput = this.querySelector('input[name], textarea[name]');
+    
+            if (!this.formInput) {
+                 // You can remove this console.error if the fix works, but keep it for now.
+                 console.error("RblTagInput: Could not find the inner form input to update its value. (Deferred Check Failed)", this);
+                 return; 
+            }
+            
+            // 💡 INITIALIZE TAGS: Initialize internal tags from existing value in the form input
+            if (this.formInput.value) {
+                // Split by comma and trim whitespace to get initial tags
+                this.tags = this.formInput.value.split(',').map(tag => tag.trim()).filter(tag => tag.length > 0);
+                // Call renderTags to both draw the tags AND update the form value
+                this.renderTags(); 
+            }
+        });
     }
 
     render() {
@@ -111,12 +131,44 @@ class RblTagInput extends HTMLElement {
         }
     }
 
+    updateFormValue() {
+        const commaSeparatedTags = this.tags.join(', ');
+    
+        if (this.formInput) {
+            // 🛑 Update the value of the actual form input
+            this.formInput.value = commaSeparatedTags; 
+            
+            // Trigger a 'change' event to notify Django/FormSet listeners
+            this.formInput.dispatchEvent(new Event('change', { bubbles: true }));
+        } else {
+            console.error("RblTagInput: Could not find the inner form input to update its value.");
+        }
+    }
+
+    // addTag(tag) {
+    //     if (this.tags.includes(tag)) {
+    //         this.showDuplicate(tag);
+    //     } else {
+    //         this.tags.push(tag);
+    //         this.createTagElement(tag);
+    //     }
+    //     this.input.value = '';
+    // }
+
+    // deleteTag(index) {
+    //     if (index >= 0 && index < this.tags.length) {
+    //         this.tags.splice(index, 1);
+    //         this.renderTags();
+    //     }
+    // }
+
     addTag(tag) {
         if (this.tags.includes(tag)) {
             this.showDuplicate(tag);
         } else {
             this.tags.push(tag);
             this.createTagElement(tag);
+            this.updateFormValue(); // <-- NEW
         }
         this.input.value = '';
     }
@@ -125,6 +177,7 @@ class RblTagInput extends HTMLElement {
         if (index >= 0 && index < this.tags.length) {
             this.tags.splice(index, 1);
             this.renderTags();
+            this.updateFormValue(); // <-- NEW
         }
     }
 
@@ -165,8 +218,14 @@ class RblTagInput extends HTMLElement {
     }
 
     renderTags() {
+        // First, clear all existing tag UI elements from the Shadow DOM
         this.shadowRoot.querySelectorAll('.tag').forEach(el => el.remove());
+        // Then, render the tags from the internal array
         this.tags.forEach(this.createTagElement.bind(this));
+        
+        // 💡 IMPORTANT: Update the form value after rendering tags during initialization
+        // This is only strictly needed if you are editing an existing item and the tags array was just populated.
+        this.updateFormValue();
     }
 }
 

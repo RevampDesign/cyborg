@@ -1,0 +1,34 @@
+.exhibit {
+    grid-template-rows: 1fr; // Reset body grid
+    height: 100%;
+    .scroll-artwork {
+        overflow-x: scroll;
+        display: grid;
+        grid-auto-flow: column;
+        overscroll-behavior-inline: contain;
+        scroll-snap-type: x mandatory;
+        scroll-padding-left: 0;
+        scroll-padding-right: 0;
+        scroll-padding-inline: 0;
+    }
+    .artwork {
+        display: flex;
+        flex-direction: row;
+        gap: 4rem;
+        height: fit-content;
+        width: 100dvw;
+        scroll-snap-align: start;
+        & .description {
+            & .body {
+                width: 65ch;
+            }
+            & .details {
+                margin-top: var(--article-space-md);
+            }
+        }
+        & img {
+            max-width: unset;
+            max-height: 100%;
+        }
+    }
+}
