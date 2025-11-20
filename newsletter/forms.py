@@ -35,6 +35,5 @@ class NewsletterForm(forms.ModelForm):
         model = Newsletter
         fields = '__all__'
         widgets = {
-            # 'tags': TaggitSelect2(),
             'tags': RblTagInputWidget,
         }
