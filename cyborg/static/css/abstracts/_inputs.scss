@@ -1,0 +1,18 @@
+@use 'colors';
+
+$input-background: transparent;
+$input-border: 1px solid var(--white);
+$input-padding: .875rem;
+$input-border-radius: var(--border-radius-primary);
+$input-placeholder-opacity: .7;
+
+input {
+    border: 1px solid var(--white);
+    background: transparent;
+    &::placeholder {
+        color: rgba(var(--white), $input-placeholder-opacity);
+    }
+    &:focus, &:active {
+        border-color: var(--green) !important;
+    }
+}

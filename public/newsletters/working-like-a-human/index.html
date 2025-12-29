@@ -77,6 +77,13 @@
         <div class="action">
             <ul>
                 <li>
+                    <button id="open-search" class="btn" title="Open Search">
+                        <svg viewBox="0 0 101 105" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M59.5 0C82.4198 0 101 18.5802 101 41.5C101 64.4198 82.4198 83 59.5 83C51.489 83 44.0096 80.7276 37.667 76.7959L10.751 104.461L0 94L26.543 66.7188C21.1861 59.7286 18 50.9871 18 41.5C18 18.5802 36.5802 0 59.5 0ZM59.5 15C44.8645 15 33 26.8645 33 41.5C33 56.1355 44.8645 68 59.5 68C74.1355 68 86 56.1355 86 41.5C86 26.8645 74.1355 15 59.5 15Z" fill="currentColor"/>
+                        </svg>
+                    </button>
+                </li>
+                <li>
                     <a href="/subscribe/" class="btn btn-primary">Subscribe <span class="cta-arrow"></span></a>
                 </li>
             </ul>
@@ -263,14 +270,135 @@
                 Designed, developed, and written with 🌈 by Jess Brown.
             </div>
         </div>
-        
     </footer>
+    
+
+    
+    
+    <dialog id="search-modal">
+            <div class="modal-header">
+                <h2>Search</h2>
+                <form method="dialog">
+                    <button class="btn btn-close" title="Close">&times;</button>
+                </form>
+            </div>
+            
+            <input type="search" id="search-input" placeholder="What are you looking for?" autocomplete="off">
+            <div class="modal-body">
+                <div id="docfind-results"></div>
+            </div>
+    </dialog>
+    <script defer>
+        const searchModal = document.getElementById('search-modal');
+        const openBtn = document.getElementById('open-search');
+        const searchInput = document.getElementById('search-input');
+
+        // Open modal
+        openBtn.addEventListener('click', () => {
+            searchModal.showModal();
+            // Auto-focus the input when it opens
+            searchInput.focus();
+        });
+
+        // Optional: Close modal if user clicks outside the content box (on the backdrop)
+        searchModal.addEventListener('click', (e) => {
+            if (e.target === searchModal) searchModal.close();
+        });
+    </script>
     
 
     
 
 
     <script src="/static/js/scripts.js" defer></script>
+
+    
+    <script type="module">
+    import search from '/static/search/docfind.js';
+
+    const input = document.getElementById('search-input');
+    const resultsDiv = document.getElementById('docfind-results');
+
+    function escapeHTML(str) {
+        if (!str) return "";
+        return str.replace(/[&<>"']/g, function(m) {
+            return {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;'
+            }[m];
+        });
+    }
+
+    function debounce(func, timeout = 300) {
+        let timer;
+        return (...args) => {
+            clearTimeout(timer);
+            timer = setTimeout(() => { func.apply(this, args); }, timeout);
+        };
+    }
+
+    async function performSearch(query) {
+        if (query.length < 2) {
+            resultsDiv.innerHTML = '';
+            return;
+        }
+
+        resultsDiv.innerHTML = '<p>Searching...</p>';
+
+        // The 'search' function returns an array of matching documents
+        const results = await search(query);
+
+        if (results.length === 0) {
+            resultsDiv.innerHTML = `
+                <div class="no-results">
+                    <p>No newsletters found matching "<strong>${escapeHTML(query)}</strong>".</p>
+                </div>
+            `;
+            return;
+        }
+        
+        resultsDiv.innerHTML = results.map(res => {
+            const safeTitle = escapeHTML(res.title);
+            const safeHref = encodeURI(res.href);
+            
+            // 1. Extract the tags from the body string
+            // We split by the "Tags:" prefix you added in Django
+            let displayBody = res.body || "";
+            let tags = [];
+            
+            if (displayBody.includes("Tags: ")) {
+                const parts = displayBody.split("Tags: ");
+                displayBody = parts[0]; // Everything before "Tags:"
+                tags = parts[1].split(", "); // Everything after "Tags:", split into an array
+            }
+
+            const safeBody = escapeHTML(displayBody.substring(0, 150));
+
+            // 2. Build the Tags HTML
+            const tagsHTML = tags.length > 0 
+                ? `<div class="result-tags">
+                    ${tags.map(tag => `<span class="chip">${escapeHTML(tag)}</span>`).join('')}
+                </div>`
+                : '';
+
+            return `
+                <div class="search-result">
+                    <a href="${safeHref}">
+                        <h3>${safeTitle}</h3>
+                    </a>
+                    <p>${safeBody}...</p>
+                    ${tagsHTML}
+                </div>
+            `;
+        }).join('');
+    }
+
+    const processChange = debounce((e) => performSearch(e.target.value));
+    input.addEventListener('input', processChange);
+</script>
 
     
 <script defer>

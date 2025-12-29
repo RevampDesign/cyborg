@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic.list import ListView
 from django.urls import reverse
+from django.utils.html import strip_tags
 
 from .models import Newsletter
 from glossary.models import Term
 import re
-
 
 from django.http import JsonResponse
 from taggit.models import Tag
@@ -14,6 +14,23 @@ def tag_autocomplete(request):
     query = request.GET.get('q', '')
     tags = Tag.objects.filter(name__icontains=query).values_list('name', flat=True)
     return JsonResponse(list(tags), safe=False)
+
+# Docfind search data
+def search_index_json(request):
+    posts = Newsletter.objects.all()
+    data = []
+    for post in posts:
+        # Join tags into a space-separated string
+        tag_string = ", ".join(post.tags.values_list('name', flat=True))
+        clean_body = strip_tags(post.body or "")
+
+        data.append({
+            "title": post.title,
+            "category": "Newsletters",
+            "href": post.get_absolute_url(),
+            "body": f"{post.description} ¶ {clean_body} Tags: {tag_string}", # Docfind will extract keywords from this prop, so we add extra context as needed
+        })
+    return JsonResponse(data, safe=False)
 
 
 class NewsletterList(ListView):

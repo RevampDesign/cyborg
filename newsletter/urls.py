@@ -45,4 +45,5 @@ urlpatterns = [
     ),
     distill_path('feed/', NewsletterFeed(), name='newsletterFeed', distill_file="newsletters/feed/index.xml"),
     distill_path('<slug:slug>/', views.newsletterDetail, name='newsletterDetail', distill_func=get_all_newsletters),
+    distill_path('search-data.json', views.search_index_json, name='search-index-json'),
 ]
