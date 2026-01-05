@@ -4,7 +4,7 @@
         <div class="newsletter-id">{{ newsletter.pk|stringformat:"03d" }}</div>
     </div>
     <div class="card-body">
-        <div class="poster">
+        <div class="poster" aria-hidden="true">
             {{ newsletter.title|slice:":2" }}
         </div>
     </div>
