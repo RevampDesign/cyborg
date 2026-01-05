@@ -10,4 +10,7 @@
     border-radius: 3px;
     font-size: var(--p3);
     font-weight: abstracts.$font-bold;
+    &:empty {
+        display: none;
+    }
 }
