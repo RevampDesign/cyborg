@@ -2,7 +2,7 @@ from django.contrib import admin
 from cyborg.mixins import ExportModelCSVMixin, AdminViewOnLocalSiteMixin
 from adminsortable2.admin import SortableAdminBase, SortableInlineAdminMixin
 
-from .models import Term, Source, SourceAuthor, TermSource
+from .models import Term, Source, SourceAuthor, SourcePublisher, TermSource
 
 class InlineTermSource(SortableInlineAdminMixin, admin.TabularInline):
     model = TermSource
@@ -41,4 +41,8 @@ class SourceAdmin(AdminViewOnLocalSiteMixin, admin.ModelAdmin):
 
 @admin.register(SourceAuthor)
 class SourceAuthorAdmin(AdminViewOnLocalSiteMixin, admin.ModelAdmin):
+    save_on_top = True
+
+@admin.register(SourcePublisher)
+class SourcePublisherAdmin(AdminViewOnLocalSiteMixin, admin.ModelAdmin):
     save_on_top = True
