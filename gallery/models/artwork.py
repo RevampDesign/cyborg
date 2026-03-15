@@ -38,8 +38,18 @@ class Artwork(models.Model):
         INCHES = 'in', "Inches"
         FEET = 'ft', "Feet"
 
-    height = models.PositiveIntegerField(blank=True, null=True)
-    width = models.PositiveIntegerField(blank=True, null=True)
+    height = models.DecimalField(
+        max_digits=10, 
+        decimal_places=2, 
+        blank=True, 
+        null=True
+    )
+    width = models.DecimalField(
+        max_digits=10, 
+        decimal_places=2, 
+        blank=True, 
+        null=True
+    )
     dimension_unit = models.CharField(max_length=50, blank=True, choices=Unit.choices)
 
     artist = models.ForeignKey(
