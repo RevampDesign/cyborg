@@ -24,6 +24,11 @@
     color: #{colors.$black};
 }
 
+redacted {
+    display: inline;
+    word-break: break-all;
+}
+
 main {
     h1, h2, h3, h4, h5, h6 {
         margin-top: 2em;
@@ -89,6 +94,9 @@ main {
     figure:has( blockquote ) {
         figcaption {
             font-style: normal;
+            & cite {
+                font-style: italic; // Reset when citation within citation/quote-based figcaption
+            }
         }
     }
 
@@ -96,6 +104,9 @@ main {
         font-style: italic;
         font-size: var(--p2);
         margin-top: var(--article-space-xs);
+        & cite {
+            font-style: normal; // Opposite when citation within normal figcaption
+        }
     }
 
     p + ul, p + ol {
