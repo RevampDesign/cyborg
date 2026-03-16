@@ -98,6 +98,7 @@ TEMPLATES = [
             ],
             'libraries': {
                 'read_time': 'cyborg.templatetags.read_time',
+                'apply_redaction': 'cyborg.templatetags.redaction',
             }
         },
     },
