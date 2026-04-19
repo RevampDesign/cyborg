@@ -1,0 +1,97 @@
+ORIGINAL ROBOTS.TXT
+- Updated to cascade the data scrapers all in one disallow chain, rather than individually as shown below
+
+User-Agent: *
+Allow: /
+
+
+# AI Data Scraper
+# https://darkvisitors.com/agents/ai2bot
+
+User-agent: AI2Bot
+Disallow: /
+
+
+# AI Data Scraper
+# https://darkvisitors.com/agents/bytespider
+
+User-agent: Bytespider
+Disallow: /
+
+# AI Data Scraper
+# https://darkvisitors.com/agents/ccbot
+
+User-agent: CCBot
+Disallow: /
+
+
+# Undocumented AI Agent
+# https://darkvisitors.com/agents/cohere-ai
+
+User-agent: cohere-ai
+Disallow: /
+
+# AI Data Scraper
+# https://darkvisitors.com/agents/cohere-training-data-crawler
+
+User-agent: cohere-training-data-crawler
+Disallow: /
+
+# AI Data Scraper
+# https://darkvisitors.com/agents/diffbot
+
+User-agent: Diffbot
+Disallow: /
+
+# AI Data Scraper
+# https://darkvisitors.com/agents/facebookbot
+
+User-agent: FacebookBot
+Disallow: /
+
+
+# AI Data Scraper
+# https://darkvisitors.com/agents/gptbot
+
+User-agent: GPTBot
+Disallow: /
+
+# AI Data Scraper
+# https://darkvisitors.com/agents/kangaroo-bot
+
+User-agent: Kangaroo Bot
+Disallow: /
+
+# AI Data Scraper
+# https://darkvisitors.com/agents/meta-externalagent
+
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+# AI Data Scraper
+# https://darkvisitors.com/agents/omgili
+
+User-agent: omgili
+Disallow: /
+
+# AI Data Scraper
+# https://darkvisitors.com/agents/pangubot
+
+User-agent: PanguBot
+Disallow: /
+
+# AI Data Scraper
+# https://darkvisitors.com/agents/timpibot
+
+User-agent: Timpibot
+Disallow: /
+
+# AI Data Scraper
+# https://darkvisitors.com/agents/webzio-extended
+
+User-agent: Webzio-Extended
+Disallow: /
+
+
+# Keep sitemap at bottom
+Sitemap: https://cyborgnewsletter.com/sitemap.xml
