@@ -103,6 +103,61 @@
 <section class="newsletters">
     <ul class="newsletters-list grid-newsletters">
         
+        <a href="/newsletters/the-coming-identity-crisis/">
+            <li class="newsletter-item">
+                <div class="newsletter">
+                    The Coming Identity Crisis
+                </div>
+                <div class="date">
+                    May 18, 2026
+                </div>
+            </li>
+        </a>
+        
+        <a href="/newsletters/the-name-that-becomes-a-name-is-not-the-immortal-name/">
+            <li class="newsletter-item">
+                <div class="newsletter">
+                    The Name that Becomes a Name is not the Immortal Name
+                </div>
+                <div class="date">
+                    May 5, 2026
+                </div>
+            </li>
+        </a>
+        
+        <a href="/newsletters/the-illusion-of-completeness/">
+            <li class="newsletter-item">
+                <div class="newsletter">
+                    The Illusion of Completeness
+                </div>
+                <div class="date">
+                    Apr 28, 2026
+                </div>
+            </li>
+        </a>
+        
+        <a href="/newsletters/the-trickster/">
+            <li class="newsletter-item">
+                <div class="newsletter">
+                    The Trickster
+                </div>
+                <div class="date">
+                    Apr 21, 2026
+                </div>
+            </li>
+        </a>
+        
+        <a href="/newsletters/lack-of-poetry/">
+            <li class="newsletter-item">
+                <div class="newsletter">
+                    Lack of Poetry
+                </div>
+                <div class="date">
+                    Apr 14, 2026
+                </div>
+            </li>
+        </a>
+        
         <a href="/newsletters/the-case-for-thai-lesbian-dramas/">
             <li class="newsletter-item">
                 <div class="newsletter">
@@ -158,61 +213,6 @@
             </li>
         </a>
         
-        <a href="/newsletters/the-secret-of-craftsmanship/">
-            <li class="newsletter-item">
-                <div class="newsletter">
-                    The Secret of Craftsmanship
-                </div>
-                <div class="date">
-                    Mar 3, 2026
-                </div>
-            </li>
-        </a>
-        
-        <a href="/newsletters/the-problem-with-problem-solvers/">
-            <li class="newsletter-item">
-                <div class="newsletter">
-                    The Problem with Problem-Solvers
-                </div>
-                <div class="date">
-                    Feb 24, 2026
-                </div>
-            </li>
-        </a>
-        
-        <a href="/newsletters/the-inevitability-paradox/">
-            <li class="newsletter-item">
-                <div class="newsletter">
-                    The Inevitability Paradox
-                </div>
-                <div class="date">
-                    Feb 17, 2026
-                </div>
-            </li>
-        </a>
-        
-        <a href="/newsletters/bird-noticing/">
-            <li class="newsletter-item">
-                <div class="newsletter">
-                    Bird-Noticing
-                </div>
-                <div class="date">
-                    Feb 9, 2026
-                </div>
-            </li>
-        </a>
-        
-        <a href="/newsletters/oppression-is-a-system-says-former-black-panther/">
-            <li class="newsletter-item">
-                <div class="newsletter">
-                    &quot;Oppression is a System,&quot; Says Former Black Panther
-                </div>
-                <div class="date">
-                    Feb 3, 2026
-                </div>
-            </li>
-        </a>
-        
     </ul>
 
     <nav id="paginator" class="page-nav" title="pagination">
@@ -245,6 +245,8 @@
 					
 						<li><a href="/newsletters/page/4/"   >4</a></li>
 						<input type="hidden" value="4" name="page">
+					
+				
 					
 				
 					
@@ -1103,7 +1105,7 @@
             const safeHref = encodeURI(res.href);
             
             // 1. Extract the tags from the body string
-            // We split by the "Tags:" prefix you added in Django
+            // We split by the "Tags:" prefix added in admin
             let displayBody = res.body || "";
             let tags = [];
             

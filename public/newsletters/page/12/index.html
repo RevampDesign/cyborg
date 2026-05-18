@@ -103,6 +103,61 @@
 <section class="newsletters">
     <ul class="newsletters-list grid-newsletters">
         
+        <a href="/newsletters/horror-vacui/">
+            <li class="newsletter-item">
+                <div class="newsletter">
+                    Horror Vacui
+                </div>
+                <div class="date">
+                    Apr 2, 2024
+                </div>
+            </li>
+        </a>
+        
+        <a href="/newsletters/the-problem-we-are-avoiding-with-ai/">
+            <li class="newsletter-item">
+                <div class="newsletter">
+                    The Problem We&#x27;re Avoiding with AI
+                </div>
+                <div class="date">
+                    Mar 26, 2024
+                </div>
+            </li>
+        </a>
+        
+        <a href="/newsletters/braintenance/">
+            <li class="newsletter-item">
+                <div class="newsletter">
+                    Braintenance
+                </div>
+                <div class="date">
+                    Mar 19, 2024
+                </div>
+            </li>
+        </a>
+        
+        <a href="/newsletters/truth-and-art-and-ai/">
+            <li class="newsletter-item">
+                <div class="newsletter">
+                    Truth and Art and AI
+                </div>
+                <div class="date">
+                    Mar 12, 2024
+                </div>
+            </li>
+        </a>
+        
+        <a href="/newsletters/how-to-fail-gracefully/">
+            <li class="newsletter-item">
+                <div class="newsletter">
+                    How to Fail Gracefully
+                </div>
+                <div class="date">
+                    Mar 5, 2024
+                </div>
+            </li>
+        </a>
+        
         <a href="/newsletters/what-are-technology-and-humanity/">
             <li class="newsletter-item">
                 <div class="newsletter">
@@ -154,39 +209,6 @@
                 </div>
                 <div class="date">
                     Jan 30, 2024
-                </div>
-            </li>
-        </a>
-        
-        <a href="/newsletters/rigidity-is-death/">
-            <li class="newsletter-item">
-                <div class="newsletter">
-                    Rigidity is death...
-                </div>
-                <div class="date">
-                    Jan 23, 2024
-                </div>
-            </li>
-        </a>
-        
-        <a href="/newsletters/decluttered-digital-thinking/">
-            <li class="newsletter-item">
-                <div class="newsletter">
-                    Decluttered Digital Thinking
-                </div>
-                <div class="date">
-                    Jan 16, 2024
-                </div>
-            </li>
-        </a>
-        
-        <a href="/newsletters/the-problem-with-creativity/">
-            <li class="newsletter-item">
-                <div class="newsletter">
-                    The Problem with Creativity
-                </div>
-                <div class="date">
-                    Jan 9, 2024
                 </div>
             </li>
         </a>
@@ -246,11 +268,17 @@
 						<li class="active"><span aria-current="page">12</span></li>
 					
 				
+					
+						<li><a href="/newsletters/page/13/"   >13</a></li>
+						<input type="hidden" value="13" name="page">
+					
 				
 				
 				
 				
-					<li class="disabled"><span>&rsaquo;</span></li>
+				
+					<li><a href="/newsletters/page/13/"   >&rsaquo;</a></li>
+					<input type="hidden" value="13" name="page">
 				
 			</ul>
 				
@@ -1082,7 +1110,7 @@
             const safeHref = encodeURI(res.href);
             
             // 1. Extract the tags from the body string
-            // We split by the "Tags:" prefix you added in Django
+            // We split by the "Tags:" prefix added in admin
             let displayBody = res.body || "";
             let tags = [];
             

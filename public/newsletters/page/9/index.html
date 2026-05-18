@@ -103,6 +103,61 @@
 <section class="newsletters">
     <ul class="newsletters-list grid-newsletters">
         
+        <a href="/newsletters/see-speak-and-hear-no-evil/">
+            <li class="newsletter-item">
+                <div class="newsletter">
+                    See, Speak, and Hear No Evil
+                </div>
+                <div class="date">
+                    Oct 29, 2024
+                </div>
+            </li>
+        </a>
+        
+        <a href="/newsletters/ei-before-ai/">
+            <li class="newsletter-item">
+                <div class="newsletter">
+                    EI Before AI
+                </div>
+                <div class="date">
+                    Oct 22, 2024
+                </div>
+            </li>
+        </a>
+        
+        <a href="/newsletters/a-death-in-the-family/">
+            <li class="newsletter-item">
+                <div class="newsletter">
+                    A Death in the Family
+                </div>
+                <div class="date">
+                    Oct 15, 2024
+                </div>
+            </li>
+        </a>
+        
+        <a href="/newsletters/subservience/">
+            <li class="newsletter-item">
+                <div class="newsletter">
+                    Subservience
+                </div>
+                <div class="date">
+                    Oct 8, 2024
+                </div>
+            </li>
+        </a>
+        
+        <a href="/newsletters/the-problem-with-names-part-two/">
+            <li class="newsletter-item">
+                <div class="newsletter">
+                    The Problem with Names, Part 2
+                </div>
+                <div class="date">
+                    Oct 1, 2024
+                </div>
+            </li>
+        </a>
+        
         <a href="/newsletters/the-problem-with-names-part-one/">
             <li class="newsletter-item">
                 <div class="newsletter">
@@ -154,61 +209,6 @@
                 </div>
                 <div class="date">
                     Aug 27, 2024
-                </div>
-            </li>
-        </a>
-        
-        <a href="/newsletters/taking-advantage-of-digital-space/">
-            <li class="newsletter-item">
-                <div class="newsletter">
-                    Taking Advantage of Digital Space
-                </div>
-                <div class="date">
-                    Aug 20, 2024
-                </div>
-            </li>
-        </a>
-        
-        <a href="/newsletters/the-price-of-knowledge/">
-            <li class="newsletter-item">
-                <div class="newsletter">
-                    The Price of Knowledge
-                </div>
-                <div class="date">
-                    Aug 13, 2024
-                </div>
-            </li>
-        </a>
-        
-        <a href="/newsletters/part-of-the-internet-so-basic-so-powerful-you-probably-dont-know-about-it/">
-            <li class="newsletter-item">
-                <div class="newsletter">
-                    Part of the Internet So Basic, So Powerful, You Probably Don&#x27;t Know about It
-                </div>
-                <div class="date">
-                    Aug 6, 2024
-                </div>
-            </li>
-        </a>
-        
-        <a href="/newsletters/the-small-stuff/">
-            <li class="newsletter-item">
-                <div class="newsletter">
-                    The Small Stuff
-                </div>
-                <div class="date">
-                    Jul 30, 2024
-                </div>
-            </li>
-        </a>
-        
-        <a href="/newsletters/template-thinking/">
-            <li class="newsletter-item">
-                <div class="newsletter">
-                    Template Thinking
-                </div>
-                <div class="date">
-                    Jul 23, 2024
                 </div>
             </li>
         </a>
@@ -277,7 +277,12 @@
 						<input type="hidden" value="12" name="page">
 					
 				
+					
 				
+				
+				
+					<li><a href="/newsletters/page/12/"   >&hellip;</a></li>
+					<input type="hidden" value="12" name="page">
 				
 				
 				
@@ -1114,7 +1119,7 @@
             const safeHref = encodeURI(res.href);
             
             // 1. Extract the tags from the body string
-            // We split by the "Tags:" prefix you added in Django
+            // We split by the "Tags:" prefix added in admin
             let displayBody = res.body || "";
             let tags = [];
             

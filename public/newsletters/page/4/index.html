@@ -103,6 +103,61 @@
 <section class="newsletters">
     <ul class="newsletters-list grid-newsletters">
         
+        <a href="/newsletters/the-artist-as-enemy-final/">
+            <li class="newsletter-item">
+                <div class="newsletter">
+                    The Artist as Enemy, Final
+                </div>
+                <div class="date">
+                    Oct 14, 2025
+                </div>
+            </li>
+        </a>
+        
+        <a href="/newsletters/the-artist-as-enemy-part-two/">
+            <li class="newsletter-item">
+                <div class="newsletter">
+                    The Artist as Enemy, Part Two
+                </div>
+                <div class="date">
+                    Oct 7, 2025
+                </div>
+            </li>
+        </a>
+        
+        <a href="/newsletters/the-artist-as-enemy-part-one/">
+            <li class="newsletter-item">
+                <div class="newsletter">
+                    The Artist as Enemy, Part One
+                </div>
+                <div class="date">
+                    Sep 30, 2025
+                </div>
+            </li>
+        </a>
+        
+        <a href="/newsletters/the-deadly-65th-floor-dinner-party/">
+            <li class="newsletter-item">
+                <div class="newsletter">
+                    The Deadly 65th Floor Dinner Party
+                </div>
+                <div class="date">
+                    Sep 23, 2025
+                </div>
+            </li>
+        </a>
+        
+        <a href="/newsletters/what-am-i/">
+            <li class="newsletter-item">
+                <div class="newsletter">
+                    What Am I?
+                </div>
+                <div class="date">
+                    Sep 17, 2025
+                </div>
+            </li>
+        </a>
+        
         <a href="/newsletters/at-the-speed-of-thought/">
             <li class="newsletter-item">
                 <div class="newsletter">
@@ -158,61 +213,6 @@
             </li>
         </a>
         
-        <a href="/newsletters/how-do-you-draw-a-paradox/">
-            <li class="newsletter-item">
-                <div class="newsletter">
-                    How Do You Draw a Paradox?
-                </div>
-                <div class="date">
-                    Aug 6, 2025
-                </div>
-            </li>
-        </a>
-        
-        <a href="/newsletters/the-story-that-undid-me/">
-            <li class="newsletter-item">
-                <div class="newsletter">
-                    The Story That Undid Me
-                </div>
-                <div class="date">
-                    Jul 29, 2025
-                </div>
-            </li>
-        </a>
-        
-        <a href="/newsletters/disadvantaged-conundrum/">
-            <li class="newsletter-item">
-                <div class="newsletter">
-                    Disadvantaged Conundrum
-                </div>
-                <div class="date">
-                    Jul 22, 2025
-                </div>
-            </li>
-        </a>
-        
-        <a href="/newsletters/are-we-asking-the-right-question/">
-            <li class="newsletter-item">
-                <div class="newsletter">
-                    Are We Asking the Right Question?
-                </div>
-                <div class="date">
-                    Jul 15, 2025
-                </div>
-            </li>
-        </a>
-        
-        <a href="/newsletters/the-art-of-revelation/">
-            <li class="newsletter-item">
-                <div class="newsletter">
-                    The Art of Revelation
-                </div>
-                <div class="date">
-                    Jul 8, 2025
-                </div>
-            </li>
-        </a>
-        
     </ul>
 
     <nav id="paginator" class="page-nav" title="pagination">
@@ -261,6 +261,8 @@
 					
 						<li><a href="/newsletters/page/7/"   >7</a></li>
 						<input type="hidden" value="7" name="page">
+					
+				
 					
 				
 					
@@ -1113,7 +1115,7 @@
             const safeHref = encodeURI(res.href);
             
             // 1. Extract the tags from the body string
-            // We split by the "Tags:" prefix you added in Django
+            // We split by the "Tags:" prefix added in admin
             let displayBody = res.body || "";
             let tags = [];
             

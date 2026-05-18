@@ -103,6 +103,61 @@
 <section class="newsletters">
     <ul class="newsletters-list grid-newsletters">
         
+        <a href="/newsletters/the-secret-of-craftsmanship/">
+            <li class="newsletter-item">
+                <div class="newsletter">
+                    The Secret of Craftsmanship
+                </div>
+                <div class="date">
+                    Mar 3, 2026
+                </div>
+            </li>
+        </a>
+        
+        <a href="/newsletters/the-problem-with-problem-solvers/">
+            <li class="newsletter-item">
+                <div class="newsletter">
+                    The Problem with Problem-Solvers
+                </div>
+                <div class="date">
+                    Feb 24, 2026
+                </div>
+            </li>
+        </a>
+        
+        <a href="/newsletters/the-inevitability-paradox/">
+            <li class="newsletter-item">
+                <div class="newsletter">
+                    The Inevitability Paradox
+                </div>
+                <div class="date">
+                    Feb 17, 2026
+                </div>
+            </li>
+        </a>
+        
+        <a href="/newsletters/bird-noticing/">
+            <li class="newsletter-item">
+                <div class="newsletter">
+                    Bird-Noticing
+                </div>
+                <div class="date">
+                    Feb 9, 2026
+                </div>
+            </li>
+        </a>
+        
+        <a href="/newsletters/oppression-is-a-system-says-former-black-panther/">
+            <li class="newsletter-item">
+                <div class="newsletter">
+                    &quot;Oppression is a System,&quot; Says Former Black Panther
+                </div>
+                <div class="date">
+                    Feb 3, 2026
+                </div>
+            </li>
+        </a>
+        
         <a href="/newsletters/dangerous-abstractions/">
             <li class="newsletter-item">
                 <div class="newsletter">
@@ -158,61 +213,6 @@
             </li>
         </a>
         
-        <a href="/newsletters/brotherly-love-and-the-technology-of-gender-expression/">
-            <li class="newsletter-item">
-                <div class="newsletter">
-                    Brotherly Love and the Technology of Gender Expression
-                </div>
-                <div class="date">
-                    Dec 23, 2025
-                </div>
-            </li>
-        </a>
-        
-        <a href="/newsletters/circles-and-prison-cells/">
-            <li class="newsletter-item">
-                <div class="newsletter">
-                    Circles and Prison Cells
-                </div>
-                <div class="date">
-                    Dec 16, 2025
-                </div>
-            </li>
-        </a>
-        
-        <a href="/newsletters/it-hasnt-always-been-this-way/">
-            <li class="newsletter-item">
-                <div class="newsletter">
-                    It Hasn&#x27;t Always Been This Way
-                </div>
-                <div class="date">
-                    Dec 9, 2025
-                </div>
-            </li>
-        </a>
-        
-        <a href="/newsletters/the-most-dangerous-ai-movie/">
-            <li class="newsletter-item">
-                <div class="newsletter">
-                    The Most Dangerous AI Movie
-                </div>
-                <div class="date">
-                    Dec 2, 2025
-                </div>
-            </li>
-        </a>
-        
-        <a href="/newsletters/if-you-have-to-watch-american-football/">
-            <li class="newsletter-item">
-                <div class="newsletter">
-                    If You Have to Watch American Football
-                </div>
-                <div class="date">
-                    Nov 25, 2025
-                </div>
-            </li>
-        </a>
-        
     </ul>
 
     <nav id="paginator" class="page-nav" title="pagination">
@@ -251,6 +251,8 @@
 					
 						<li><a href="/newsletters/page/5/"   >5</a></li>
 						<input type="hidden" value="5" name="page">
+					
+				
 					
 				
 					
@@ -1107,7 +1109,7 @@
             const safeHref = encodeURI(res.href);
             
             // 1. Extract the tags from the body string
-            // We split by the "Tags:" prefix you added in Django
+            // We split by the "Tags:" prefix added in admin
             let displayBody = res.body || "";
             let tags = [];
             

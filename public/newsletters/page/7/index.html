@@ -103,6 +103,61 @@
 <section class="newsletters">
     <ul class="newsletters-list grid-newsletters">
         
+        <a href="/newsletters/the-question-of-our-lives/">
+            <li class="newsletter-item">
+                <div class="newsletter">
+                    The Question of Our Lives
+                </div>
+                <div class="date">
+                    Mar 18, 2025
+                </div>
+            </li>
+        </a>
+        
+        <a href="/newsletters/the-hardest-skill/">
+            <li class="newsletter-item">
+                <div class="newsletter">
+                    The Hardest Skill
+                </div>
+                <div class="date">
+                    Mar 11, 2025
+                </div>
+            </li>
+        </a>
+        
+        <a href="/newsletters/learners-mind/">
+            <li class="newsletter-item">
+                <div class="newsletter">
+                    Learner&#x27;s Mind
+                </div>
+                <div class="date">
+                    Mar 4, 2025
+                </div>
+            </li>
+        </a>
+        
+        <a href="/newsletters/notification-game/">
+            <li class="newsletter-item">
+                <div class="newsletter">
+                    Notification Game
+                </div>
+                <div class="date">
+                    Feb 25, 2025
+                </div>
+            </li>
+        </a>
+        
+        <a href="/newsletters/intolerable-satisfaction/">
+            <li class="newsletter-item">
+                <div class="newsletter">
+                    Intolerable Satisfaction
+                </div>
+                <div class="date">
+                    Feb 18, 2025
+                </div>
+            </li>
+        </a>
+        
         <a href="/newsletters/partner-in-creation/">
             <li class="newsletter-item">
                 <div class="newsletter">
@@ -154,61 +209,6 @@
                 </div>
                 <div class="date">
                     Jan 14, 2025
-                </div>
-            </li>
-        </a>
-        
-        <a href="/newsletters/ugly-scribbles/">
-            <li class="newsletter-item">
-                <div class="newsletter">
-                    Ugly Scribbles
-                </div>
-                <div class="date">
-                    Jan 7, 2025
-                </div>
-            </li>
-        </a>
-        
-        <a href="/newsletters/the-problem-with-summaries/">
-            <li class="newsletter-item">
-                <div class="newsletter">
-                    The Problem with Summaries
-                </div>
-                <div class="date">
-                    Dec 31, 2024
-                </div>
-            </li>
-        </a>
-        
-        <a href="/newsletters/slow-connection/">
-            <li class="newsletter-item">
-                <div class="newsletter">
-                    Slow Connection
-                </div>
-                <div class="date">
-                    Dec 24, 2024
-                </div>
-            </li>
-        </a>
-        
-        <a href="/newsletters/pre-new-year/">
-            <li class="newsletter-item">
-                <div class="newsletter">
-                    Pre-New Year
-                </div>
-                <div class="date">
-                    Dec 17, 2024
-                </div>
-            </li>
-        </a>
-        
-        <a href="/newsletters/afraid/">
-            <li class="newsletter-item">
-                <div class="newsletter">
-                    Afraid
-                </div>
-                <div class="date">
-                    Dec 10, 2024
                 </div>
             </li>
         </a>
@@ -271,6 +271,8 @@
 					
 						<li><a href="/newsletters/page/10/"   >10</a></li>
 						<input type="hidden" value="10" name="page">
+					
+				
 					
 				
 					
@@ -1117,7 +1119,7 @@
             const safeHref = encodeURI(res.href);
             
             // 1. Extract the tags from the body string
-            // We split by the "Tags:" prefix you added in Django
+            // We split by the "Tags:" prefix added in admin
             let displayBody = res.body || "";
             let tags = [];
             
