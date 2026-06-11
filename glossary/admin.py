@@ -11,9 +11,10 @@ class InlineTermSource(SortableInlineAdminMixin, admin.TabularInline):
 @admin.register(Term)
 class TermAdmin(SortableAdminBase, AdminViewOnLocalSiteMixin, admin.ModelAdmin):
     save_on_top = True
+    
+    search_fields = ['title']
     list_display = ('title',  'content_review', 'visual_review', 'seo_review', 'approved')
     list_editable = ('content_review', 'visual_review', 'seo_review',)
-
     inlines = [InlineTermSource,]
 
     fieldsets = (
@@ -32,8 +33,10 @@ class TermAdmin(SortableAdminBase, AdminViewOnLocalSiteMixin, admin.ModelAdmin):
 @admin.register(Source)
 class SourceAdmin(AdminViewOnLocalSiteMixin, admin.ModelAdmin):
     save_on_top = True
+    search_fields = ['title', 'alt_title']
     filter_horizontal = ('author',)
-    list_display = ('__str__',  'authors', )
+    list_display = ('__str__',  'authors', 'creative_work_type', 'date_published', )
+    list_filter = ['creative_work_type',]
 
     def authors(self, obj):
         return ", ".join(o.name for o in obj.author.all())
