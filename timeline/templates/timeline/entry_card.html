@@ -1,0 +1,30 @@
+{% load timeline_tags %}
+<article class="entry-card entry-kind-{{ entry.display_kind }}">
+  <header class="entry-card-header">
+    <span class="entry-kind">{{ entry.display_kind|kind_label }}</span> &raquo;
+    <span class="entry-date">{{ entry.display_date }}</span>
+  </header>
+
+  <h3 class="entry-title">{{ entry.title }}</h3>
+
+  {% if entry.timeline_context %}
+    <div class="entry-context">{{ entry.timeline_context|markdown }}</div>
+  {% endif %}
+
+  {% if entry.source or entry.term %}
+    <details class="entry-details">
+      <summary>More</summary>
+      <div class="entry-details-body">
+        {% if entry.source %}
+          <div class="entry-source-citation">{{ entry.source.chicago_authors }}</div>
+        {% endif %}
+        {% if entry.term and entry.term.summary %}
+          <div class="entry-term-summary">{{ entry.term.summary|safe }}</div>
+        {% endif %}
+      </div>
+    </details>
+  {% endif %}
+
+  <a href="{% url 'timeline_entry_detail' slug=entry.slug %}" class="entry-detail-link">Full entry →</a>
+
+</article>

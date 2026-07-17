@@ -1,0 +1,442 @@
+/* ── Timeline layout ─────────────────────────────────────────── */
+
+.timeline-hero {
+  padding: 2rem 0 1.5rem;
+}
+
+.timeline-layout {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.timeline-grid {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  --lane-width: 14px;
+  align-items: stretch;
+}
+
+/* ── Year sections ───────────────────────────────────────────── */
+
+.year-section {
+  padding: 0 0 2rem 1.25rem;
+  max-width: 75ch;
+}
+
+.year-label {
+  font-size: 0.875rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-3);
+  margin: 0 0 0.75rem;
+}
+
+.year-gap {
+  text-align: left;
+  padding: 0 0 2rem 1.25rem;
+  font-size: 0.875rem;
+  letter-spacing: 0.3em;
+  color: var(--gray-3);
+  align-self: flex-start;
+}
+
+/* ── Span bars ───────────────────────────────────────────────── */
+
+.span-bar {
+  background: var(--span-color, #6e44ff);
+  border-radius: 99px;
+  width: 6px;
+  justify-self: center;
+  align-self: stretch;
+  position: relative;
+}
+
+.span-bar.fuzzy-top {
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 3rem);
+  mask-image: linear-gradient(to bottom, transparent, black 3rem);
+}
+
+.span-bar.fuzzy-bottom {
+  -webkit-mask-image: linear-gradient(to top, transparent, black 3rem);
+  mask-image: linear-gradient(to top, transparent, black 3rem);
+}
+
+.span-bar.fuzzy-top.fuzzy-bottom {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 3rem,
+    black calc(100% - 3rem),
+    transparent
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 3rem,
+    black calc(100% - 3rem),
+    transparent
+  );
+}
+
+.span-label {
+  /* Hidden by default; revealed via title attribute tooltip */
+  display: none;
+}
+
+/* ── Entry cards ─────────────────────────────────────────────── */
+
+.entry-card {
+  margin-bottom: 1.25rem;
+  padding-left: 0.875rem;
+  border-left: 2px solid rgba(228, 228, 211, 0.12);
+  transition: border-color 0.15s;
+}
+
+.entry-card:hover {
+  border-color: rgba(228, 228, 211, 0.3);
+}
+
+.entry-card-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: .875rem;
+  margin-bottom: var(--article-space-sm);
+  &::before {
+    content: "";
+    display: block;
+    width: .75em;
+    height: .75em;
+    background: var(--entry-accent, var(--white, #E4E4D3));
+    border-radius: 50rem;
+  }
+
+}
+
+.entry-kind {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* .entry-date {
+} */
+
+/* Kind-specific accent colors */
+.entry-kind-film   { --entry-accent: #7e98ff; }
+.entry-kind-book   { --entry-accent: #ffe07e; }
+.entry-kind-tech   { --entry-accent: var(--primary, #989afe); }
+.entry-kind-event  { --entry-accent: var(--secondary, #F86E38); }
+.entry-kind-idea   { --entry-accent: #9fdfff; }
+.entry-kind-personal { --entry-accent: #9fffa7; }
+
+.entry-card[class*="entry-kind-"] {
+  border-left-color: color-mix(in srgb, var(--entry-accent, rgba(228,228,211,0.2)) 40%, transparent);
+}
+
+/* .entry-title {
+} */
+
+/* .entry-context {
+} */
+
+
+details.entry-details {
+  margin-top: 0.5rem;
+}
+
+details.entry-details > summary {
+  font-size: 0.75rem;
+  cursor: pointer;
+  opacity: 0.5;
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  user-select: none;
+}
+
+details.entry-details > summary::-webkit-details-marker {
+  display: none;
+}
+
+details.entry-details > summary::before {
+  content: "▸";
+  display: inline-block;
+  transition: transform 0.15s;
+}
+
+details.entry-details[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+details.entry-details > summary:hover {
+  opacity: 0.9;
+}
+
+.entry-details-body {
+  margin-top: 0.5rem;
+  padding: 0.625rem 0.75rem;
+  background: rgba(228, 228, 211, 0.04);
+  border-radius: 4px;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.entry-source-citation {
+  margin-bottom: 0.5rem;
+}
+
+.entry-source-citation:last-child {
+  margin-bottom: 0;
+}
+
+.entry-term-summary {
+  border-top: 1px solid rgba(228, 228, 211, 0.08);
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.entry-term-summary:first-child {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+/* ── Era compass ─────────────────────────────────────────────── */
+
+.era-compass {
+  position: sticky;
+  top: calc(var(--nav-height) + 1rem);
+  width: clamp(200px, 20vw, 400px);
+  flex-shrink: 0;
+  border: 1px solid var(--gray-4);
+  border-radius: var(--img-radius);
+  padding: 1rem;
+  font-size: 0.875rem;
+  align-self: flex-start;
+  & > * {
+    transition: opacity 0.2s;
+    opacity: 1;
+  }
+}
+
+.era-compass.switching > * {
+  opacity: 0;
+}
+
+.compass-year {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: var(--article-space-md);
+  color: var(--white, );
+  font-variant-numeric: tabular-nums;
+}
+
+.compass-framing {
+  font-size: 0.75rem;
+  line-height: 1.45;
+  opacity: 0.7;
+  margin: 0 0 0.875rem;
+}
+
+.compass-intensity {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  margin-bottom: 0.75rem;
+}
+
+.compass-category {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.compass-cat-name {
+  font-size: 0.875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  min-width: 4rem;
+  color: var(--gray-3);
+}
+
+.compass-cat-bar {
+  display: block;
+  height: 4px;
+  background: var(--cat-color, #6e44ff);
+  border-radius: 2px;
+  width: calc(var(--cat-count, 1) * 10px);
+  max-width: 100%;
+}
+
+.compass-newsletter-link {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--primary, #9FFE98);
+  text-decoration: none;
+  margin-top: 0.5rem;
+  opacity: 0.85;
+}
+
+.compass-newsletter-link:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* ── Entry detail page ───────────────────────────────────────── */
+
+.entry-detail {
+  max-width: 680px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.entry-detail-back {
+  margin-bottom: 1.5rem;
+}
+
+.entry-detail-back a {
+  font-size: 0.8125rem;
+  opacity: 0.6;
+  text-decoration: none;
+}
+
+.entry-detail-back a:hover {
+  opacity: 1;
+}
+
+.entry-detail-header {
+  margin-bottom: 1.25rem;
+}
+
+.entry-detail-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0.25rem 0 0;
+  line-height: 1.25;
+  /* color: var(--entry-accent, var(--white, #E4E4D3)); */
+}
+
+.entry-detail-source,
+.entry-detail-term,
+.entry-detail-related {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--white);
+}
+
+.entry-detail-source h2,
+.entry-detail-term h2,
+.entry-detail-related h2 {
+  font-size: 1.25rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.entry-source-url {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--primary, #9FFE98);
+  text-decoration: none;
+}
+
+.entry-source-url:hover {
+  text-decoration: underline;
+}
+
+.entry-term-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.8125rem;
+  color: var(--primary, #9FFE98);
+  text-decoration: none;
+}
+
+.entry-term-link:hover {
+  text-decoration: underline;
+}
+
+.related-entries-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.related-entries-list li {
+  font-size: 0.875rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.entry-detail-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  color: var(--primary, #9FFE98);
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.entry-detail-link:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* ── Reverse-discovery (on the timeline) ─────────────────────── */
+
+.on-the-timeline {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(228, 228, 211, 0.1);
+}
+
+.on-the-timeline h2 {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.4;
+  margin: 0 0 0.75rem;
+}
+
+.timeline-entry-refs,
+.timeline-span-refs {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.875rem;
+}
+
+.span-ref-category {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-left: 0.25rem;
+  opacity: 0.8;
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .era-compass {
+    display: none; /* compass added back via sticky JS behaviour; too narrow on mobile */
+  }
+
+  .timeline-layout {
+    gap: 0;
+  }
+}

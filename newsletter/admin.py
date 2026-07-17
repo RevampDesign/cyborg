@@ -18,16 +18,17 @@ def convert_em_to_cite(modeladmin, request, queryset):
     Admin action to convert <em> tags with capitalized words to <cite>.
     """
     if 'apply' in request.POST:
-        # The logic to save the changes remains the same
         for obj in queryset:
             body = obj.body
             matches = re.findall(r'(<em>[^<]*[A-Z][^<]*</em>)', body)
-            for match in matches:
+            for i, match in enumerate(matches):
+                if f'match_{obj.pk}_{i}' not in request.POST:
+                    continue
                 cite_tag = match.replace('<em>', '<cite>').replace('</em>', '</cite>')
                 body = body.replace(match, cite_tag, 1)
             obj.body = body
             obj.save()
-        
+
         modeladmin.message_user(request, f"Successfully converted <em> to <cite> for {queryset.count()} objects.")
         return
 
@@ -38,7 +39,10 @@ def convert_em_to_cite(modeladmin, request, queryset):
         if matches:
             items_to_confirm.append({
                 'object': obj,
-                'matches': [format_html(match) for match in matches],
+                'matches': [
+                    {'index': i, 'html': format_html(match)}
+                    for i, match in enumerate(matches)
+                ],
             })
 
     context = {

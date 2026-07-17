@@ -24,6 +24,7 @@ sitemaps = {
 urlpatterns = [
     distill_path('', homePage, name="homePage"),
     distill_path('subscribe/', TemplateView.as_view(template_name='content/subscribe.html'), name='subscribe'),
+    path('timeline/', include('timeline.urls')),
     path('topics/', include('topic.urls')),
     path('gallery/', include('gallery.urls')),
     path('glossary/', include('glossary.urls')),

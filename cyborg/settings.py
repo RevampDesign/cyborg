@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'policy.apps.PolicyConfig',
     'publishing.apps.PublishingConfig',
     'recommendation.apps.RecommendationConfig',
+    'timeline.apps.TimelineConfig',
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
     'wagtail.embeds',

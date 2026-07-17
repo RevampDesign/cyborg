@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static timeline_tags %}
+
+{% block body_classes %}timeline timeline-entry{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/timeline.css' %}">
+{% if json_ld %}<script type="application/ld+json">{{ json_ld }}</script>{% endif %}
+{% endblock %}
+
+{% block content %}
+{% include 'partials/navigation/breadcrumbs.html' %}
+<article class="entry-detail entry-kind-{{ entry.display_kind }}">
+
+  {% comment %}
+  <!-- <nav class="entry-detail-back" aria-label="Back">
+    <a href="{% url 'timeline' %}#y{{ entry.date.year }}">← Timeline {{ entry.date.year }}</a>
+  </nav> -->
+  {% endcomment %}
+
+
+  <header class="entry-detail-header">
+    <div class="entry-card-header">
+      <span class="entry-kind">{{ entry.display_kind|kind_label }}</span> &raquo; 
+      <span class="entry-date">{{ entry.display_date }}</span>
+    </div>
+    <h1 class="entry-detail-title">{{ entry.title }}</h1>
+  </header>
+
+  {% if entry.timeline_context %}
+  <div class="entry-context">{{ entry.timeline_context|markdown }}</div>
+  {% endif %}
+
+  {% if entry.source %}
+  <section class="entry-detail-source">
+    <h2>Source</h2>
+    {% if entry.source.chicago_authors %}
+    <span class="entry-source-citation">{{ entry.source.chicago_authors|safe }}</span>
+    {% endif %}
+    {% if entry.source.url %}
+    <a href="{{ entry.source.url }}" class="entry-source-url" rel="noopener noreferrer">
+    {% endif %}
+      {{ entry.source.alt_title|default:entry.source.title }}
+    {% if entry.source.url %}
+    </a>
+    {% endif %}
+  </section>
+  {% endif %}
+
+  {% if entry.term %}
+  <section class="entry-detail-term">
+    <h2>In the glossary</h2>
+    {% if entry.term.summary %}
+    <div class="entry-term-summary">{{ entry.term.summary|safe }}</div>
+    {% endif %}
+    <a href="{{ entry.term.get_absolute_url }}" class="entry-term-link">
+      {{ entry.term.title }} in the Glossary →
+    </a>
+  </section>
+  {% endif %}
+
+  {% with related=entry.related_entries.all %}
+  {% if related %}
+  <section class="entry-detail-related">
+    <h2>Related</h2>
+    <ul class="related-entries-list">
+      {% for rel in related %}
+      <li>
+        <a href="{{ rel.get_absolute_url }}">{{ rel.title }}</a>
+        <span class="entry-date">{{ rel.display_date }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+  {% endwith %}
+
+</article>
+{% endblock %}

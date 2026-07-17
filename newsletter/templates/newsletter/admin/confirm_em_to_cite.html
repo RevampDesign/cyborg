@@ -14,13 +14,19 @@
         {% endfor %}
 
         <h2>Changes to be made:</h2>
+        <p>Uncheck any matches you don't want converted.</p>
         <ul>
             {% for item in items_to_confirm %}
             <li>
                 <strong>{{ item.object }}</strong>
                 <ul>
                     {% for match in item.matches %}
-                    <li>{{ match }}</li>
+                    <li>
+                        <label>
+                            <input type="checkbox" name="match_{{ item.object.pk }}_{{ match.index }}" checked>
+                            {{ match.html }}
+                        </label>
+                    </li>
                     {% endfor %}
                 </ul>
             </li>
@@ -28,8 +34,8 @@
             <li>No matching &lt;em> tags with capitalized words were found in the selected objects.</li>
             {% endfor %}
         </ul>
-        
-        <p>This action will replace **all** matching `&lt;em>` tags with `&lt;cite>` tags for the selected items.</p>
+
+        <p>This action will replace the checked matching `&lt;em>` tags with `&lt;cite>` tags for the selected items.</p>
         
         <div class="submit-row">
             <button type="submit" name="apply">Yes, I'm sure</button>

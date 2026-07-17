@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static timeline_tags %}
+
+{% block body_classes %}timeline{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/timeline.css' %}">
+{% endblock %}
+
+{% block content %}
+<header id="hero" class="timeline-hero">
+  <h1>Timeline</h1>
+  <p class="subheadline">Humanity's interaction with technology over time.</p>
+</header>
+
+<div class="timeline-layout">
+
+  <div class="timeline-grid" style="{% grid_template year_sections lane_count %}">
+
+    {% for span in spans %}
+      <div class="span-bar{% if span.start_fuzzy %} fuzzy-bottom{% endif %}{% if span.end_fuzzy %} fuzzy-top{% endif %}"
+           style="grid-column: {{ span.lane|add:1 }};
+                  grid-row: y{{ span.end_date.year|default:current_year }}-start / y{{ span.start_date.year }}-end;
+                  --span-color: {{ span.category.color }};"
+           title="{{ span.title }}">
+        <span class="span-label">{{ span.title }}</span>
+      </div>
+    {% endfor %}
+
+    {% for sec in year_sections %}
+      {% if sec.gap_before %}
+        <div class="year-gap" style="grid-row: gap-{{ sec.year }}; grid-column: -2 / -1;">···</div>
+      {% endif %}
+      <section class="year-section"
+               style="grid-row: y{{ sec.year }}-start / y{{ sec.year }}-end; grid-column: -2 / -1;"
+               data-year="{{ sec.year }}"
+               id="y{{ sec.year }}">
+        <h2 class="year-label">{{ sec.year }}</h2>
+        {% for entry in sec.entries %}
+          {% include "timeline/entry_card.html" %}
+        {% endfor %}
+      </section>
+    {% endfor %}
+
+  </div>
+
+  {% if year_sections %}
+    {% with newest=year_sections.0 %}
+    <aside id="era-compass" class="era-compass" aria-label="Era compass">
+      <div class="compass-year">{{ newest.year }}</div>
+      {% if newest.era and newest.era.human_framing %}
+        <p class="compass-framing">{{ newest.era.human_framing }}</p>
+      {% endif %}
+      {% if categories %}
+        <div class="compass-intensity">
+          {% for cat in categories %}
+            {% with count=newest.intensity|dict_get:cat.id %}
+              {% if count %}
+                <div class="compass-category">
+                  <span class="compass-cat-name">{{ cat.name }}</span>
+                  <span class="compass-cat-bar" style="--cat-color: {{ cat.color }}; --cat-count: {{ count }};"></span>
+                </div>
+              {% endif %}
+            {% endwith %}
+          {% endfor %}
+        </div>
+      {% endif %}
+      {% if newest.era and newest.era.newsletter_url %}
+        <a href="{{ newest.era.newsletter_url }}" class="compass-newsletter-link" rel="noopener">
+          {{ newest.era.newsletter_title|default:"Newsletter" }} →
+        </a>
+      {% endif %}
+    </aside>
+    {% endwith %}
+  {% endif %}
+
+</div>
+
+{{ compass_payload|json_script:"compass-data" }}
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{% static 'js/timeline.js' %}" defer></script>
+{% endblock %}
