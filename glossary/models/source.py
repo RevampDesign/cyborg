@@ -58,9 +58,16 @@ class Source(models.Model):
         TVSERIES = 'TVSeries', "TV Series"
         WEBSITE = 'WebSite', "Website"
         WEBPAGE = 'WebPage', "Webpage"
+        CREATIVEWORK = 'CreativeWork', "Creative Work"
         SOCIAL = 'SocialMediaPosting', "Social Media Posting"
         PHOTOGRAPH = 'Photograph', "Photograph"
         PAINTING = 'Painting', "Painting"
+        PODCASTSERIES = 'PodcastSeries', "Podcast Series"
+        PODCASTEPISODE = 'PodcastEpisode', "Podcast Episode"
+        RADIO_SERIES = 'RadioSeries', "Radio Series"
+        MUSIC_RECORDING = 'MusicRecording', "Music Recording"
+        MUSIC_GROUP = 'MusicGroup', "Music Group"
+        VIDEOGAME = 'VideoGame', "Video Game"
 
     creative_work_type = models.CharField(max_length=50, choices=CreativeWorkType.choices)
 

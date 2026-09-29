@@ -1,0 +1,2238 @@
+[
+  {
+    "model": "glossary.sourcepublisher",
+    "pk": 5,
+    "fields": {
+      "name": "Tilburg School of Catholic Theology",
+      "is_organization": true
+    }
+  },
+  {
+    "model": "glossary.sourcepublisher",
+    "pk": 6,
+    "fields": {
+      "name": "Hachette Book Group",
+      "is_organization": true
+    }
+  },
+  {
+    "model": "glossary.sourcepublisher",
+    "pk": 7,
+    "fields": {
+      "name": "Equal Justice Initiative (EJI)",
+      "is_organization": true
+    }
+  },
+  {
+    "model": "glossary.sourcepublisher",
+    "pk": 8,
+    "fields": {
+      "name": "NYU News",
+      "is_organization": true
+    }
+  },
+  {
+    "model": "glossary.sourcepublisher",
+    "pk": 9,
+    "fields": {
+      "name": "Anthropic",
+      "is_organization": true
+    }
+  },
+  {
+    "model": "glossary.sourcepublisher",
+    "pk": 10,
+    "fields": {
+      "name": "MIT Media Lab",
+      "is_organization": true
+    }
+  },
+  {
+    "model": "glossary.sourcepublisher",
+    "pk": 11,
+    "fields": {
+      "name": "Stanford HAI",
+      "is_organization": true
+    }
+  },
+  {
+    "model": "glossary.sourcepublisher",
+    "pk": 12,
+    "fields": {
+      "name": "Design Museum",
+      "is_organization": true
+    }
+  },
+  {
+    "model": "glossary.sourcepublisher",
+    "pk": 13,
+    "fields": {
+      "name": "GDPR",
+      "is_organization": true
+    }
+  },
+  {
+    "model": "glossary.sourcepublisher",
+    "pk": 14,
+    "fields": {
+      "name": "Pew Research Center",
+      "is_organization": true
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 24,
+    "fields": {
+      "name": "Jonathan Kennedy",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 25,
+    "fields": {
+      "name": "Jun'ichirō Tanizaki",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 26,
+    "fields": {
+      "name": "Tim Brown",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 27,
+    "fields": {
+      "name": "Roger Ames",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 28,
+    "fields": {
+      "name": "David L. Hall",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 29,
+    "fields": {
+      "name": "Red Pine",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 30,
+    "fields": {
+      "name": "Marshall McLuhan",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 31,
+    "fields": {
+      "name": "Daniel H. Pink",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 32,
+    "fields": {
+      "name": "Howard Koch",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 33,
+    "fields": {
+      "name": "Robert J Brown",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 34,
+    "fields": {
+      "name": "A. Brad Schwartz",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 35,
+    "fields": {
+      "name": "Leslie Grace McMurtry",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 36,
+    "fields": {
+      "name": "Hadley Cantril",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 37,
+    "fields": {
+      "name": "Quentin Fiore",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 38,
+    "fields": {
+      "name": "P.C.J.M. (Jarell) Paulissen",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 39,
+    "fields": {
+      "name": "Jan Adkins",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 40,
+    "fields": {
+      "name": "William A. Stahl",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 41,
+    "fields": {
+      "name": "George Lakoff",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 42,
+    "fields": {
+      "name": "Mark Johnson",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 43,
+    "fields": {
+      "name": "Ijeoma Oluo",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 44,
+    "fields": {
+      "name": "Michelle Alexander",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 45,
+    "fields": {
+      "name": "Austen Hartke",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 46,
+    "fields": {
+      "name": "Elizabeth M. Edman",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 47,
+    "fields": {
+      "name": "Blair Enns",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 48,
+    "fields": {
+      "name": "Laurence Rees",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 49,
+    "fields": {
+      "name": "Jane Caputi",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 50,
+    "fields": {
+      "name": "Ernest Jones, M.D.",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 51,
+    "fields": {
+      "name": "Henry Kellerman",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 52,
+    "fields": {
+      "name": "Equal Justice Initiative",
+      "is_organization": true
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 53,
+    "fields": {
+      "name": "Junhua Dang",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 54,
+    "fields": {
+      "name": "Magdalena Zawisza",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 55,
+    "fields": {
+      "name": "Thomas More",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 56,
+    "fields": {
+      "name": "Nicholas Carr",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 57,
+    "fields": {
+      "name": "Frank Herbert",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 58,
+    "fields": {
+      "name": "Jake Knapp",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 59,
+    "fields": {
+      "name": "Alf Hornborg",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 60,
+    "fields": {
+      "name": "William Bennett",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 61,
+    "fields": {
+      "name": "Ryan T. Sakoda",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 62,
+    "fields": {
+      "name": "Jessica T. Simes",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 63,
+    "fields": {
+      "name": "Michael Crichton",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 64,
+    "fields": {
+      "name": "Center for Humane Technology",
+      "is_organization": true
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 65,
+    "fields": {
+      "name": "Anthropic",
+      "is_organization": true
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 66,
+    "fields": {
+      "name": "METR",
+      "is_organization": true
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 67,
+    "fields": {
+      "name": "Jose Canas",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 68,
+    "fields": {
+      "name": "Chen Gong",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 69,
+    "fields": {
+      "name": "Yang Yang",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 70,
+    "fields": {
+      "name": "Journey",
+      "is_organization": true
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 71,
+    "fields": {
+      "name": "Rainer Maria Rilke",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 72,
+    "fields": {
+      "name": "Adam Walker",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 73,
+    "fields": {
+      "name": "Dans Le Gris",
+      "is_organization": true
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 74,
+    "fields": {
+      "name": "Matt Hall",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 75,
+    "fields": {
+      "name": "Adam Savage's Tested",
+      "is_organization": true
+    }
+  },
+  {
+    "model": "glossary.sourceauthor",
+    "pk": 76,
+    "fields": {
+      "name": "Thomas Insel, M.D.",
+      "is_organization": false
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 17,
+    "fields": {
+      "title": "Pathogenesis",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 2023,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        24
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 18,
+    "fields": {
+      "title": "In Praise of Shadows",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 1933,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        25
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 19,
+    "fields": {
+      "title": "Change By Design",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": null,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        26
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 20,
+    "fields": {
+      "title": "Dao De Jing",
+      "alt_title": "Dao De Jing (Ames & Hall translation)",
+      "description": "Translation and commentary by Roger Ames and David L. Hall.",
+      "copyright_year": null,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        27,
+        28
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 21,
+    "fields": {
+      "title": "Tao Te Ching",
+      "alt_title": "Taoteching (Red Pine translation)",
+      "description": "Translation by Red Pine (Bill Porter).",
+      "copyright_year": null,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        29
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 22,
+    "fields": {
+      "title": "At the Moment of Sputnik the Planet Became a Global Theater in which There Are No Spectators, But Only Actors",
+      "alt_title": "At the Moment of Sputnik",
+      "description": "As published in Marshall McLuhan Unbound #5.",
+      "copyright_year": null,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Article",
+      "author": [
+        30
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 23,
+    "fields": {
+      "title": "The Relation of Environment to Anti-Environment",
+      "alt_title": "",
+      "description": "As published in Marshall McLuhan Unbound #4.",
+      "copyright_year": null,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Article",
+      "author": [
+        30
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 24,
+    "fields": {
+      "title": "A Whole New Mind",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 2005,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        31
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 25,
+    "fields": {
+      "title": "The Panic Broadcast",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 1970,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        32
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 26,
+    "fields": {
+      "title": "Manipulating the Ether: The Power of Broadcast Radio in Thirties America",
+      "alt_title": "Manipulating the Ether",
+      "description": "",
+      "copyright_year": 1998,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        33
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 27,
+    "fields": {
+      "title": "Broadcast Hysteria",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 2015,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        34
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 28,
+    "fields": {
+      "title": "Revolution in the Echo Chamber: Audio Drama's Past, Present, and Future",
+      "alt_title": "Revolution in the Echo Chamber",
+      "description": "",
+      "copyright_year": 2019,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "ScholarlyArticle",
+      "author": [
+        35
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 29,
+    "fields": {
+      "title": "The Invasion from Mars",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 1940,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        36
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 30,
+    "fields": {
+      "title": "Myth and Mass Media",
+      "alt_title": "",
+      "description": "As published in Marshall McLuhan Unbound #18.",
+      "copyright_year": null,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Article",
+      "author": [
+        30
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 31,
+    "fields": {
+      "title": "The Medium is the Massage",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 1967,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        30,
+        37
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 32,
+    "fields": {
+      "title": "The Humanities in the Electronic Age",
+      "alt_title": "",
+      "description": "As published in Marshall McLuhan Unbound #7.",
+      "copyright_year": 1961,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Article",
+      "author": [
+        30
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 33,
+    "fields": {
+      "title": "The Dark of the Covenant",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 2018,
+      "url": "https://www.mdpi.com/2077-1444/9/4/126",
+      "publisher": 5,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "ScholarlyArticle",
+      "author": [
+        38
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 34,
+    "fields": {
+      "title": "String: Tying It Up, Tying It Down",
+      "alt_title": "String",
+      "description": "",
+      "copyright_year": 1992,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        39
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 35,
+    "fields": {
+      "title": "God and the Chip: Religion and the Culture of Technology",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 1999,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        40
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 36,
+    "fields": {
+      "title": "Philosophy In The Flesh",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": null,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        41,
+        42
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 37,
+    "fields": {
+      "title": "So you want to talk about race",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 2019,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        43
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 38,
+    "fields": {
+      "title": "The New Jim Crow",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": null,
+      "url": "https://newjimcrow.com/",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        44
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 39,
+    "fields": {
+      "title": "Transforming",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": null,
+      "url": "https://austenhartke.com/book",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        45
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 40,
+    "fields": {
+      "title": "Queer Virtue",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": null,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        46
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 41,
+    "fields": {
+      "title": "The Win Without Pitching Manifesto",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 2010,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        47
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 42,
+    "fields": {
+      "title": "The Nazi Mind: Twelve Warnings from History",
+      "alt_title": "The Nazi Mind",
+      "description": "",
+      "copyright_year": 2025,
+      "url": "https://www.hachettebookgroup.com/titles/laurence-rees/the-nazi-mind/9781541702332/?lens=publicaffairs",
+      "publisher": 6,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        48
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 43,
+    "fields": {
+      "title": "Goddesses and Monsters: Women, Myth, Power, and Popular Culture",
+      "alt_title": "Goddesses and Monsters",
+      "description": "",
+      "copyright_year": null,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        49
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 44,
+    "fields": {
+      "title": "On the Nightmare",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 1959,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        50
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 45,
+    "fields": {
+      "title": "The Nightmare: Psychological and Biological Foundations",
+      "alt_title": "",
+      "description": "Edited by Henry Kellerman.",
+      "copyright_year": 1987,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        51
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 46,
+    "fields": {
+      "title": "Segregation in America",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 2018,
+      "url": "https://shop.eji.org/products/segregationinamericareporte-commerce",
+      "publisher": 7,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        52
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 47,
+    "fields": {
+      "title": "Higher Cognitive Abilities Linked to Greater Risk of Stereotyping",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 2017,
+      "url": "https://www.nyu.edu/about/news-publications/news/2017/july/higher-cognitive-abilities-linked-to-greater-risk-of-stereotypin.html",
+      "publisher": 8,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        53,
+        54
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 48,
+    "fields": {
+      "title": "Utopia",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": null,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        55
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 49,
+    "fields": {
+      "title": "Utopia Is Creepy",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": null,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        56
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 50,
+    "fields": {
+      "title": "Dune",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": null,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        57
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 51,
+    "fields": {
+      "title": "Sprint",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 2016,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        58
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 52,
+    "fields": {
+      "title": "Objects Don't Have Desires: Toward an Anthropology of Technology beyond Anthropomorphism",
+      "alt_title": "Objects Don't Have Desires",
+      "description": "",
+      "copyright_year": null,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "ScholarlyArticle",
+      "author": [
+        59
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 53,
+    "fields": {
+      "title": "Hijab Butch Blues",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": null,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 54,
+    "fields": {
+      "title": "Boy Erased",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": null,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 55,
+    "fields": {
+      "title": "The Book of Virtues",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": null,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        60
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 56,
+    "fields": {
+      "title": "Solitary Confinement and the U.S. Prison Boom",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": null,
+      "url": "https://law.yale.edu/sites/default/files/area/center/liman/sakoda_simes_2019.pdf",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "ScholarlyArticle",
+      "author": [
+        61,
+        62
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 57,
+    "fields": {
+      "title": "Shanshui—Poetry Without Sound? Landscape in Chinese Contemporary Art",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": null,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "ScholarlyArticle",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 58,
+    "fields": {
+      "title": "Jurassic Park",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": null,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        63
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 59,
+    "fields": {
+      "title": "Center for Humane Technology",
+      "alt_title": "humanetech.com",
+      "description": "",
+      "copyright_year": null,
+      "url": "https://www.humanetech.com/",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "WebSite",
+      "author": [
+        64
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 60,
+    "fields": {
+      "title": "Your Undivided Attention",
+      "alt_title": "",
+      "description": "Podcast produced by the Center for Humane Technology.",
+      "copyright_year": null,
+      "url": "https://www.humanetech.com/podcast",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "PodcastSeries",
+      "author": [
+        64
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 61,
+    "fields": {
+      "title": "Claude's Character",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 2024,
+      "url": "https://www.anthropic.com/research/claude-character",
+      "publisher": 9,
+      "date_published": "2024-06-08T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "WebSite",
+      "author": [
+        65
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 62,
+    "fields": {
+      "title": "Measuring faithfulness in Chain-of-Thought reasoning",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 2023,
+      "url": "https://www.anthropic.com/research/measuring-faithfulness-in-chain-of-thought-reasoning",
+      "publisher": 9,
+      "date_published": "2023-07-18T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "WebSite",
+      "author": [
+        65
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 63,
+    "fields": {
+      "title": "How people use Claude for support, advice, and companionship",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 2025,
+      "url": "https://www.anthropic.com/news/how-people-use-claude-for-support-advice-and-companionship",
+      "publisher": 9,
+      "date_published": "2025-06-27T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "WebSite",
+      "author": [
+        65
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 64,
+    "fields": {
+      "title": "METR",
+      "alt_title": "Measuring AI Ability to Complete Long Software Tasks",
+      "description": "",
+      "copyright_year": 2025,
+      "url": "https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/",
+      "publisher": null,
+      "date_published": "2025-03-19T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "WebSite",
+      "author": [
+        66
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 65,
+    "fields": {
+      "title": "Full Gender Shades Thesis",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 2017,
+      "url": "https://www.media.mit.edu/publications/full-gender-shades-thesis-17/",
+      "publisher": 10,
+      "date_published": "2017-08-10T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "ScholarlyArticle",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 66,
+    "fields": {
+      "title": "When the Robot Doesn’t See Dark Skin",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 2018,
+      "url": "https://www.media.mit.edu/articles/when-the-robot/",
+      "publisher": 10,
+      "date_published": "2018-06-21T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "Article",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 67,
+    "fields": {
+      "title": "Covert Racism in AI: How Language Models Are Reinforcing Outdated Stereotypes",
+      "alt_title": "",
+      "description": "Despite advancements in AI, new research reveals that large language models continue to perpetuate harmful racial biases, particularly against speakers of African American English.",
+      "copyright_year": 2024,
+      "url": "https://hai.stanford.edu/news/covert-racism-ai-how-language-models-are-reinforcing-outdated-stereotypes",
+      "publisher": 11,
+      "date_published": "2024-09-03T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "Article",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 68,
+    "fields": {
+      "title": "Cognitive Flexibility Training",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": null,
+      "url": "https://www.researchgate.net/profile/Jose-Canas-2/publication/272022148_Cognitive_Flexibility/links/54d8e2440cf24647581cd8f0/Cognitive-Flexibility.pdf",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "ScholarlyArticle",
+      "author": [
+        67
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 69,
+    "fields": {
+      "title": "Perceived Stress and Short-Form Video Application Addiction: A Moderated Mediation Model",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 2021,
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8733249/",
+      "publisher": null,
+      "date_published": "2021-12-23T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "ScholarlyArticle",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 70,
+    "fields": {
+      "title": "Google effects on memory: a meta-analytical review of the media effects of intensive Internet search behavior",
+      "alt_title": "Google effects on memory",
+      "description": "",
+      "copyright_year": 2024,
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10830778/",
+      "publisher": null,
+      "date_published": "2024-01-18T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "ScholarlyArticle",
+      "author": [
+        68,
+        69
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 71,
+    "fields": {
+      "title": "The Cost of Interrupted Work: More Speed and Stress",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": null,
+      "url": "https://www.ics.uci.edu/~gmark/chi08-mark.pdf",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "ScholarlyArticle",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 72,
+    "fields": {
+      "title": "Prejudice, Social Stress, and Mental Health in Lesbian, Gay, and Bisexual Populations: Conceptual Issues and Research Evidence",
+      "alt_title": "Minority stress",
+      "description": "",
+      "copyright_year": 2007,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2072932/",
+      "publisher": null,
+      "date_published": "2007-11-09T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "ScholarlyArticle",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 73,
+    "fields": {
+      "title": "Editorial: The psychological process of stereotyping: Content, forming, internalizing, mechanisms, effects, and interventions",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 2023,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9850150/",
+      "publisher": null,
+      "date_published": "2023-01-05T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "ScholarlyArticle",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 74,
+    "fields": {
+      "title": "An Immense World",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 2022,
+      "url": "https://www.amazon.com/Immense-World-Animal-Senses-Reveal/dp/0593133234",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 75,
+    "fields": {
+      "title": "Serial Killers: Real and Imagined",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 2024,
+      "url": "https://www.audible.com/pd/Serial-Killers-Real-and-Imagined-Audiobook/B0CZB8Q7VL",
+      "publisher": null,
+      "date_published": "2024-07-11T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 76,
+    "fields": {
+      "title": "When: The Scientific Secrets of Perfect Timing",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 2018,
+      "url": "https://www.amazon.com/When-Daniel-H-Pink/dp/1782119884",
+      "publisher": null,
+      "date_published": "2018-01-09T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        31
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 77,
+    "fields": {
+      "title": "Automate the Boring Stuff with Python",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": null,
+      "url": "https://automatetheboringstuff.com/",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "WebSite",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 78,
+    "fields": {
+      "title": "What Is Good Design? A Quick Look at Dieter Rams's Ten Principles",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": null,
+      "url": "https://designmuseum.org/discover-design/all-stories/what-is-good-design-a-quick-look-at-dieter-rams-ten-principles",
+      "publisher": 12,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Article",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 79,
+    "fields": {
+      "title": "I, Robot",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 2004,
+      "url": "",
+      "publisher": null,
+      "date_published": "2004-07-07T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "Movie",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 80,
+    "fields": {
+      "title": "War for the Planet of the Apes",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 2017,
+      "url": "",
+      "publisher": null,
+      "date_published": "2017-07-14T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "Movie",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 81,
+    "fields": {
+      "title": "The Fellowship of the Ring",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 2001,
+      "url": "",
+      "publisher": null,
+      "date_published": "2001-12-10T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "Movie",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 82,
+    "fields": {
+      "title": "The Final Cut",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 2004,
+      "url": "",
+      "publisher": null,
+      "date_published": "2004-10-15T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "Movie",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 83,
+    "fields": {
+      "title": "Atlas",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 2024,
+      "url": "",
+      "publisher": null,
+      "date_published": "2024-05-24T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "Movie",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 84,
+    "fields": {
+      "title": "Cast Away",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 2000,
+      "url": "",
+      "publisher": null,
+      "date_published": "2000-12-22T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "Movie",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 85,
+    "fields": {
+      "title": "The Emperor's New Groove",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 2000,
+      "url": "",
+      "publisher": null,
+      "date_published": "2000-12-15T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "Movie",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 86,
+    "fields": {
+      "title": "Metropolis",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 1927,
+      "url": "",
+      "publisher": null,
+      "date_published": "1927-01-10T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "Movie",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 87,
+    "fields": {
+      "title": "Subservience",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 2024,
+      "url": "",
+      "publisher": null,
+      "date_published": "2024-09-13T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "Movie",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 88,
+    "fields": {
+      "title": "Bicentennial Man",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 1999,
+      "url": "",
+      "publisher": null,
+      "date_published": "1999-12-17T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "Movie",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 89,
+    "fields": {
+      "title": "The Stepford Wives",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 1975,
+      "url": "",
+      "publisher": null,
+      "date_published": "1975-01-22T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "Movie",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 90,
+    "fields": {
+      "title": "Jaws",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 1975,
+      "url": "",
+      "publisher": null,
+      "date_published": "1975-06-20T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "Movie",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 91,
+    "fields": {
+      "title": "Her",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 2013,
+      "url": "",
+      "publisher": null,
+      "date_published": "2013-10-12T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "Movie",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 92,
+    "fields": {
+      "title": "Dune",
+      "alt_title": "Dune (film)",
+      "description": "",
+      "copyright_year": 2021,
+      "url": "",
+      "publisher": null,
+      "date_published": "2021-10-22T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "Movie",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 93,
+    "fields": {
+      "title": "Buffy the Vampire Slayer",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 1997,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "TVSeries",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 94,
+    "fields": {
+      "title": "Angel",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 1999,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "TVSeries",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 95,
+    "fields": {
+      "title": "Dahmer – Monster: The Jeffrey Dahmer Story",
+      "alt_title": "Dahmer",
+      "description": "",
+      "copyright_year": 2022,
+      "url": "",
+      "publisher": null,
+      "date_published": "2022-09-21T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "TVSeries",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 96,
+    "fields": {
+      "title": "MythBusters",
+      "alt_title": "",
+      "description": "Hosted by Adam Savage and Jamie Hyneman; ran 2003–2016.",
+      "copyright_year": 2003,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "TVSeries",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 97,
+    "fields": {
+      "title": "The Life of Riley",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 1944,
+      "url": "",
+      "publisher": null,
+      "date_published": "1944-01-16T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "RadioSeries",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 98,
+    "fields": {
+      "title": "Adventures from the Book of Virtues",
+      "alt_title": "",
+      "description": "Animated series based on William Bennett's anthology 'The Book of Virtues'; co-produced by the author.",
+      "copyright_year": 1998,
+      "url": "",
+      "publisher": null,
+      "date_published": "1998-02-15T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "TVSeries",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 99,
+    "fields": {
+      "title": "All Her Fault",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 2025,
+      "url": "",
+      "publisher": null,
+      "date_published": "2025-11-06T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "TVSeries",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 100,
+    "fields": {
+      "title": "Heart Code",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 2026,
+      "url": "",
+      "publisher": null,
+      "date_published": "2026-02-13T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "TVSeries",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 101,
+    "fields": {
+      "title": "Reverse with Me",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 2025,
+      "url": "",
+      "publisher": null,
+      "date_published": "2025-02-05T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "TVSeries",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 102,
+    "fields": {
+      "title": "Us",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 2025,
+      "url": "",
+      "publisher": null,
+      "date_published": "2025-01-18T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "TVSeries",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 103,
+    "fields": {
+      "title": "Petrichor",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 2024,
+      "url": "",
+      "publisher": null,
+      "date_published": "2024-11-23T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "TVSeries",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 104,
+    "fields": {
+      "title": "The Light Between Oceans",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 2016,
+      "url": "",
+      "publisher": null,
+      "date_published": "2016-09-02T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "TVSeries",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 105,
+    "fields": {
+      "title": "Halo: Combat Evolved",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": 2001,
+      "url": "",
+      "publisher": null,
+      "date_published": "2001-11-15T00:00:00Z",
+      "date_modified": null,
+      "creative_work_type": "VideoGame",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 106,
+    "fields": {
+      "title": "Ask the Lonely",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": null,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "MusicRecording",
+      "author": [
+        70
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 107,
+    "fields": {
+      "title": "The Panther",
+      "alt_title": "",
+      "description": "Poem; English translation by Stephen Mitchell.",
+      "copyright_year": null,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "CreativeWork",
+      "author": [
+        71
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 108,
+    "fields": {
+      "title": "The Age of Closed Circles",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": null,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        72
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 109,
+    "fields": {
+      "title": "Japanese Ways of Seeing Space: Ma, Yohaku no Bi, and Subtraction",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": null,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        73
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 110,
+    "fields": {
+      "title": "Exploded Skull: A Craft on the Brink of Extinction",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": null,
+      "url": "",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        74
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 111,
+    "fields": {
+      "title": "How Rocky's Models Were Made for Project Hail Mary",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": null,
+      "url": "https://www.youtube.com/@tested",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Book",
+      "author": [
+        75
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 112,
+    "fields": {
+      "title": "One Big Beautiful Bill Act",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": null,
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/1/",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "WebPage",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 113,
+    "fields": {
+      "title": "Right to Be Forgotten (GDPR)",
+      "alt_title": "The right to be forgotten",
+      "description": "",
+      "copyright_year": null,
+      "url": "https://gdpr-info.eu/issues/right-to-be-forgotten/",
+      "publisher": 13,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "WebPage",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 114,
+    "fields": {
+      "title": "America’s Mental Health Crisis",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": null,
+      "url": "https://www.pew.org/en/trend/archive/fall-2023/americas-mental-health-crisis",
+      "publisher": 14,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "Article",
+      "author": [
+        76
+      ]
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 115,
+    "fields": {
+      "title": "Frontier Models are Capable of In-context Scheming",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": null,
+      "url": "https://arxiv.org/pdf/2412.04984",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "ScholarlyArticle",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 116,
+    "fields": {
+      "title": "LLMs can lie",
+      "alt_title": "LLMs and deception study",
+      "description": "",
+      "copyright_year": null,
+      "url": "https://arxiv.org/pdf/2311.07590",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "ScholarlyArticle",
+      "author": []
+    }
+  },
+  {
+    "model": "glossary.source",
+    "pk": 117,
+    "fields": {
+      "title": "Nightmares in the general population",
+      "alt_title": "",
+      "description": "",
+      "copyright_year": null,
+      "url": "https://link.springer.com/article/10.1007/s00127-017-1408-7",
+      "publisher": null,
+      "date_published": null,
+      "date_modified": null,
+      "creative_work_type": "ScholarlyArticle",
+      "author": []
+    }
+  }
+]

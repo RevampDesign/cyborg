@@ -4,6 +4,12 @@ $blue: #236CC4;
 $green: #9FFE98;
 $orange: #F86E38;
 
+$gray-1: #F5F6EC;
+$gray-2: #E3E4D3;
+$gray-3: #B2B3A1;
+$gray-4: #878878;
+
+
 $primary: $green;
 $secondary: $orange;
 
@@ -17,4 +23,9 @@ $secondary: $orange;
     --primary: #{$primary};
     --secondary: #{$secondary};
     --menu: #2A2927;
+
+    --gray-1: #{$gray-1};
+    --gray-2: #{$gray-2};
+    --gray-3: #{$gray-3};
+    --gray-4: #{$gray-4};
 }

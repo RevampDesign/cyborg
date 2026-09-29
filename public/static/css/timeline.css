@@ -26,23 +26,21 @@
 }
 
 .year-label {
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-size: 0.875rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--white, #E4E4D3);
-  opacity: 0.4;
+  color: var(--gray-3);
   margin: 0 0 0.75rem;
 }
 
 .year-gap {
-  text-align: center;
-  opacity: 0.25;
-  padding: 0.25rem 0;
+  text-align: left;
+  padding: 0 0 2rem 1.25rem;
   font-size: 0.875rem;
   letter-spacing: 0.3em;
-  color: var(--white, #E4E4D3);
-  align-self: center;
+  color: var(--gray-3);
+  align-self: flex-start;
 }
 
 /* ── Span bars ───────────────────────────────────────────────── */
@@ -105,55 +103,45 @@
   display: flex;
   align-items: baseline;
   gap: 0.5rem;
-  margin-bottom: 0.2rem;
+  font-size: .875rem;
+  margin-bottom: var(--article-space-sm);
+  &::before {
+    content: "";
+    display: block;
+    width: .75em;
+    height: .75em;
+    background: var(--entry-accent, var(--white, #E4E4D3));
+    border-radius: 50rem;
+  }
+
 }
 
 .entry-kind {
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-weight: bold;
   text-transform: uppercase;
-  opacity: 0.45;
 }
 
-.entry-date {
-  font-size: 0.7rem;
-  opacity: 0.4;
-}
+/* .entry-date {
+} */
 
 /* Kind-specific accent colors */
-.entry-kind-film   { --entry-accent: #7eb8ff; }
+.entry-kind-film   { --entry-accent: #7e98ff; }
 .entry-kind-book   { --entry-accent: #ffe07e; }
-.entry-kind-tech   { --entry-accent: var(--primary, #9FFE98); }
+.entry-kind-tech   { --entry-accent: var(--primary, #989afe); }
 .entry-kind-event  { --entry-accent: var(--secondary, #F86E38); }
-.entry-kind-idea   { --entry-accent: #cf9fff; }
-.entry-kind-personal { --entry-accent: #ff9fd5; }
+.entry-kind-idea   { --entry-accent: #9fdfff; }
+.entry-kind-personal { --entry-accent: #9fffa7; }
 
 .entry-card[class*="entry-kind-"] {
   border-left-color: color-mix(in srgb, var(--entry-accent, rgba(228,228,211,0.2)) 40%, transparent);
 }
 
-.entry-title {
-  font-size: 0.9375rem;
-  font-weight: 600;
-  margin: 0 0 0.3rem;
-  line-height: 1.35;
-  color: var(--white, #E4E4D3);
-}
+/* .entry-title {
+} */
 
-.entry-context {
-  font-size: 0.8125rem;
-  opacity: 0.75;
-  line-height: 1.55;
-}
+/* .entry-context {
+} */
 
-.entry-context p {
-  margin: 0 0 0.4rem;
-}
-
-.entry-context p:last-child {
-  margin-bottom: 0;
-}
 
 details.entry-details {
   margin-top: 0.5rem;
@@ -198,7 +186,6 @@ details.entry-details > summary:hover {
 }
 
 .entry-source-citation {
-  opacity: 0.8;
   margin-bottom: 0.5rem;
 }
 
@@ -207,7 +194,6 @@ details.entry-details > summary:hover {
 }
 
 .entry-term-summary {
-  opacity: 0.75;
   border-top: 1px solid rgba(228, 228, 211, 0.08);
   padding-top: 0.5rem;
   margin-top: 0.5rem;
@@ -224,17 +210,20 @@ details.entry-details > summary:hover {
 .era-compass {
   position: sticky;
   top: calc(var(--nav-height) + 1rem);
-  width: 200px;
+  width: clamp(200px, 20vw, 400px);
   flex-shrink: 0;
-  background: var(--menu, #2A2927);
-  border-radius: 8px;
+  border: 1px solid var(--gray-4);
+  border-radius: var(--img-radius);
   padding: 1rem;
   font-size: 0.875rem;
   align-self: flex-start;
-  transition: opacity 0.2s;
+  & > * {
+    transition: opacity 0.2s;
+    opacity: 1;
+  }
 }
 
-.era-compass.switching {
+.era-compass.switching > * {
   opacity: 0;
 }
 
@@ -242,8 +231,8 @@ details.entry-details > summary:hover {
   font-size: 1.75rem;
   font-weight: 700;
   line-height: 1;
-  margin-bottom: 0.375rem;
-  color: var(--white, #E4E4D3);
+  margin-bottom: var(--article-space-md);
+  color: var(--white, );
   font-variant-numeric: tabular-nums;
 }
 
@@ -264,16 +253,16 @@ details.entry-details > summary:hover {
 .compass-category {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 0.5rem;
 }
 
 .compass-cat-name {
-  font-size: 0.65rem;
+  font-size: 0.875rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  opacity: 0.55;
-  white-space: nowrap;
   min-width: 4rem;
+  color: var(--gray-3);
 }
 
 .compass-cat-bar {
@@ -330,7 +319,7 @@ details.entry-details > summary:hover {
   font-weight: 700;
   margin: 0.25rem 0 0;
   line-height: 1.25;
-  color: var(--entry-accent, var(--white, #E4E4D3));
+  /* color: var(--entry-accent, var(--white, #E4E4D3)); */
 }
 
 .entry-detail-source,
@@ -338,18 +327,15 @@ details.entry-details > summary:hover {
 .entry-detail-related {
   margin-top: 2rem;
   padding-top: 1.5rem;
-  border-top: 1px solid rgba(228, 228, 211, 0.1);
+  border-top: 1px solid var(--white);
 }
 
 .entry-detail-source h2,
 .entry-detail-term h2,
 .entry-detail-related h2 {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-size: 1.25rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  opacity: 0.4;
-  margin: 0 0 0.75rem;
 }
 
 .entry-source-url {
